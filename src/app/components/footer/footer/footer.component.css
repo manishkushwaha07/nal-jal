@@ -1,0 +1,17 @@
+#mainFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo{
+    margin: 10px;
+}
+
+#copyright{
+    margin: 12px;
+    line-height: 0;
+}
+
+.fa-heart{
+    color: red;
+}

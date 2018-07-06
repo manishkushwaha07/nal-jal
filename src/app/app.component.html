@@ -1,20 +1,25 @@
-<nav class="navbar-default navbar-fixed-top">
+<nav class="navbar-default navbar-light bg-light navbar-fixed-top">
     <div class="container-fluid">
         <nal-jal-header></nal-jal-header>
     </div>
 </nav>
 <!-- <nal-jal-header></nal-jal-header> -->
-<div class="row">
-    <div class="col-sm-9">
-        <h1 class="text-center">
-            APP COMPONENT
-        </h1>
-    </div>
-    <div class="col-sm-3">
-        <div class="col-sm-11">
-            <router-outlet></router-outlet>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9">
+            <h1 class="text-center">
+                APP COMPONENT
+            </h1>
         </div>
-        
+        <div class="col-sm-3">
+            <div class="col-sm-11">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
     </div>
 </div>
-<nal-jal-footer></nal-jal-footer>
+<nav class="navbar-default navbar-light bg-light navbar-bottom">
+    <div class="container-fluid">
+        <nal-jal-footer></nal-jal-footer>
+    </div>
+</nav>

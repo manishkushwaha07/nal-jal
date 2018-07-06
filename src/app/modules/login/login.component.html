@@ -18,9 +18,11 @@
                 <div [hidden]="!password.errors.required" >required field</div>
               </div> 
           </div>
+          <nal-jal-loader [show]="loading"></nal-jal-loader>
+          <br>
           <div class="form-group text-center">
               <button type="submit" class="btn btn-success btn-md  mx-sm-3" [disabled]="loginForm.form.invalid">login</button>
-              <button type="reset" class="btn btn-danger btn-md  mx-sm-3">clear</button>
+              <button type="reset" class="btn btn-danger btn-md  mx-sm-3" (click)="resetButtonClicked()">clear</button>
           </div>
         </form>
     </div>

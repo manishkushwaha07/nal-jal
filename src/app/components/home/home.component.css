@@ -2,12 +2,12 @@
     background-image: url('../../../assets/images/tap-water.jpg');
     background-size: cover;
     background-position: center;
-    height: 75vh;
+    height: 77vh;
 }
 
 #login-card{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    height: 77vh;
 }

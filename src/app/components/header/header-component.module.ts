@@ -9,4 +9,4 @@ import { HeaderComponent } from 'src/app/components/header/header/header.compone
   declarations: [HeaderComponent],
   exports: [HeaderComponent]
 })
-export class HeaderModule { }
+export class HeaderComponentModule { }

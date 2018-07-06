@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   login = {};
+  loading: boolean = false;
   constructor() { }
 
   ngOnInit() {
@@ -14,7 +15,13 @@ export class LoginComponent implements OnInit {
   }
 
   loginFormSubmitted(){
+    this.loading = true;
     console.log("loginFormSubmitted called");
+  }
+
+  resetButtonClicked(){
+    this.loading = false;
+    console.log("resetButtonClicked called");
   }
 
 }

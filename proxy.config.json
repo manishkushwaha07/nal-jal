@@ -11,7 +11,7 @@
     }
   },
   "/mppkvvcl/ngb/report/": {
-    "target": "http://localhost:8080",
+    "target": "http://10.98.4.165:8080",
     "secure": false
   }
 }

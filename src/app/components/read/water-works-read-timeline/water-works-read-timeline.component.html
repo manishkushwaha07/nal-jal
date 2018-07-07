@@ -1,0 +1,67 @@
+<div id="firstRow" class="form-group">
+  <div class="form-group form-inline">
+    <!-- <label class="mx-sm-3">Select Region</label> -->
+    <select class="form-control form-control-sm" [(ngModel)]="region" name="regionId" id="regionId" (change)="regionChanged()">
+      <option [ngValue]=undefined selected>Select Region</option>
+      <option *ngFor="let region of regions" [ngValue]="region">{{ region.value | uppercase }}</option>
+    </select>
+  </div>
+  <div class="form-group form-inline">
+    <!-- <label class="mx-sm-3">Select Circle</label> -->
+    <select class="form-control form-control-sm" [(ngModel)]="circle" name="circleId" id="circleId" (change)="circleChanged()">
+      <option [ngValue]=undefined selected>Select Circle</option>
+      <option *ngFor="let circle of circles" [ngValue]="circle">{{ circle.value | uppercase }}</option>
+    </select>
+  </div>
+  <div class="form-group form-inline">
+    <!-- <label class="mx-sm-3">Select Division</label> -->
+    <select class="form-control form-control-sm" [(ngModel)]="division" name="divisionId" id="divisionId" (change)="divisionChanged()">
+      <option [ngValue]=undefined selected>Select Division</option>
+      <option *ngFor="let division of divisions" [ngValue]="division">{{ division.value | uppercase }}</option>
+    </select>
+  </div>
+  <div class="form-group form-inline">
+    <!-- <label class="mx-sm-3">Select Zone</label> -->
+    <select class="form-control form-control-sm" [(ngModel)]="zone" name="zoneId" id="zoneId">
+      <option [ngValue]=undefined selected>Select Zone</option>
+      <option *ngFor="let zone of zones" [ngValue]="zone">{{ zone.value | uppercase }}</option>
+    </select>
+  </div>
+  <div class="form-group form-inline">
+    <!-- <label class="mx-sm-3">Select Bill Month</label> -->
+    <select class="form-control form-control-sm" [(ngModel)]="billMonth" name="billMonthId" id="billMonthId">
+      <option [ngValue]=undefined selected>Select Bill Month</option>
+      <option *ngFor="let billMonth of billMonths" [ngValue]="billMonth">{{ billMonth | uppercase }}</option>
+    </select>
+  </div>
+  <div>
+    <button class="btn btn-sm btn-primary" (click)="searchClicked()" [disabled]="loading">Search</button>
+  </div>
+</div>
+<nal-jal-loader [show]="loading"></nal-jal-loader>
+<div *ngIf="readings?.length > 0">
+  <table class="table table-sm table-bordered text-center">
+    <thead>
+      <th>S.No</th>
+      <th>IVRS NO</th>
+      <th>NAME</th>
+      <th>ADDRESS</th>
+      <th>METER NO</th>
+      <th>MF</th>
+      <th>KWH</th>
+      <th>MD</th>
+      <th>PF</th>
+    </thead>
+    <tr *ngFor="let read of readings; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{read.consumerNo}}</td>
+      <td>{{read.consumerName}}</td>
+      <td>{{read.address}}</td>
+      <td>{{read.meterIdentifier}}</td>
+      <td>{{read.mf}}</td>
+      <td>{{read.reading}}</td>
+      <td>{{read.md}}</td>
+      <td>{{read.pf}}</td>
+    </tr>
+  </table>
+</div>

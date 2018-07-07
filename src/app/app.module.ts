@@ -18,8 +18,6 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { AuthorizationInterceptor } from 'src/app/interceptors/authorization.interceptor';
 import { ChartModule } from './components/chart/chart.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent
@@ -36,10 +34,15 @@ import { ChartModule } from './components/chart/chart.module';
     ServicesModule,
     AuthorizationServiceModule,
     LoginServiceModule,
-    AppRoutingModule,
-    ChartModule
-    ],
-  providers: [GlobalConfiguration],
+    AppRoutingModule
+  ],
+  providers: [GlobalConfiguration,
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthorizationInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

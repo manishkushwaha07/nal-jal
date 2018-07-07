@@ -9,12 +9,14 @@ import { FooterComponentModule } from 'src/app/components/footer/footer-componen
 import { ServicesModule } from 'src/app/services/services.module';
 import { AuthorizationServiceModule } from 'src/app/services/authorization-service/authorization-service.module';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalConfiguration } from './config/global.config';
 import { LoginServiceModule } from './services/login/login-service.module';
 import { HomeModule } from 'src/app/modules/home/home.module';
 import { LoaderComponentModule } from 'src/app/components/loader/loader-component.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { AuthorizationInterceptor } from 'src/app/interceptors/authorization.interceptor';
+import { ChartModule } from './components/chart/chart.module';
 
 
 
@@ -35,6 +37,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     AuthorizationServiceModule,
     LoginServiceModule,
     AppRoutingModule,
+    ChartModule
     ],
   providers: [GlobalConfiguration],
   bootstrap: [AppComponent]

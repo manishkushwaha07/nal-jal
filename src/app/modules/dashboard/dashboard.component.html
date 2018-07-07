@@ -8,13 +8,14 @@
           <i class="fa fa-home mx-sm-3"></i>Home
         </a>
         <a class="list-group-item list-group-item-action sub-menu" href="javascript:void(0);" (click)="menuClicked('water-works/read/view')">
-          View Readings
+          <i class="fa fa-list-alt mx-sm-3"></i>View Readings
         </a>
     </ul>
   </div>
   <div id="mainMenu" class="card">
-    <div class="card-body">
       <router-outlet></router-outlet>
-    </div>
+    <!-- <div class="card-body">
+      <router-outlet></router-outlet>
+    </div> -->
   </div>
 </div>

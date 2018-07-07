@@ -5,15 +5,19 @@ import { DashboardHomeComponent } from './dashboard-home/dashboard-home.componen
 import { DashboardRoutingModule } from './dashboard.routing';
 import { DashboardWaterWorksReadViewComponent } from './dashboard-water-works-read-view/dashboard-water-works-read-view.component';
 import { ReadModule } from '../../components/read/read.module';
+import { DashboardWaterWorksBillViewComponent } from './dashboard-water-works-bill-view/dashboard-water-works-bill-view.component';
+import { BillModule } from '../../components/bill/bill.module';
 
 @NgModule({
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    ReadModule
+    ReadModule,
+    BillModule
   ],
   declarations: [DashboardComponent,
   DashboardHomeComponent,
-  DashboardWaterWorksReadViewComponent]
+  DashboardWaterWorksReadViewComponent,
+  DashboardWaterWorksBillViewComponent]
 })
 export class DashboardModule { }

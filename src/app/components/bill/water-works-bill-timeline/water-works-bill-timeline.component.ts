@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationService } from 'src/app/services/location/location.service';
-import { ReadService } from '../../../services/read/read.service';
+import { LocationService } from '../../../services/location/location.service';
+import { BillService } from '../../../services/bill/bill.service';
 
 @Component({
-  selector: 'nal-jal-water-works-read-timeline',
-  templateUrl: './water-works-read-timeline.component.html',
-  styleUrls: ['./water-works-read-timeline.component.css']
+  selector: 'nal-jal-water-works-bill-timeline',
+  templateUrl: './water-works-bill-timeline.component.html',
+  styleUrls: ['./water-works-bill-timeline.component.css']
 })
-export class WaterWorksReadTimelineComponent implements OnInit {
+export class WaterWorksBillTimelineComponent implements OnInit {
 
   RESPONSE_TRUE : boolean = true;
   RESPONSE_FALSE : boolean = false;
@@ -21,10 +21,10 @@ export class WaterWorksReadTimelineComponent implements OnInit {
   zone : any;
   billMonths : any;
   billMonth : any;
-  readings : any;
+  bills : any;
   loading : boolean = false;
 
-  constructor(private locationService : LocationService, private readService : ReadService) { }
+  constructor(private locationService : LocationService, private billService : BillService) { }
 
   ngOnInit() {
     this.getRegions();
@@ -102,20 +102,19 @@ export class WaterWorksReadTimelineComponent implements OnInit {
 
   searchClicked(){
     this.loading = true;
-    this.readings = undefined;
+    this.bills = undefined;
     let locationCode = null;
     if(this.zone && this.zone !== 'ALL'){
       locationCode = this.zone;
     } 
-    this.readService.getReadingsByBillMonthAndlocation(this.billMonth, locationCode, this.division.id, this.RESPONSE_FALSE).subscribe(success =>{
+    this.billService.getBillsByBillMonthAndlocation(this.billMonth, locationCode, this.division.id, this.RESPONSE_FALSE).subscribe(success =>{
       this.loading = false;
-      this.readings = <any> success;
-      console.log(this.readings);
+      this.bills = <any> success;
+      console.log(this.bills);
     },error =>{
-      this.readings = [];
+      this.bills = [];
       this.loading = false;
       console.log(error);
-    })
+    });
   }
-
 }

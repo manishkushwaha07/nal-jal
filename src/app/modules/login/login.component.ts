@@ -9,7 +9,7 @@ import { User } from '../../models/user.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  login = {};
+  login : any = {};
   loading: boolean = false;
   constructor(private authorizationService : AuthorizationService,private router: Router) { }
 

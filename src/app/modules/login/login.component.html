@@ -1,32 +1,34 @@
-<div class="card">
-    <div class="card-header text-center">Departmental User Login</div>
-    <div class="card-body">
-        <form (ngSubmit)="loginFormSubmitted()" #loginForm="ngForm">
-          <div class="form-group">
-              <label for="username" class="required">Username</label>
-              <input [ngClass]="{'is-valid': !username.errors && (username.dirty || username.touched),'is-invalid': username.errors && (username.dirty || username.touched)}"
-                type="text" class="form-control form-control-md" [(ngModel)]="login.username" name="username" id="username" placeholder="Enter username" #username="ngModel" maxlength="30" required>
-              <div class="invalid-feedback" *ngIf="username.errors && (username.dirty || username.touched)">
-                <div [hidden]="!username.errors.required" >required field</div>
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="password" class="required">Password</label>
-              <input [ngClass]="{'is-valid': !password.errors && (password.dirty || password.touched),'is-invalid': password.errors && (password.dirty || password.touched)}"
-                type="password" class="form-control form-control-md" [(ngModel)]="login.password" name="password"  id="password" placeholder="Enter password" #password="ngModel" maxlength="30" required>
-              <div class="invalid-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
-                <div [hidden]="!password.errors.required" >required field</div>
-              </div> 
-          </div>
-          <nal-jal-loader [show]="loading"></nal-jal-loader>
-          <br>
-          <div class="form-group text-center">
-              <button type="submit" class="btn btn-success btn-md  mx-sm-3" [disabled]="loginForm.form.invalid">login</button>
-              <button type="reset" class="btn btn-danger btn-md  mx-sm-3" (click)="resetButtonClicked()">clear</button>
-          </div>
-        </form>
-    </div>
-    <div class="card-footer text-muted">
-        <strong>&copy; MPPKVVCL Indore 2018-2019</strong>
-    </div>
+<div  id="login-card">
+    <div class="card">
+        <div class="card-header text-center">Departmental User Login</div>
+        <div class="card-body">
+            <form (ngSubmit)="loginFormSubmitted()" #loginForm="ngForm">
+            <div class="form-group">
+                <label for="username" class="required">Username</label>
+                <input [ngClass]="{'is-valid': !username.errors && (username.dirty || username.touched),'is-invalid': username.errors && (username.dirty || username.touched)}"
+                    type="text" class="form-control form-control-md" [(ngModel)]="login.username" name="username" id="username" placeholder="Enter username" #username="ngModel" maxlength="30" required>
+                <div class="invalid-feedback" *ngIf="username.errors && (username.dirty || username.touched)">
+                    <div [hidden]="!username.errors.required" >required field</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="required">Password</label>
+                <input [ngClass]="{'is-valid': !password.errors && (password.dirty || password.touched),'is-invalid': password.errors && (password.dirty || password.touched)}"
+                    type="password" class="form-control form-control-md" [(ngModel)]="login.password" name="password"  id="password" placeholder="Enter password" #password="ngModel" maxlength="30" required>
+                <div class="invalid-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
+                    <div [hidden]="!password.errors.required" >required field</div>
+                </div> 
+            </div>
+            <nal-jal-loader [show]="loading"></nal-jal-loader>
+            <br>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-success btn-md  mx-sm-3" [disabled]="loginForm.form.invalid">login</button>
+                <button type="reset" class="btn btn-danger btn-md  mx-sm-3" (click)="resetButtonClicked()">clear</button>
+            </div>
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            <strong>&copy; MPPKVVCL Indore 2018-19</strong>
+        </div>
+</div>
 </div>

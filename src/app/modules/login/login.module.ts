@@ -13,6 +13,7 @@ import { LoaderComponentModule } from '../../components/loader/loader-component.
     LoaderComponentModule,
     LoginRoutingModule
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent],
+  exports: [LoginComponent]
 })
 export class LoginModule { }

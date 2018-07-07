@@ -41,7 +41,6 @@ export class WaterWorksReadTimelineComponent implements OnInit {
   }
 
   regionChanged(){
-    this.readings = [];
     this.circles = [];
     this.divisions = [];
     this.zones = [];
@@ -61,7 +60,6 @@ export class WaterWorksReadTimelineComponent implements OnInit {
   }
 
   circleChanged(){
-    this.readings = [];
     this.divisions = [];
     this.zones = [];
     this.division = undefined;
@@ -104,7 +102,7 @@ export class WaterWorksReadTimelineComponent implements OnInit {
 
   searchClicked(){
     this.loading = true;
-    this.readings = [];
+    this.readings = undefined;
     let locationCode = null;
     if(this.zone){
       locationCode = this.zone.code;
@@ -114,6 +112,7 @@ export class WaterWorksReadTimelineComponent implements OnInit {
       this.readings = <any> success;
       console.log(this.readings);
     },error =>{
+      this.readings = [];
       this.loading = false;
       console.log(error);
     })

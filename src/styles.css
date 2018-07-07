@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+ Style for making red colored asterisk on label for required
+ fields
+*/
+label.required:after{
+    color: #d00;
+    content: "*";
+    margin-left: 3px;
+    top: 2px;
+    font-size: 20px
+}
+
+label.not-required:after{
+    color: #FFFFFF;
+    content: "*";
+    margin-left: 3px;
+    top: 2px;
+    font-size: 20px
+}

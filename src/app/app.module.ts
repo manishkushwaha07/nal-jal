@@ -16,8 +16,7 @@ import { HomeModule } from 'src/app/modules/home/home.module';
 import { LoaderComponentModule } from 'src/app/components/loader/loader-component.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { AuthorizationInterceptor } from 'src/app/interceptors/authorization.interceptor';
-
-
+import { ChartModule } from './components/chart/chart.module';
 
 @NgModule({
   declarations: [
@@ -46,3 +45,4 @@ import { AuthorizationInterceptor } from 'src/app/interceptors/authorization.int
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

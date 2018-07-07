@@ -1,6 +1,12 @@
 #showcase{
-    background-image: url('../../../assets/images/tap-water.jpg');
+    /* background-image: url('../../../assets/images/nall-jal.jpg'); */
     background-size: cover;
     background-position: center;
     height: 79vh;
+}
+
+#chart{
+    display: flex;
+    justify-content: space-around;
+    align-items: center
 }

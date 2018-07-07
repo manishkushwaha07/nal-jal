@@ -34,8 +34,8 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     ServicesModule,
     AuthorizationServiceModule,
     LoginServiceModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    ],
   providers: [GlobalConfiguration],
   bootstrap: [AppComponent]
 })

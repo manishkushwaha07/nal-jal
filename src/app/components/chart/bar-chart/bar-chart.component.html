@@ -1,0 +1,4 @@
+<div id="barChart">
+    <canvas baseChart height="250" width="450" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+        [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+</div>

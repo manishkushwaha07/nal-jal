@@ -1,0 +1,30 @@
+#body-height{
+    height: 79vh;
+    display:block;
+    overflow:auto;
+}
+:host /deep/ .header{
+    /**background-color: #343a40;**/ /**bg-dark color code #343a40;**/
+    background-color: #ffc107; /**spring-boot color code #34302d;**/
+}
+
+:host /deep/ .footer{
+    /**background-color: #343a40;**/ /**bg-dark color code #343a40;**/
+    background-color: #ffc107; /**spring-boot color code #34302d;**/
+}
+
+/**
+   Styling all the side menu header color
+**/
+:host /deep/ .main-header{
+    /**background-color: #343a40; **/ /**bg-dark color code **/
+    background-color: #ffc107; /**spring-boot color code  **/
+}
+
+/**
+   Styling all the side menu header color
+**/
+:host /deep/ .sub-menu-header{
+    /**background-color: #343a40; **/ /**bg-dark color code **/
+    background-color: #ffc107; /**spring-boot color code  **/
+}

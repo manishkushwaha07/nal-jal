@@ -13,6 +13,6 @@
 }
 
 ul {
-    height: 77vh; /*setting height of side list for showing scroll bar vh means view height*/
+    height: 79vh; /*setting height of side list for showing scroll bar vh means view height*/
     overflow-y: auto; /*setting overflow for vertical scrollbar in side menu */
 }

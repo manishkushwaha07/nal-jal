@@ -18,10 +18,6 @@ const routes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   },
-//   {
-//     path: 'operator',
-//     loadChildren: 'app/modules/operator/operator.module#OperatorModule'
-//   },
   { 
     path: '**', 
     redirectTo: '/home',

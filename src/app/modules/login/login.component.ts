@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
       let status = data.status;
       if(status === 200){
         console.log("logged in successfully");
+        this.router.navigate(['dashboard']);
       }
       this.loading = false;
     }, error => {

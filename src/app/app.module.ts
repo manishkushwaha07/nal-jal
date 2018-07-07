@@ -14,18 +14,20 @@ import { GlobalConfiguration } from './config/global.config';
 import { LoginServiceModule } from './services/login/login-service.module';
 import { HomeModule } from 'src/app/modules/home/home.module';
 import { LoaderComponentModule } from 'src/app/components/loader/loader-component.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     HomeModule,
+    DashboardModule,
     HeaderComponentModule,
     FooterComponentModule,
     LoaderComponentModule,

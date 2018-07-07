@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 @Component({
-  selector: 'bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.css']
+  selector: 'dcb-bar-chart',
+  templateUrl: './dcb-bar-chart.component.html',
+  styleUrls: ['./dcb-bar-chart.component.css']
 })
-export class BarChartComponent implements OnInit {
+export class DcbBarChartComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
   
-    public barChartLabels:string[] = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'];
+  public barChartLabels:string[] = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'];
     public barChartType:string = 'bar';
     public barChartLegend:boolean = true;
    

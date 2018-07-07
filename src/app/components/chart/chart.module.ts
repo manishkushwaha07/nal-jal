@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
-import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { ChartsModule } from 'ng2-charts';
+import { ReadPieChartComponent } from './read-pie-chart/read-pie-chart.component';
+import { DcbBarChartComponent } from './dcb-bar-chart/dcb-bar-chart.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ChartsModule
   ],
-  declarations: [BarChartComponent, PieChartComponent],
-  exports: [BarChartComponent,PieChartComponent]
+  declarations: [ReadPieChartComponent, DcbBarChartComponent],
+  exports: [ReadPieChartComponent,DcbBarChartComponent]
+  
 })
 export class ChartModule { }

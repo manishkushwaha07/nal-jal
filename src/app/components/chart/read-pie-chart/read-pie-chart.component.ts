@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'pie-chart',
-  templateUrl: './pie-chart.component.html',
-  styleUrls: ['./pie-chart.component.css']
+  selector: 'read-pie-chart',
+  templateUrl: './read-pie-chart.component.html',
+  styleUrls: ['./read-pie-chart.component.css']
 })
-export class PieChartComponent implements OnInit {
+export class ReadPieChartComponent implements OnInit {
 
   constructor() { }
 

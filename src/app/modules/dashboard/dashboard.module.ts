@@ -7,6 +7,7 @@ import { DashboardWaterWorksReadViewComponent } from './dashboard-water-works-re
 import { ReadModule } from '../../components/read/read.module';
 import { DashboardWaterWorksBillViewComponent } from './dashboard-water-works-bill-view/dashboard-water-works-bill-view.component';
 import { BillModule } from '../../components/bill/bill.module';
+import { DashboardMenuService } from 'src/app/modules/dashboard/dashboard-menu.service';
 
 @NgModule({
   imports: [
@@ -15,9 +16,14 @@ import { BillModule } from '../../components/bill/bill.module';
     ReadModule,
     BillModule
   ],
-  declarations: [DashboardComponent,
-  DashboardHomeComponent,
-  DashboardWaterWorksReadViewComponent,
-  DashboardWaterWorksBillViewComponent]
+  declarations: [
+    DashboardComponent,
+    DashboardHomeComponent,
+    DashboardWaterWorksReadViewComponent,
+    DashboardWaterWorksBillViewComponent
+  ],
+  providers: [
+    DashboardMenuService
+  ],
 })
 export class DashboardModule { }

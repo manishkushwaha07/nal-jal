@@ -1,24 +1,23 @@
 <div id="content">
-  <div id="sideMenu" class="collapse show">
-    <ul class="list-group list-group-flush">
-      <a class="list-group-item list-group-item-action sub-menu-header text-white">
-        Dashboard Menu
+
+  <div id="sideMenu">
+    <!-- sub-menu-header class is used to provide a global color as per whole application theme -->
+    <ul class="list-group">
+      <a class="list-group-item sub-menu-header text-white">
+        <strong><i class="fa fa-bars mx-sm-3"></i>Dashboard Menu</strong>
       </a>
-        <a class="list-group-item list-group-item-action sub-menu" href="javascript:void(0);" (click)="menuClicked('home')">
-          <i class="fa fa-home mx-sm-3"></i>Home
-        </a>
-        <a class="list-group-item list-group-item-action sub-menu" href="javascript:void(0);" (click)="menuClicked('water-works/read/view')">
-          <i class="fa fa-list-alt mx-sm-3"></i>View Readings
-        </a>
-        <a class="list-group-item list-group-item-action sub-menu" href="javascript:void(0);" (click)="menuClicked('water-works/bill/view')">
-          <i class="fa fa-list-alt mx-sm-3"></i>View Bills
-        </a>
+      <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.FIRST_MENU)" [ngClass]="{'active': dashboardMenuService.FIRST_MENU.active}" href="javascript:void(0);">
+         <i class="fa fa-home mx-sm-3"></i>{{dashboardMenuService.FIRST_MENU.name}}
+      </a>
+      <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.SECOND_MENU)" [ngClass]="{'active': dashboardMenuService.SECOND_MENU.active}" href="javascript:void(0);">
+        <i class="fa fa-list-alt mx-sm-3"></i>{{dashboardMenuService.SECOND_MENU.name}}
+      </a>
+      <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.THIRD_MENU)" [ngClass]="{'active': dashboardMenuService.THIRD_MENU.active}" href="javascript:void(0);">
+        <i class="fa fa-list-alt mx-sm-3"></i>{{dashboardMenuService.THIRD_MENU.name}}
+      </a>
     </ul>
   </div>
   <div id="mainMenu" class="card">
       <router-outlet></router-outlet>
-    <!-- <div class="card-body">
-      <router-outlet></router-outlet>
-    </div> -->
   </div>
 </div>

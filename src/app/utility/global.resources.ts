@@ -79,8 +79,8 @@ export class GlobalResources {
         case 400:
         case 402:
         case 404:
-        case 417:
-        case 412:{
+        case 412:
+        case 417:{
           if(error.error.errorMessage){
               errorMessage = error.error.errorMessage;
               break;

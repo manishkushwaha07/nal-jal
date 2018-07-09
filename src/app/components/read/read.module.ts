@@ -4,6 +4,8 @@ import { WaterWorksReadTimelineComponent } from './water-works-read-timeline/wat
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocationServiceModule } from '../../services/location/location-service.module';
 import { LoaderComponentModule } from '../loader/loader-component.module';
+import { WaterWorksAssessedReadTimelineComponent } from './water-works-assessed-read-timeline/water-works-assessed-read-timeline.component';
+import { WaterWorksZeroReadTimelineComponent } from './water-works-zero-read-timeline/water-works-zero-read-timeline.component';
 
 @NgModule({
   imports: [
@@ -13,7 +15,15 @@ import { LoaderComponentModule } from '../loader/loader-component.module';
     LocationServiceModule,
     LoaderComponentModule
   ],
-  declarations: [WaterWorksReadTimelineComponent],
-  exports: [WaterWorksReadTimelineComponent]
+  declarations: [
+    WaterWorksReadTimelineComponent, 
+    WaterWorksAssessedReadTimelineComponent, 
+    WaterWorksZeroReadTimelineComponent
+  ],
+  exports: [
+    WaterWorksReadTimelineComponent, 
+    WaterWorksAssessedReadTimelineComponent, 
+    WaterWorksZeroReadTimelineComponent
+  ]
 })
 export class ReadModule { }

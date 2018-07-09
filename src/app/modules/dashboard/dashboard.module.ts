@@ -8,6 +8,8 @@ import { ReadModule } from '../../components/read/read.module';
 import { DashboardWaterWorksBillViewComponent } from './dashboard-water-works-bill-view/dashboard-water-works-bill-view.component';
 import { BillModule } from '../../components/bill/bill.module';
 import { DashboardMenuService } from 'src/app/modules/dashboard/dashboard-menu.service';
+import { DashboardWaterWorksAssessedReadViewComponent } from './dashboard-water-works-assessed-read-view/dashboard-water-works-assessed-read-view.component';
+import { DashboardWaterWorksZeroReadViewComponent } from './dashboard-water-works-zero-read-view/dashboard-water-works-zero-read-view.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import { DashboardMenuService } from 'src/app/modules/dashboard/dashboard-menu.s
     DashboardComponent,
     DashboardHomeComponent,
     DashboardWaterWorksReadViewComponent,
-    DashboardWaterWorksBillViewComponent
+    DashboardWaterWorksBillViewComponent,
+    DashboardWaterWorksAssessedReadViewComponent,
+    DashboardWaterWorksZeroReadViewComponent
   ],
   providers: [
     DashboardMenuService

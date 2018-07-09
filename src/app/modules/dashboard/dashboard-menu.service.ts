@@ -19,10 +19,22 @@ export class DashboardMenuService implements MenuInterface{
 
     public THIRD_MENU : any;
     private readonly THIRD_MENU_ICON: string = "fa-list-alt";
-    private readonly THIRD_MENU_NAME : string = "View Readings";
+    private readonly THIRD_MENU_NAME : string = "View Read";
     private readonly THIRD_MENU_LINK : string = "water-works/read/view";
     private readonly THIRD_MENU_ACTIVE : boolean = false;
+
+    public FOURTH_MENU : any;
+    private readonly FOURTH_MENU_ICON: string = "fa-list-alt";
+    private readonly FOURTH_MENU_NAME : string = "View Assessed Read";
+    private readonly FOURTH_MENU_LINK : string = "water-works/assessed/read/view";
+    private readonly FOURTH_MENU_ACTIVE : boolean = false;
     
+    public FIFTH_MENU : any;
+    private readonly FIFTH_MENU_ICON: string = "fa-list-alt";
+    private readonly FIFTH_MENU_NAME : string = "View Zero Read";
+    private readonly FIFTH_MENU_LINK : string = "water-works/zero/read/view";
+    private readonly FIFTH_MENU_ACTIVE : boolean = false;
+
     menus: any[] = new Array();
     menuObject: any = {};
     constructor(){
@@ -60,6 +72,22 @@ export class DashboardMenuService implements MenuInterface{
             link: this.THIRD_MENU_LINK
         }
         this.menus.push(this.THIRD_MENU);
+
+        this.FOURTH_MENU = {
+            icon: this.FOURTH_MENU_ICON,
+            name: this.FOURTH_MENU_NAME,
+            active: this.FOURTH_MENU_ACTIVE,
+            link: this.FOURTH_MENU_LINK
+        }
+        this.menus.push(this.FOURTH_MENU);
+
+        this.FIFTH_MENU = {
+            icon: this.FIFTH_MENU_ICON,
+            name: this.FIFTH_MENU_NAME,
+            active: this.FIFTH_MENU_ACTIVE,
+            link: this.FIFTH_MENU_LINK
+        }
+        this.menus.push(this.FIFTH_MENU);
     }
 
     public getMenus() {

@@ -6,7 +6,7 @@ import { GlobalConfiguration } from '../../config/global.config';
 export class ReadService {
 
   private contextPath: string;
-  private readonly READ_RESOURCE_PATH:string = "naljal/readings/";
+  private readonly READ_RESOURCE_PATH:string = "naljal/";
 
   constructor(private http: HttpClient  ,private globalConfiguration : GlobalConfiguration) {
     this.contextPath = this.globalConfiguration.getReportURLPrefix();
@@ -26,6 +26,40 @@ export class ReadService {
     if(response){
       options["observe"]='response';
     }
-    return this.http.get(this.contextPath + this.READ_RESOURCE_PATH, options);
+    return this.http.get(this.contextPath + this.READ_RESOURCE_PATH + "readings/", options);
+  }
+
+  public getAssessedReadingsByBillMonthAndlocation(billMonth, discomId, regionId, circleId, divisionId, locationCode, response:boolean) {
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append("billMonth", billMonth ? billMonth : "");
+    httpParams = httpParams.append("discomId", discomId ? discomId : "");
+    httpParams = httpParams.append("regionId", regionId ? regionId : "");
+    httpParams = httpParams.append("circleId", circleId ? circleId : "");
+    httpParams = httpParams.append("divisionId", divisionId ? divisionId : "");
+    httpParams = httpParams.append("locationCode", locationCode ? locationCode : "");
+    let options = {
+      params: httpParams
+    }
+    if(response){
+      options["observe"]='response';
+    }
+    return this.http.get(this.contextPath + this.READ_RESOURCE_PATH + "defective-meter/", options);
+  }
+
+  public getZeroReadingsByBillMonthAndlocation(billMonth, discomId, regionId, circleId, divisionId, locationCode, response:boolean) {
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append("billMonth", billMonth ? billMonth : "");
+    httpParams = httpParams.append("discomId", discomId ? discomId : "");
+    httpParams = httpParams.append("regionId", regionId ? regionId : "");
+    httpParams = httpParams.append("circleId", circleId ? circleId : "");
+    httpParams = httpParams.append("divisionId", divisionId ? divisionId : "");
+    httpParams = httpParams.append("locationCode", locationCode ? locationCode : "");
+    let options = {
+      params: httpParams
+    }
+    if(response){
+      options["observe"]='response';
+    }
+    return this.http.get(this.contextPath + this.READ_RESOURCE_PATH + "zero-consumption/", options);
   }
 }

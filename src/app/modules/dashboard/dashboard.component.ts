@@ -11,7 +11,7 @@ import { DashboardMenuService } from 'src/app/modules/dashboard/dashboard-menu.s
 export class DashboardComponent implements OnInit {
   private readonly className : string = "DashboardComponent : ";
   menus : any[] = new Array();
-
+  menuObject: any = {};
   constructor(private dashboardMenuService: DashboardMenuService,private globalConfiguration : GlobalConfiguration,
      private route: ActivatedRoute,private router: Router) { }
 
@@ -26,6 +26,8 @@ export class DashboardComponent implements OnInit {
     if (menu) {
       menu.active = true;
       this.switchActive(menu);
+      //------------OR-------------------
+      // this.switchActiveInMenuObject(menu);
       this.router.navigate([menu.link], { relativeTo: this.route });
     }
   }
@@ -40,6 +42,13 @@ export class DashboardComponent implements OnInit {
     this.menus.forEach(element =>{
         if(element.name != menu.name) element.active = false;
     });
+  }
+
+  public switchActiveInMenuObject(menu: any): void {
+    //Iterating over object properties and making other than clicked menu active false;
+    for (let property in this.menuObject) {
+      if (this.menuObject[property].name !== menu.name) this.menuObject[property].active = false;
+    }
   }
 
 }

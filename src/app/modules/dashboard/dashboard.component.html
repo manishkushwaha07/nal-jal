@@ -6,15 +6,18 @@
       <a class="list-group-item sub-menu-header text-white">
         <strong><i class="fa fa-bars mx-sm-3"></i>Dashboard Menu</strong>
       </a>
-      <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.FIRST_MENU)" [ngClass]="{'active': dashboardMenuService.FIRST_MENU.active}" href="javascript:void(0);">
-         <i class="fa fa-home mx-sm-3"></i>{{dashboardMenuService.FIRST_MENU.name}}
+      <a *ngFor="let menu of menus" class="list-group-item list-group-item-action" [ngClass]="{'active': menu.active}" (click)="menuClicked(menu)" href="javascript:void(0);">
+        <i class="fa mx-sm-3 {{menu.icon}}"></i>{{menu.name}}
+      </a>
+      <!-- <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.FIRST_MENU)" [ngClass]="{'active': dashboardMenuService.FIRST_MENU.active}" href="javascript:void(0);">
+         <i class="fa mx-sm-3 {{dashboardMenuService.FIRST_MENU.icon}}"></i>{{dashboardMenuService.FIRST_MENU.name}}
       </a>
       <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.SECOND_MENU)" [ngClass]="{'active': dashboardMenuService.SECOND_MENU.active}" href="javascript:void(0);">
-        <i class="fa fa-list-alt mx-sm-3"></i>{{dashboardMenuService.SECOND_MENU.name}}
+        <i class="fa mx-sm-3 {{dashboardMenuService.SECOND_MENU.icon}}"></i>{{dashboardMenuService.SECOND_MENU.name}}
       </a>
       <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.THIRD_MENU)" [ngClass]="{'active': dashboardMenuService.THIRD_MENU.active}" href="javascript:void(0);">
-        <i class="fa fa-list-alt mx-sm-3"></i>{{dashboardMenuService.THIRD_MENU.name}}
-      </a>
+        <i class="fa mx-sm-3 {{dashboardMenuService.THIRD_MENU.icon}}"></i>{{dashboardMenuService.THIRD_MENU.name}}
+      </a> -->
     </ul>
   </div>
   <div id="mainMenu" class="card">

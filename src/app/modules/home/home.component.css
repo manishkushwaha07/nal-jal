@@ -1,5 +1,5 @@
 #showcase{
-    /* background-image: url('../../../assets/images/nall-jal.jpg'); */
+    background-image: url('../../../assets/images/Water-Bulb.jpg');
     background-size: cover;
     background-position: center;
     height: 79vh;
@@ -7,6 +7,7 @@
 
 #chart{
     display: flex;
-    justify-content: space-around;
-    align-items: center
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
 }

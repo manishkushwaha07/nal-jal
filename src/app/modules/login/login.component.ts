@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     let user = new User(this.login);
     this.authorizationService.authenticate(user).subscribe(data => {
-      //console.log(data);
       let status = data.status;
       if(status === 200){
         console.log("logged in successfully");
@@ -33,7 +32,8 @@ export class LoginComponent implements OnInit {
     }, error => {
       this.loading = false;
       console.log("Error While login");
-      this.globalResources.handleError(error, this.CLASS_NAME, methodName );
+      let errorMessage = this.globalResources.handleError(error, this.CLASS_NAME, methodName );
+      // alert(errorMessage);
     });
   }
 

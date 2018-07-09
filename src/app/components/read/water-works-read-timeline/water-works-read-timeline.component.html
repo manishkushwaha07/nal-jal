@@ -1,43 +1,46 @@
 <div class="form-group">
   <form id="firstRow" #readForm="ngForm">
     <div class="form-group form-inline">
-      <!-- <label class="mx-sm-3">Select Region</label> -->
-      <select class="form-control form-control-sm" [(ngModel)]="region" name="regionId" id="regionId" (change)="regionChanged()" required>
-        <option [ngValue]=undefined disabled selected>Select Region</option>
-        <option *ngFor="let region of regions" [ngValue]="region">{{ region.value | uppercase }}</option>
-      </select>
-    </div>
-    <div class="form-group form-inline">
-      <!-- <label class="mx-sm-3">Select Circle</label> -->
-      <select class="form-control form-control-sm" [(ngModel)]="circle" name="circleId" id="circleId" (change)="circleChanged()" required>
-        <option [ngValue]=undefined disabled selected>Select Circle</option>
-        <option *ngFor="let circle of circles" [ngValue]="circle">{{ circle.value | uppercase }}</option>
-      </select>
-    </div>
-    <div class="form-group form-inline">
-      <!-- <label class="mx-sm-3">Select Division</label> -->
-      <select class="form-control form-control-sm" [(ngModel)]="division" name="divisionId" id="divisionId" (change)="divisionChanged()" required>
-        <option [ngValue]=undefined disabled selected>Select Division</option>
-        <option *ngFor="let division of divisions" [ngValue]="division">{{ division.value | uppercase }}</option>
-      </select>
-    </div>
-    <div class="form-group form-inline">
-      <!-- <label class="mx-sm-3">Select Zone</label> -->
-      <select class="form-control form-control-sm" [(ngModel)]="zone" name="zoneId" id="zoneId" required>
-        <option [ngValue]=undefined disabled selected>Select Zone</option>
-        <option value="ALL">ALL</option>
-        <option *ngFor="let zone of zones" [ngValue]="zone.code">{{ zone.value | uppercase }}</option>
-      </select>
-    </div>
-    <div class="form-group form-inline">
       <!-- <label class="mx-sm-3">Select Bill Month</label> -->
       <select class="form-control form-control-sm" [(ngModel)]="billMonth" name="billMonthId" id="billMonthId" required>
         <option [ngValue]=undefined disabled selected>Select Bill Month</option>
         <option *ngFor="let billMonth of billMonths" [ngValue]="billMonth">{{ billMonth | uppercase }}</option>
       </select>
     </div>
+    <div class="form-group form-inline">
+      <!-- <label class="mx-sm-3">Select Region</label> -->
+      <select class="form-control form-control-sm" [(ngModel)]="regionId" name="regionId" id="regionId" (change)="regionChanged()" required>
+        <option [ngValue]=undefined disabled selected>Select Region</option>
+        <option value="ALL">ALL</option>
+        <option *ngFor="let region of regions" [ngValue]="region.id">{{ region.value | uppercase }}</option>
+      </select>
+    </div>
+    <div class="form-group form-inline">
+      <!-- <label class="mx-sm-3">Select Circle</label> -->
+      <select class="form-control form-control-sm" [(ngModel)]="circleId" name="circleId" id="circleId" (change)="circleChanged()" required>
+        <option [ngValue]=undefined disabled selected>Select Circle</option>
+        <option value="ALL" *ngIf="circles.length > 0">ALL</option>
+        <option *ngFor="let circle of circles" [ngValue]="circle.id">{{ circle.value | uppercase }}</option>
+      </select>
+    </div>
+    <div class="form-group form-inline">
+      <!-- <label class="mx-sm-3">Select Division</label> -->
+      <select class="form-control form-control-sm" [(ngModel)]="divisionId" name="divisionId" id="divisionId" (change)="divisionChanged()" required>
+        <option [ngValue]=undefined disabled selected>Select Division</option>
+        <option value="ALL" *ngIf="divisions.length > 0">ALL</option>
+        <option *ngFor="let division of divisions" [ngValue]="division.id">{{ division.value | uppercase }}</option>
+      </select>
+    </div>
+    <div class="form-group form-inline">
+      <!-- <label class="mx-sm-3">Select Zone</label> -->
+      <select class="form-control form-control-sm" [(ngModel)]="locationCode" name="zoneId" id="zoneId" required>
+        <option [ngValue]=undefined disabled selected>Select Zone</option>
+        <option value="ALL" *ngIf="zones.length > 0">ALL</option>
+        <option *ngFor="let zone of zones" [ngValue]="zone.code">{{ zone.value | uppercase }}</option>
+      </select>
+    </div>
     <div>
-      <button class="btn btn-sm btn-primary" (click)="searchClicked()" [disabled]="loading || readForm.form.invalid">Search</button>
+      <button class="btn btn-sm btn-primary" (click)="searchClicked()" [disabled]="loading || !(regionId && billMonth)">Search</button>
     </div>
   </form>
 </div>
@@ -46,9 +49,9 @@
 <div *ngIf="readings">
   <table class="table table-sm table-bordered text-center">
     <thead class="table-secondary">
-      <th>S.No</th>
+      <th>S.NO</th>
       <th>IVRS NO</th>
-      <th>Zone</th>
+      <th>ZONE</th>
       <th>NAME</th>
       <th>ADDRESS</th>
       <th>METER NO</th>
@@ -60,9 +63,9 @@
     <tr *ngFor="let read of readings; let i = index">
       <td>{{i + 1}}</td>
       <td>{{read.consumerNo}}</td>
-      <td>{{read.locationName}}</td>
-      <td>{{read.consumerName}}</td>
-      <td>{{read.address}}</td>
+      <td>{{read.consumerNoMaster.locationCode}}</td>
+      <td>{{read.consumerNoMaster.consumerInformation.consumerName}}</td>
+      <td>{{read.consumerNoMaster.consumerInformation.address1}}, {{read.consumerNoMaster.consumerInformation.address2}}, {{read.consumerNoMaster.consumerInformation.address3}}</td>
       <td>{{read.meterIdentifier}}</td>
       <td>{{read.mf}}</td>
       <td>{{read.reading}}</td>

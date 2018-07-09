@@ -9,16 +9,18 @@ import { ReadService } from '../../../services/read/read.service';
 })
 export class WaterWorksReadTimelineComponent implements OnInit {
 
+  ALL : any = "ALL";
   RESPONSE_TRUE : boolean = true;
   RESPONSE_FALSE : boolean = false;
-  regions : any;
-  region : any;
-  circles : any;
-  circle : any;
-  divisions : any;
-  division : any;
-  zones : any;
-  zone : any;
+  discom : any = {id : 1 , name : "INDORE"};
+  regions : any = [];
+  regionId : any;
+  circles : any = [];
+  circleId : any;
+  divisions : any = [];
+  divisionId : any;
+  zones : any = [];
+  locationCode : any;
   billMonths : any;
   billMonth : any;
   readings : any;
@@ -44,14 +46,16 @@ export class WaterWorksReadTimelineComponent implements OnInit {
     this.circles = [];
     this.divisions = [];
     this.zones = [];
-    this.circle = undefined;
-    this.division = undefined;
-    this.zone = undefined;
-    this.getCirclesByRegionId();
+    this.circleId = undefined;
+    this.divisionId = undefined;
+    this.locationCode = undefined;
+    if(this.regionId && this.regionId !== this.ALL){
+      this.getCirclesByRegionId();
+    }
   }
 
   getCirclesByRegionId(){
-    this.locationService.getCirclesByRegionId(this.region.id,this.RESPONSE_FALSE).subscribe(success =>{
+    this.locationService.getCirclesByRegionId(this.regionId,this.RESPONSE_FALSE).subscribe(success =>{
       this.circles = <any> success;
     }, error =>{
       console.log(error);
@@ -62,13 +66,15 @@ export class WaterWorksReadTimelineComponent implements OnInit {
   circleChanged(){
     this.divisions = [];
     this.zones = [];
-    this.division = undefined;
-    this.zone = undefined;
-    this.getDivisionsByCircleId();
+    this.divisionId = undefined;
+    this.locationCode = undefined;
+    if(this.circleId && this.circleId !== this.ALL){
+      this.getDivisionsByCircleId();
+    }
   }
 
   getDivisionsByCircleId(){
-    this.locationService.getDivisionsByCircleId(this.circle.id,this.RESPONSE_FALSE).subscribe(success =>{
+    this.locationService.getDivisionsByCircleId(this.circleId,this.RESPONSE_FALSE).subscribe(success =>{
       this.divisions = <any> success;
     }, error =>{
       console.log(error);
@@ -78,12 +84,14 @@ export class WaterWorksReadTimelineComponent implements OnInit {
 
   divisionChanged(){
     this.zones = [];
-    this.zone = undefined;
-    this.getZonesByDivisionId();
+    this.locationCode = undefined;
+    if(this.divisionId && this.divisionId !== this.ALL){
+      this.getZonesByDivisionId();
+    }
   }
 
   getZonesByDivisionId(){
-    this.locationService.getZonesByDivisionId(this.division.id,this.RESPONSE_FALSE).subscribe(success =>{
+    this.locationService.getZonesByDivisionId(this.divisionId,this.RESPONSE_FALSE).subscribe(success =>{
       this.zones = <any> success;
     }, error =>{
       console.log(error);
@@ -103,11 +111,25 @@ export class WaterWorksReadTimelineComponent implements OnInit {
   searchClicked(){
     this.loading = true;
     this.readings = undefined;
-    let locationCode = null;
-    if(this.zone && this.zone !== 'ALL'){
-      locationCode = this.zone;
+    let discomId = this.discom.id;
+    let regionId = this.regionId;
+    let circleId = this.circleId;
+    let divisionId = this.divisionId;
+    let locationCode = this.locationCode;
+    if(this.regionId === this.ALL){
+      regionId = undefined;
+    } else if(this.circleId === this.ALL){
+      circleId = undefined;
+    } else if(this.divisionId === this.ALL){
+      divisionId = undefined;
+    } else if(this.locationCode === this.ALL){
+      locationCode = undefined;
     } 
-    this.readService.getReadingsByBillMonthAndlocation(this.billMonth, locationCode, this.division.id, this.RESPONSE_FALSE).subscribe(success =>{
+    this.getReadings(discomId, regionId, circleId, divisionId, locationCode);
+  }
+
+  getReadings(discomId, regionId, circleId, divisionId, locationCode){
+    this.readService.getReadingsByBillMonthAndlocation(this.billMonth, discomId, regionId, circleId, divisionId, locationCode, this.RESPONSE_FALSE).subscribe(success =>{
       this.loading = false;
       this.readings = <any> success;
       console.log(this.readings);
@@ -115,7 +137,7 @@ export class WaterWorksReadTimelineComponent implements OnInit {
       this.readings = [];
       this.loading = false;
       console.log(error);
-    })
+    });
   }
 
 }

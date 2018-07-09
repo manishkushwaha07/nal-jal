@@ -12,11 +12,14 @@ export class BillService {
     this.contextPath = this.globalConfiguration.getReportURLPrefix();
   }
 
-  public getBillsByBillMonthAndlocation(billMonth, locationCode, divisionId, response:boolean) {
+  public getBillsByBillMonthAndlocation(billMonth, discomId, regionId, circleId, divisionId, locationCode, response:boolean) {
     let httpParams = new HttpParams();
-    httpParams = httpParams.append("billMonth", billMonth);
+    httpParams = httpParams.append("billMonth", billMonth ? billMonth : "");
+    httpParams = httpParams.append("discomId", discomId ? discomId : "");
+    httpParams = httpParams.append("regionId", regionId ? regionId : "");
+    httpParams = httpParams.append("circleId", circleId ? circleId : "");
+    httpParams = httpParams.append("divisionId", divisionId ? divisionId : "");
     httpParams = httpParams.append("locationCode", locationCode ? locationCode : "");
-    httpParams = httpParams.append("divisionId",divisionId);
     let options = {
       params: httpParams
     }

@@ -17,6 +17,8 @@ import { LoaderComponentModule } from 'src/app/components/loader/loader-componen
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { AuthorizationInterceptor } from 'src/app/interceptors/authorization.interceptor';
 import { ChartModule } from './components/chart/chart.module';
+import { GlobalResources } from 'src/app/utility/global.resources';
+import { GlobalConstants } from 'src/app/utility/global.constants';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,10 @@ import { ChartModule } from './components/chart/chart.module';
     LoginServiceModule,
     AppRoutingModule
   ],
-  providers: [GlobalConfiguration,
+  providers: [
+    GlobalConfiguration,
+    GlobalResources,
+    GlobalConstants,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthorizationInterceptor,

@@ -13,7 +13,7 @@ export class ReadPieChartComponent implements OnInit {
   }
 
   public pieChartLabels:string[] = ['Total Consumer', 'AMR Consumer'];
-  public pieChartData:number[] = [500, 200];
+  public pieChartData:number[] = [1972, 0];
   public pieChartType:string = 'pie';
 
   //scaling property

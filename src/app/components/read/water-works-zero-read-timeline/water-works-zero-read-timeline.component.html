@@ -53,10 +53,14 @@
       <th>IVRS NO</th>
       <th>ZONE</th>
       <th>NAME</th>
-      <th>ADDRESS</th>
+      <!-- <th>ADDRESS</th> -->
       <th>METER NO</th>
       <th>MF</th>
-      <th>KWH</th>
+      <th>PREV READ</th>
+      <th>CURR READ</th>
+      <th>ASSESSMENT</th>
+      <th>READ DATE</th>
+      <th>CONSUMP</th>
       <th>MD</th>
       <th>PF</th>
     </thead>
@@ -64,16 +68,20 @@
       <td>{{pagination.currentPageCounter + i + 1}}</td>
       <td>{{read.consumerNo}}</td>
       <td>{{read.consumerNoMaster.locationCode}}</td>
-      <td>{{read.consumerNoMaster.consumerInformation.consumerName}}</td>
-      <td>{{read.consumerNoMaster.consumerInformation.address1}}, {{read.consumerNoMaster.consumerInformation.address2}}, {{read.consumerNoMaster.consumerInformation.address3}}</td>
+      <td class="text-left">{{read.consumerNoMaster.consumerInformation.consumerName}}</td>
+      <!-- <td>{{read.consumerNoMaster.consumerInformation.address1}}, {{read.consumerNoMaster.consumerInformation.address2}}, {{read.consumerNoMaster.consumerInformation.address3}}</td> -->
       <td>{{read.meterIdentifier}}</td>
       <td>{{read.mf}}</td>
+      <td>{{read.previousReading}}</td>
       <td>{{read.reading}}</td>
+      <td>{{read.assessment}}</td>
+      <td>{{read.readingDate}}</td>
+      <td>{{read.totalConsumption}}</td>
       <td>{{read.md ? read.md : 'NA'}}</td>
       <td>{{read.pf ? read.pf : 'NA'}}</td>
     </tr>
     <tr *ngIf="readings.length === 0">
-      <td colspan="10">No Readings Available</td>
+      <td colspan="13">No Readings Available</td>
     </tr>
   </table>
   <div class="rowCenter">

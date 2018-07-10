@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'nal-jal-header',
@@ -10,9 +10,15 @@ export class HeaderComponent implements OnInit {
 
   private componentName: string = "HeaderComponent : ";
 
-  constructor() {
+  constructor(private router : Router, private route: ActivatedRoute,) {
   }
 
   ngOnInit() {
+  }
+
+  public menuClicked(menu : any) : void{
+    if(menu){
+        this.router.navigate([menu]);
+    }
   }
 }

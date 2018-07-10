@@ -6,6 +6,7 @@ import { LocationServiceModule } from '../../services/location/location-service.
 import { LoaderComponentModule } from '../loader/loader-component.module';
 import { WaterWorksAssessedReadTimelineComponent } from './water-works-assessed-read-timeline/water-works-assessed-read-timeline.component';
 import { WaterWorksZeroReadTimelineComponent } from './water-works-zero-read-timeline/water-works-zero-read-timeline.component';
+import { PaginationModule } from '../pagination/pagination.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { WaterWorksZeroReadTimelineComponent } from './water-works-zero-read-tim
     FormsModule,
     ReactiveFormsModule,
     LocationServiceModule,
-    LoaderComponentModule
+    LoaderComponentModule,
+    PaginationModule
   ],
   declarations: [
     WaterWorksReadTimelineComponent, 

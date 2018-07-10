@@ -2,3 +2,7 @@
     display: flex;
     justify-content: space-around;
 }
+.rowCenter{
+    display: flex;
+    justify-content: center
+}

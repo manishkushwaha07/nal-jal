@@ -47,7 +47,7 @@
 <nal-jal-loader [show]="loading"></nal-jal-loader>
 <br>
 <div *ngIf="readings">
-  <table class="table table-sm table-bordered text-center">
+  <table class="table table-sm table-bordered text-center" *ngIf="pagination.pagedItems">
     <thead class="table-secondary">
       <th>S.NO</th>
       <th>IVRS NO</th>
@@ -61,8 +61,8 @@
       <th>MD</th>
       <th>PF</th>
     </thead>
-    <tr *ngFor="let read of readings; let i = index">
-      <td>{{i + 1}}</td>
+    <tr *ngFor="let read of pagination.pagedItems; let i = index">
+      <td>{{pagination.currentPageCounter + i + 1}}</td>
       <td>{{read.consumerNo}}</td>
       <td>{{read.consumerNoMaster.locationCode}}</td>
       <td>{{read.consumerNoMaster.consumerInformation.consumerName}}</td>
@@ -78,4 +78,7 @@
       <td colspan="10">No Readings Available</td>
     </tr>
   </table>
+  <div class="rowCenter">
+    <nal-jal-pagination [items]="readings" [pageSize]="12" #pagination></nal-jal-pagination>
+  </div>
 </div>

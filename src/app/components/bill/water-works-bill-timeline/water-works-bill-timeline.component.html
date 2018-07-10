@@ -47,7 +47,7 @@
   <nal-jal-loader [show]="loading"></nal-jal-loader>
   <br>
   <div *ngIf="bills">
-    <table class="table table-sm table-bordered text-center">
+    <table class="table table-sm table-bordered text-center" *ngIf="pagination.pagedItems">
       <thead class="table-secondary">
         <th>S.NO</th>
         <th>IVRS NO</th>
@@ -60,8 +60,8 @@
         <th>NET AMOUNT</th>
         <th>ARREAR</th>
       </thead>
-      <tr *ngFor="let bill of bills; let i = index">
-        <td>{{i + 1}}</td>
+      <tr *ngFor="let bill of pagination.pagedItems; let i = index">
+        <td>{{pagination.currentPageCounter + i + 1}}</td>
         <td>{{bill.consumerNo}}</td>
         <td>{{bill.consumerNoMaster.locationCode}}</td>
         <td>{{bill.consumerNoMaster.consumerInformation.consumerName}}</td>
@@ -76,4 +76,7 @@
         <td colspan="10">No Bills Available</td>
       </tr>
     </table>
+    <div class="rowCenter">
+      <nal-jal-pagination [items]="bills" [pageSize]="12" #pagination></nal-jal-pagination>
+    </div>
   </div>

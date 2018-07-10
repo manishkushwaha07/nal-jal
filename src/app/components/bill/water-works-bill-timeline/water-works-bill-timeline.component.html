@@ -45,8 +45,8 @@
     </form>
   </div>
   <nal-jal-loader [show]="loading"></nal-jal-loader>
-  <br>
   <div *ngIf="bills">
+    <div class="text-right"><strong>Total Count : {{bills.length}}</strong></div>
     <table class="table table-sm table-bordered text-center" *ngIf="pagination.pagedItems">
       <thead class="table-secondary">
         <th>S.NO</th>

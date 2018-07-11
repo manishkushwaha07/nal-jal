@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from 'src/app/services/location/location.service';
 import { ReadService } from '../../../services/read/read.service';
+import { GlobalConstants } from 'src/app/utility/global.constants';
 
 @Component({
   selector: 'nal-jal-water-works-read-timeline',
@@ -8,7 +9,7 @@ import { ReadService } from '../../../services/read/read.service';
   styleUrls: ['./water-works-read-timeline.component.css']
 })
 export class WaterWorksReadTimelineComponent implements OnInit {
-
+  public readonly DATE_FORMAT = GlobalConstants.DATE_FORMAT;
   ALL : any = "ALL";
   RESPONSE_TRUE : boolean = true;
   RESPONSE_FALSE : boolean = false;

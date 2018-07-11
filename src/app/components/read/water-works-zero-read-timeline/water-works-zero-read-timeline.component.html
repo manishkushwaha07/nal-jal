@@ -75,7 +75,7 @@
       <td>{{read.previousReading}}</td>
       <td>{{read.reading}}</td>
       <td>{{read.assessment}}</td>
-      <td>{{read.readingDate}}</td>
+      <td>{{read.readingDate | date : DATE_FORMAT}}</td>
       <td>{{read.totalConsumption}}</td>
       <td>{{read.md ? read.md : 'NA'}}</td>
       <td>{{read.pf ? read.pf : 'NA'}}</td>

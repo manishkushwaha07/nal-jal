@@ -6,19 +6,18 @@ import { DashboardWaterWorksReadViewComponent } from './dashboard-water-works-re
 import { DashboardWaterWorksBillViewComponent } from 'src/app/modules/dashboard/dashboard-water-works-bill-view/dashboard-water-works-bill-view.component';
 import { DashboardWaterWorksZeroReadViewComponent } from './dashboard-water-works-zero-read-view/dashboard-water-works-zero-read-view.component';
 import { DashboardWaterWorksAssessedReadViewComponent } from './dashboard-water-works-assessed-read-view/dashboard-water-works-assessed-read-view.component';
+import { CanActivateAuthGuard } from 'src/app/guards/can-activate.authguard';
 
 const dashboardRoutes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [CanActivateAuthGuard],
     children: [
       {
         path: '',
+        canActivateChild: [CanActivateAuthGuard],
         children: [
-          {
-            path: '',
-            component: DashboardHomeComponent
-          },
           {
             path: 'home',
             component: DashboardHomeComponent
@@ -38,6 +37,11 @@ const dashboardRoutes: Routes = [
           {
             path: 'water-works/zero/read/view',
             component: DashboardWaterWorksZeroReadViewComponent
+          },
+          {
+            path: '', 
+            redirectTo: 'home', 
+            pathMatch: 'full'
           }
         ]
       }

@@ -19,6 +19,7 @@ import { AuthorizationInterceptor } from 'src/app/interceptors/authorization.int
 import { ChartModule } from './components/chart/chart.module';
 import { GlobalResources } from 'src/app/utility/global.resources';
 import { GlobalConstants } from 'src/app/utility/global.constants';
+import { CanActivateAuthGuard } from 'src/app/guards/can-activate.authguard';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { GlobalConstants } from 'src/app/utility/global.constants';
     GlobalConfiguration,
     GlobalResources,
     GlobalConstants,
+    CanActivateAuthGuard,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthorizationInterceptor,

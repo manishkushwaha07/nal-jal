@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalConfiguration } from '../../config/global.config';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DashboardMenuService } from 'src/app/modules/dashboard/dashboard-menu.service';
+import { AuthorizationService } from 'src/app/services/authorization-service/authorization.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,10 +14,15 @@ export class DashboardComponent implements OnInit {
   menus : any[] = new Array();
   menuObject: any = {};
   constructor(private dashboardMenuService: DashboardMenuService,private globalConfiguration : GlobalConfiguration,
-     private route: ActivatedRoute,private router: Router) { }
+     private route: ActivatedRoute,private router: Router, private authorizationService: AuthorizationService) { }
 
   ngOnInit() {
     this.menus = this.dashboardMenuService.getMenus();
+  }
+
+  logoutClicked() {
+    console.log("logout clicked from header");
+    this.authorizationService.logout();
   }
 
   public menuClicked(menu: any): void {

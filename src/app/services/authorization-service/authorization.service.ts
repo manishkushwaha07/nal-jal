@@ -5,6 +5,7 @@ import { GlobalConfiguration } from '../../config/global.config';
 import { User } from '../../models/user.model';
 import { Router } from "@angular/router";
 import { LoginService } from 'src/app/services/login/login.service';
+import { LogoutService } from 'src/app/services/logout/logout.service';
 // import { LogoutService } from 'app/services/logout/logout.service';
 
 @Injectable()
@@ -18,7 +19,7 @@ export class AuthorizationService {
   private sessionEndTime;
 
   constructor (private router: Router, private globalConfiguration : GlobalConfiguration,
-    private loginService : LoginService) {
+    private loginService : LoginService,private logoutService : LogoutService) {
     this.jwtHelper = new JwtHelperService();
     this.AUTHENTICATION_URL = this.globalConfiguration.getAuthenticationURL();
   }
@@ -53,7 +54,9 @@ export class AuthorizationService {
 
   public getLoggedInUser() : User {
     let token : string = this.getToken();
+    console.log(token);
     let decodedToken = this.jwtHelper.decodeToken(token);
+    console.log(decodedToken);
     if(decodedToken){
       let user : User = new User(null);
       /*user.setUsername(decodedToken.sub);
@@ -91,7 +94,7 @@ export class AuthorizationService {
     // });
     this.clearStorage(this.TOKEN_KEY);
     this.clearStorage(this.SESSION_END_TIME_KEY);
-    this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
 
   public setSessionEndTime(sessionEndTime){

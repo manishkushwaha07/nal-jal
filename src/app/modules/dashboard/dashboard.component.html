@@ -18,6 +18,9 @@
       <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.THIRD_MENU)" [ngClass]="{'active': dashboardMenuService.THIRD_MENU.active}" href="javascript:void(0);">
         <i class="fa mx-sm-3 {{dashboardMenuService.THIRD_MENU.icon}}"></i>{{dashboardMenuService.THIRD_MENU.name}}
       </a> -->
+      <a class="dropdown-item" href="javascript:void(0);" (click)="logoutClicked()">
+        <i class="fa fa-sign-out mx-sm-3" aria-hidden="true" ></i>Logout
+      </a>
     </ul>
   </div>
   <div id="mainMenu" class="card">

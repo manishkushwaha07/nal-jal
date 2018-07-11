@@ -25,8 +25,10 @@ export class LoginComponent implements OnInit {
     this.authorizationService.authenticate(user).subscribe(data => {
       let status = data.status;
       if(status === 200){
-        console.log("logged in successfully");
-        this.router.navigate(['dashboard']);
+        console.log("Login Successfull. Logged in User is: " + this.authorizationService.getLoggedInUserRole());
+        if(this.authorizationService.isLogedIn()){
+          this.router.navigate(['dashboard']);
+        }
       }
       this.loading = false;
     }, error => {

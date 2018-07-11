@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   private componentName: string = "HeaderComponent : ";
-
+  
   constructor(private router : Router, private route: ActivatedRoute,) {
   }
 

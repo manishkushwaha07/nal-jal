@@ -54,9 +54,7 @@ export class AuthorizationService {
 
   public getLoggedInUser() : User {
     let token : string = this.getToken();
-    console.log(token);
     let decodedToken = this.jwtHelper.decodeToken(token);
-    console.log(decodedToken);
     if(decodedToken){
       let user : User = new User(null);
       /*user.setUsername(decodedToken.sub);
@@ -86,12 +84,12 @@ export class AuthorizationService {
     console.log("Logout called in Authorization Service");
     let loggedInUser : User = this.getLoggedInUser();
     console.log("Logging out user with sessionId " + loggedInUser.getSessionId());
-    // this.logoutService.logoutSession(loggedInUser.getSessionId(),this.getToken()).subscribe(success => {
-    //   console.log("Logout successfull. Redirecting to login page");
-    // },error => {
-    //   console.log("Error while logging out");
-    //   console.log(error);
-    // });
+    this.logoutService.logoutSession(loggedInUser.getSessionId(),this.getToken()).subscribe(success => {
+      console.log("Logout successfull. Redirecting to login page");
+    },error => {
+      console.log("Error while logging out");
+      console.log(error);
+    });
     this.clearStorage(this.TOKEN_KEY);
     this.clearStorage(this.SESSION_END_TIME_KEY);
     this.router.navigate(['home']);

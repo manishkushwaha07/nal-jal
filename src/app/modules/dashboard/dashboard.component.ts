@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   logoutClicked() {
-    console.log("logout clicked from header");
+    console.log("logout clicked from dashboard");
     this.authorizationService.logout();
   }
 

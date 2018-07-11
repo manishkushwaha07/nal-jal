@@ -15,6 +15,7 @@ export class DashboardHomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("Running DashboardHomeComponent Constructor ");
   }
 
 }

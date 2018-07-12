@@ -1,4 +1,6 @@
-<div id="pieChart">
-  <canvas baseChart height="230" width="350" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
-    (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+<div class="card">
+  <div class="card-body" id="pieChart">
+    <canvas baseChart height="230" width="350" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
+      (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+  </div>
 </div>

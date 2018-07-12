@@ -30,7 +30,7 @@ import { CanActivateAuthGuard } from 'src/app/guards/can-activate.authguard';
     HttpModule,
     HttpClientModule,
     HomeModule,
-    DashboardModule,
+    // DashboardModule,
     HeaderComponentModule,
     FooterComponentModule,
     LoaderComponentModule,

@@ -10,7 +10,7 @@ import { CanActivateAuthGuard } from 'src/app/guards/can-activate.authguard';
 
 const dashboardRoutes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
     canActivate: [CanActivateAuthGuard],
     children: [

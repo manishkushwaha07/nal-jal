@@ -1,82 +1,89 @@
-<div class="form-group">
-    <form id="firstRow" #billForm="ngForm">
-      <div class="form-group form-inline">
-        <!-- <label class="mx-sm-3">Select Bill Month</label> -->
-        <select class="form-control form-control-sm" [(ngModel)]="billMonth" name="billMonthId" id="billMonthId" required>
-          <option [ngValue]=undefined disabled selected>Select Bill Month</option>
-          <option *ngFor="let billMonth of billMonths" [ngValue]="billMonth">{{ billMonth | uppercase }}</option>
-        </select>
+<div class="card">
+    <div class="card-header text-center main-header">
+      <strong>Bills View</strong>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <form id="firstRow" #billForm="ngForm">
+          <div class="form-group form-inline">
+            <!-- <label class="mx-sm-3">Select Bill Month</label> -->
+            <select class="form-control form-control-sm" [(ngModel)]="billMonth" name="billMonthId" id="billMonthId" required>
+              <option [ngValue]=undefined disabled selected>Select Bill Month</option>
+              <option *ngFor="let billMonth of billMonths" [ngValue]="billMonth">{{ billMonth | uppercase }}</option>
+            </select>
+          </div>
+          <div class="form-group form-inline">
+            <!-- <label class="mx-sm-3">Select Region</label> -->
+            <select class="form-control form-control-sm" [(ngModel)]="regionId" name="regionId" id="regionId" (change)="regionChanged()" required>
+              <option [ngValue]=undefined disabled selected>Select Region</option>
+              <option value="ALL">ALL</option>
+              <option *ngFor="let region of regions" [ngValue]="region.id">{{ region.value | uppercase }}</option>
+            </select>
+          </div>
+          <div class="form-group form-inline">
+            <!-- <label class="mx-sm-3">Select Circle</label> -->
+            <select class="form-control form-control-sm" [(ngModel)]="circleId" name="circleId" id="circleId" (change)="circleChanged()" required>
+              <option [ngValue]=undefined disabled selected>Select Circle</option>
+              <option value="ALL" *ngIf="circles.length > 0">ALL</option>
+              <option *ngFor="let circle of circles" [ngValue]="circle.id">{{ circle.value | uppercase }}</option>
+            </select>
+          </div>
+          <div class="form-group form-inline">
+            <!-- <label class="mx-sm-3">Select Division</label> -->
+            <select class="form-control form-control-sm" [(ngModel)]="divisionId" name="divisionId" id="divisionId" (change)="divisionChanged()" required>
+              <option [ngValue]=undefined disabled selected>Select Division</option>
+              <option value="ALL" *ngIf="divisions.length > 0">ALL</option>
+              <option *ngFor="let division of divisions" [ngValue]="division.id">{{ division.value | uppercase }}</option>
+            </select>
+          </div>
+          <div class="form-group form-inline">
+            <!-- <label class="mx-sm-3">Select Zone</label> -->
+            <select class="form-control form-control-sm" [(ngModel)]="locationCode" name="zoneId" id="zoneId" required>
+              <option [ngValue]=undefined disabled selected>Select Zone</option>
+              <option value="ALL" *ngIf="zones.length > 0">ALL</option>
+              <option *ngFor="let zone of zones" [ngValue]="zone.code">{{ zone.value | uppercase }}</option>
+            </select>
+          </div>
+          <div>
+            <button class="btn btn-sm btn-primary" (click)="searchClicked()" [disabled]="loading || !(regionId && billMonth)">Search</button>
+          </div>
+        </form>
       </div>
-      <div class="form-group form-inline">
-        <!-- <label class="mx-sm-3">Select Region</label> -->
-        <select class="form-control form-control-sm" [(ngModel)]="regionId" name="regionId" id="regionId" (change)="regionChanged()" required>
-          <option [ngValue]=undefined disabled selected>Select Region</option>
-          <option value="ALL">ALL</option>
-          <option *ngFor="let region of regions" [ngValue]="region.id">{{ region.value | uppercase }}</option>
-        </select>
+      <nal-jal-loader [show]="loading"></nal-jal-loader>
+      <div *ngIf="bills">
+        <div class="text-right"><strong>Total Count : {{bills.length}}</strong></div>
+        <table class="table table-sm table-bordered text-center" *ngIf="pagination.pagedItems">
+          <thead class="table-secondary">
+            <th>S.NO</th>
+            <th>IVRS NO</th>
+            <th>ZONE</th>
+            <th>NAME</th>
+            <th>SANC LOAD</th>
+            <th>KWH</th>
+            <th>MD</th>
+            <th>PF</th>
+            <th>NET AMOUNT</th>
+            <th>ARREAR</th>
+          </thead>
+          <tr *ngFor="let bill of pagination.pagedItems; let i = index">
+            <td>{{pagination.currentPageCounter + i + 1}}</td>
+            <td>{{bill.consumerNo}}</td>
+            <td>{{bill.consumerNoMaster.locationCode}}</td>
+            <td class="text-left">{{bill.consumerNoMaster.consumerInformation.consumerName}}</td>
+            <td>{{bill.consumerNoMaster.consumerConnectionInformation.sanctionedLoad}} {{bill.consumerNoMaster.consumerConnectionInformation.sanctionedLoadUnit}}</td>
+            <td>{{bill.reading}}</td>
+            <td>{{bill.md}}</td>
+            <td>{{bill.pf}}</td>
+            <td>{{bill.netBill}}</td>
+            <td>{{bill.arrear}}</td>
+          </tr>
+          <tr *ngIf="bills.length === 0">
+            <td colspan="10">No Bills Available</td>
+          </tr>
+        </table>
+        <div class="rowCenter">
+          <nal-jal-pagination [items]="bills" [pageSize]="12" #pagination></nal-jal-pagination>
+        </div>
       </div>
-      <div class="form-group form-inline">
-        <!-- <label class="mx-sm-3">Select Circle</label> -->
-        <select class="form-control form-control-sm" [(ngModel)]="circleId" name="circleId" id="circleId" (change)="circleChanged()" required>
-          <option [ngValue]=undefined disabled selected>Select Circle</option>
-          <option value="ALL" *ngIf="circles.length > 0">ALL</option>
-          <option *ngFor="let circle of circles" [ngValue]="circle.id">{{ circle.value | uppercase }}</option>
-        </select>
-      </div>
-      <div class="form-group form-inline">
-        <!-- <label class="mx-sm-3">Select Division</label> -->
-        <select class="form-control form-control-sm" [(ngModel)]="divisionId" name="divisionId" id="divisionId" (change)="divisionChanged()" required>
-          <option [ngValue]=undefined disabled selected>Select Division</option>
-          <option value="ALL" *ngIf="divisions.length > 0">ALL</option>
-          <option *ngFor="let division of divisions" [ngValue]="division.id">{{ division.value | uppercase }}</option>
-        </select>
-      </div>
-      <div class="form-group form-inline">
-        <!-- <label class="mx-sm-3">Select Zone</label> -->
-        <select class="form-control form-control-sm" [(ngModel)]="locationCode" name="zoneId" id="zoneId" required>
-          <option [ngValue]=undefined disabled selected>Select Zone</option>
-          <option value="ALL" *ngIf="zones.length > 0">ALL</option>
-          <option *ngFor="let zone of zones" [ngValue]="zone.code">{{ zone.value | uppercase }}</option>
-        </select>
-      </div>
-      <div>
-        <button class="btn btn-sm btn-primary" (click)="searchClicked()" [disabled]="loading || !(regionId && billMonth)">Search</button>
-      </div>
-    </form>
-  </div>
-  <nal-jal-loader [show]="loading"></nal-jal-loader>
-  <div *ngIf="bills">
-    <div class="text-right"><strong>Total Count : {{bills.length}}</strong></div>
-    <table class="table table-sm table-bordered text-center" *ngIf="pagination.pagedItems">
-      <thead class="table-secondary">
-        <th>S.NO</th>
-        <th>IVRS NO</th>
-        <th>ZONE</th>
-        <th>NAME</th>
-        <th>SANC LOAD</th>
-        <th>KWH</th>
-        <th>MD</th>
-        <th>PF</th>
-        <th>NET AMOUNT</th>
-        <th>ARREAR</th>
-      </thead>
-      <tr *ngFor="let bill of pagination.pagedItems; let i = index">
-        <td>{{pagination.currentPageCounter + i + 1}}</td>
-        <td>{{bill.consumerNo}}</td>
-        <td>{{bill.consumerNoMaster.locationCode}}</td>
-        <td class="text-left">{{bill.consumerNoMaster.consumerInformation.consumerName}}</td>
-        <td>{{bill.consumerNoMaster.consumerConnectionInformation.sanctionedLoad}} {{bill.consumerNoMaster.consumerConnectionInformation.sanctionedLoadUnit}}</td>
-        <td>{{bill.reading}}</td>
-        <td>{{bill.md}}</td>
-        <td>{{bill.pf}}</td>
-        <td>{{bill.netBill}}</td>
-        <td>{{bill.arrear}}</td>
-      </tr>
-      <tr *ngIf="bills.length === 0">
-        <td colspan="10">No Bills Available</td>
-      </tr>
-    </table>
-    <div class="rowCenter">
-      <nal-jal-pagination [items]="bills" [pageSize]="12" #pagination></nal-jal-pagination>
     </div>
   </div>

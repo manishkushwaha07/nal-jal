@@ -1,6 +1,7 @@
 #firstRow{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .rowCenter{
     display: flex;

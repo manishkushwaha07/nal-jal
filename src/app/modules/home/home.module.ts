@@ -4,6 +4,7 @@ import { HomeComponent } from 'src/app/modules/home/home.component';
 import { HomeRoutingModule } from './home.routing';
 import { LoginModule } from '../login/login.module';
 import { ChartModule } from '../../components/chart/chart.module';
+import { HeaderComponentModule } from '../../components/header/header-component.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ChartModule } from '../../components/chart/chart.module';
     CommonModule,
     HomeRoutingModule,
     LoginModule,
-    ChartModule
+    ChartModule,
+    HeaderComponentModule
   ],
   declarations: [HomeComponent]
 })

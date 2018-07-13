@@ -2,6 +2,11 @@
     <div class="card">
         <div class="card-header text-center">Departmental User Login</div>
         <div class="card-body">
+            <ng-container *ngIf="loginError">
+                <span class="text-center text-danger">
+                    <label class="font-weight-bold">{{loginErrorText}}</label>
+                </span>
+            </ng-container>
             <form (ngSubmit)="loginFormSubmitted()" #loginForm="ngForm">
             <div class="form-group">
                 <label for="username" class="required">Username</label>

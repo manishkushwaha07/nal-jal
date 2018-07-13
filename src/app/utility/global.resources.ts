@@ -95,7 +95,7 @@ export class GlobalResources {
           }
         }
         case 403:{
-            this.router.navigate(['login']);
+            this.router.navigate(['home']);
             errorMessage = "session time out."
             break;
         }

@@ -9,8 +9,8 @@ import { DashboardMenuService } from 'src/app/modules/dashboard/dashboard-menu.s
 export class DashboardWaterWorksZeroReadViewComponent implements OnInit {
 
   constructor(private dashboardMenuService: DashboardMenuService) { 
-    if(!this.dashboardMenuService.FIFTH_MENU.active){
-      this.dashboardMenuService.menuClicked(this.dashboardMenuService.FIFTH_MENU);
+    if(!this.dashboardMenuService.FOURTH_MENU.active){
+      this.dashboardMenuService.menuClicked(this.dashboardMenuService.FOURTH_MENU);
     }
   }
 

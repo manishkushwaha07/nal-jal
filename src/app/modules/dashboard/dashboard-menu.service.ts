@@ -25,14 +25,14 @@ export class DashboardMenuService implements MenuInterface{
 
     public FOURTH_MENU : any;
     private readonly FOURTH_MENU_ICON: string = "fa-list-alt";
-    private readonly FOURTH_MENU_NAME : string = "View Assessed Read";
-    private readonly FOURTH_MENU_LINK : string = "water-works/assessed/read/view";
+    private readonly FOURTH_MENU_NAME : string = "View Zero Read";
+    private readonly FOURTH_MENU_LINK : string = "water-works/zero/read/view";
     private readonly FOURTH_MENU_ACTIVE : boolean = false;
     
     public FIFTH_MENU : any;
     private readonly FIFTH_MENU_ICON: string = "fa-list-alt";
-    private readonly FIFTH_MENU_NAME : string = "View Zero Read";
-    private readonly FIFTH_MENU_LINK : string = "water-works/zero/read/view";
+    private readonly FIFTH_MENU_NAME : string = "View Assessed Read";
+    private readonly FIFTH_MENU_LINK : string = "water-works/assessed/read/view";
     private readonly FIFTH_MENU_ACTIVE : boolean = false;
 
     menus: any[] = new Array();

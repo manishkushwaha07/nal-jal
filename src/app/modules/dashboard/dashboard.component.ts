@@ -5,7 +5,7 @@ import { DashboardMenuService } from 'src/app/modules/dashboard/dashboard-menu.s
 import { AuthorizationService } from 'src/app/services/authorization-service/authorization.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'nal-jal-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })

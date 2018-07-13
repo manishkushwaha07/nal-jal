@@ -29,11 +29,38 @@ label.not-required:after{
     /* border-radius: 10px; */
 }
 
+::-webkit-scrollbar-track-piece  { 
+    /* background-color: black; */
+}
+
 ::-webkit-scrollbar-thumb {
     /* -webkit-border-radius: 10px;
     border-radius: 10px; */
     background: #6d6d6d;
 }
+
+::-webkit-scrollbar:horizontal {
+    /* width: 3px; */
+    height: 3px;
+}
+ 
+::-webkit-scrollbar-track:horizontal {
+    background-color: #ebebeb;
+    /* -webkit-border-radius: 10px; */ 
+    /* border-radius: 10px; */
+}
+
+::-webkit-scrollbar-track-piece:horizontal  { 
+    /* background-color: black; */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    /* -webkit-border-radius: 10px;
+    border-radius: 10px; */
+    background: #6d6d6d;
+}
+
+
 
 
 /* These styles applys to all the components in the application except for login */

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { WaterWorksBillTimelineComponent } from './water-works-bill-timeline/water-works-bill-timeline.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoaderComponentModule } from '../loader/loader-component.module';
-import { PaginationModule } from '../pagination/pagination.module';
+import { PaginationComponentModule } from 'src/app/components/pagination/pagination-component.module';
 
 @NgModule({
   imports: [
@@ -11,7 +11,7 @@ import { PaginationModule } from '../pagination/pagination.module';
     FormsModule,
     ReactiveFormsModule,
     LoaderComponentModule,
-    PaginationModule
+    PaginationComponentModule
   ],
   declarations: [WaterWorksBillTimelineComponent],
   exports: [WaterWorksBillTimelineComponent]

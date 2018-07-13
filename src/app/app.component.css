@@ -9,7 +9,15 @@
 }
 
 /**
-   Styling all the side menu header color
+   Styling all the body header color
+**/
+:host /deep/ .body-header{
+    /**background-color: #343a40; **/ /**bg-dark color code **/
+    background-color: #ffc107; /**spring-boot color code  **/
+}
+
+/**
+   Styling all the main menu header color
 **/
 :host /deep/ .main-header{
     /**background-color: #343a40; **/ /**bg-dark color code **/

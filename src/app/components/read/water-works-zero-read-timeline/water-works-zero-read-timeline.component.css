@@ -7,3 +7,9 @@
     display: flex;
     justify-content: center
 }
+
+.card-body-height{
+    height: 70vh;
+    display:block;
+    overflow:auto;
+}

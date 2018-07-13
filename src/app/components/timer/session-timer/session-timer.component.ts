@@ -6,7 +6,7 @@ import { AuthorizationService } from 'src/app/services/authorization-service/aut
 import { SessionTimerService } from 'src/app/services/session-timer/session-timer.service';
 
 @Component({
-  selector: 'ngb-session-timer',
+  selector: 'nal-jal-session-timer',
   templateUrl: './session-timer.component.html',
   styleUrls: ['./session-timer.component.css']
 })

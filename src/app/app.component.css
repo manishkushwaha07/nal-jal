@@ -1,8 +1,3 @@
-#body-height{
-    height: 81vh;
-    display:block;
-    overflow:auto;
-}
 :host /deep/ .header{
     /**background-color: #343a40;**/ /**bg-dark color code #343a40;**/
     background-color: #ffc107; /**spring-boot color code #34302d;**/

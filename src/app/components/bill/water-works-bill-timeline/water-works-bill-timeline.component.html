@@ -2,7 +2,7 @@
     <div class="card-header text-center main-header">
       <strong>Bills View</strong>
     </div>
-    <div class="card-body">
+    <div class="card-body card-body-height">
       <div class="form-group">
         <form id="firstRow" #billForm="ngForm">
           <div class="form-group form-inline">
@@ -82,7 +82,7 @@
           </tr>
         </table>
         <div class="rowCenter">
-          <nal-jal-pagination [items]="bills" [pageSize]="12" #pagination></nal-jal-pagination>
+          <nal-jal-pagination [items]="bills" [pageSize]="10" #pagination></nal-jal-pagination>
         </div>
       </div>
     </div>

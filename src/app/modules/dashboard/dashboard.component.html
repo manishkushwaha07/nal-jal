@@ -1,15 +1,20 @@
 <nal-jal-header></nal-jal-header>
-<div id="content">
+<div class="mainContainer">
 
-  <div id="sideMenu">
+  <div class="sideNav">
     <!-- sub-menu-header class is used to provide a global color as per whole application theme -->
     <ul class="list-group">
       <a class="list-group-item sub-menu-header text-white">
         <strong><i class="fa fa-bars"></i> Dashboard Menu</strong>
       </a>
-      <a *ngFor="let menu of menus" class="list-group-item list-group-item-action" [ngClass]="{'active': menu.active}" (click)="menuClicked(menu)" href="javascript:void(0);">
-        <i class="fa {{menu.icon}}"></i> {{menu.name}}
-      </a>
+      <div id="menu-item" class="menu-item-height">
+        <a *ngFor="let menu of menus" class="list-group-item list-group-item-action" [ngClass]="{'active': menu.active}" (click)="menuClicked(menu)" href="javascript:void(0);">
+          <i class="fa {{menu.icon}}"></i> {{menu.name}}
+        </a>
+        <a class="list-group-item list-group-item-action" href="javascript:void(0);" (click)="logoutClicked()">
+          <i class="fa fa-sign-out" aria-hidden="true" ></i> Logout
+        </a>
+      </div>
       <!-- <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.FIRST_MENU)" [ngClass]="{'active': dashboardMenuService.FIRST_MENU.active}" href="javascript:void(0);">
          <i class="fa {{dashboardMenuService.FIRST_MENU.icon}}"></i>{{dashboardMenuService.FIRST_MENU.name}}
       </a>
@@ -19,13 +24,12 @@
       <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.THIRD_MENU)" [ngClass]="{'active': dashboardMenuService.THIRD_MENU.active}" href="javascript:void(0);">
         <i class="fa {{dashboardMenuService.THIRD_MENU.icon}}"></i>{{dashboardMenuService.THIRD_MENU.name}}
       </a> -->
-      <a class="list-group-item list-group-item-action" href="javascript:void(0);" (click)="logoutClicked()">
-        <i class="fa fa-sign-out" aria-hidden="true" ></i> Logout
-      </a>
     </ul>
   </div>
-  <div id="mainMenu">
+  <div class="mainNav">
+    <div class="mainNavItem">
       <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
 <nal-jal-footer></nal-jal-footer>

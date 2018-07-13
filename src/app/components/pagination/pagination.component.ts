@@ -20,7 +20,7 @@ export class PaginationComponent implements OnInit {
   //variables to pagination related required information
   items;
   pager : any = {};
-  pageSize : number = 12;
+  pageSize : number = 10;
   currentPage : number = 1;
 
   //variables exposed to user of this component

@@ -34,3 +34,40 @@ label.not-required:after{
     border-radius: 10px; */
     background: #6d6d6d;
 }
+
+
+/* These styles applys to all the components in the application except for login */
+.mainContainer{
+    margin: 10px;
+    display: flex;
+    overflow:auto;
+    height: 78vh;
+}
+
+.sideNav{
+	/*
+     flex grow will grow the content across the container
+    */
+    flex-grow : 1;
+    flex-basis: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sideNav > .list-group{
+	margin-right: 5px;
+}
+
+.mainNav{	
+    display: flex;
+    flex-basis: 85%;
+    /*
+     flex grow will grow the content across the container
+    */
+     flex-grow : 8; 
+}
+
+.mainNavItem{
+    flex-basis: 100%;
+    margin-left: 5px;
+}

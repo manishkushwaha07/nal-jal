@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoaderComponentModule } from '../loader/loader-component.module';
 import { WaterWorksAssessedReadTimelineComponent } from './water-works-assessed-read-timeline/water-works-assessed-read-timeline.component';
 import { WaterWorksZeroReadTimelineComponent } from './water-works-zero-read-timeline/water-works-zero-read-timeline.component';
-import { PaginationComponentModule } from 'src/app/components/pagination/pagination-component.module';
+import { PaginationComponentModule } from 'app/components/pagination/pagination-component.module';
 
 @NgModule({
   imports: [

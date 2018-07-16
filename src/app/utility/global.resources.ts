@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers } from '@angular/http';
 import { NgForm } from '@angular/forms';
-import { GlobalConstants } from 'src/app/utility/global.constants';
+import { GlobalConstants } from 'app/utility/global.constants';
 import { Router } from '@angular/router';
 
 @Injectable()

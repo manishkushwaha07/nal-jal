@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardWaterWorksReadViewComponent } from './dashboard-water-works-read-view/dashboard-water-works-read-view.component';
-import { DashboardWaterWorksBillViewComponent } from 'src/app/modules/dashboard/dashboard-water-works-bill-view/dashboard-water-works-bill-view.component';
 import { DashboardWaterWorksZeroReadViewComponent } from './dashboard-water-works-zero-read-view/dashboard-water-works-zero-read-view.component';
 import { DashboardWaterWorksAssessedReadViewComponent } from './dashboard-water-works-assessed-read-view/dashboard-water-works-assessed-read-view.component';
-import { CanActivateAuthGuard } from 'src/app/guards/can-activate.authguard';
+import { CanActivateAuthGuard } from 'app/guards/can-activate.authguard';
+import { DashboardWaterWorksBillViewComponent } from 'app/modules/dashboard/dashboard-water-works-bill-view/dashboard-water-works-bill-view.component';
 
 const dashboardRoutes: Routes = [
   {

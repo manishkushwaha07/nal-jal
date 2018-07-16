@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalConfiguration } from '../../config/global.config';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DashboardMenuService } from 'src/app/modules/dashboard/dashboard-menu.service';
-import { AuthorizationService } from 'src/app/services/authorization-service/authorization.service';
+import { DashboardMenuService } from 'app/modules/dashboard/dashboard-menu.service';
+import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 
 @Component({
   selector: 'nal-jal-dashboard',

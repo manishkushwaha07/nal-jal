@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { MenuInterface } from "src/app/interfaces/menu/menu.interface";
+import { MenuInterface } from "app/interfaces/menu/menu.interface";
 
 @Injectable()
 export class DashboardMenuService implements MenuInterface{

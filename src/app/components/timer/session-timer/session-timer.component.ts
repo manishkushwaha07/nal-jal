@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 // import { LoginModalComponent } from 'app/modals/login-modal/login-modal.component';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
-import { AuthorizationService } from 'src/app/services/authorization-service/authorization.service';
-import { SessionTimerService } from 'src/app/services/session-timer/session-timer.service';
+import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
+import { SessionTimerService } from 'app/services/session-timer/session-timer.service';
 
 @Component({
   selector: 'nal-jal-session-timer',

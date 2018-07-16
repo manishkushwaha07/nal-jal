@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: './modules/dashboard/dashboard.module#DashboardModule'
+    loadChildren: 'app/modules/dashboard/dashboard.module#DashboardModule'
   },
   { 
     path: '**', 

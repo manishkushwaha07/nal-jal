@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from "@angular/common/http";
 import { Observable } from 'rxjs';
-import { AuthorizationService } from 'src/app/services/authorization-service/authorization.service';
+import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 
 /**
  * Developed by Nitish on 21112017.

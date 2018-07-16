@@ -4,8 +4,8 @@ import { Response} from '@angular/http';
 import { GlobalConfiguration } from '../../config/global.config';
 import { User } from '../../models/user.model';
 import { Router } from "@angular/router";
-import { LoginService } from 'src/app/services/login/login.service';
-import { LogoutService } from 'src/app/services/logout/logout.service';
+import { LoginService } from 'app/services/login/login.service';
+import { LogoutService } from 'app/services/logout/logout.service';
 // import { LogoutService } from 'app/services/logout/logout.service';
 
 @Injectable()

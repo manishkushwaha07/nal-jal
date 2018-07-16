@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SessionTimerService } from 'src/app/services/session-timer/session-timer.service';
+import { SessionTimerService } from 'app/services/session-timer/session-timer.service';
 
 @NgModule({
   imports: [

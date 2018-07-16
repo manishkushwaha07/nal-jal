@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginServiceModule } from 'src/app/services/login/login-service.module';
+import { LoginServiceModule } from 'app/services/login/login-service.module';
 import { ReadServiceModule } from './read/read-service.module';
 import { BillServiceModule } from './bill/bill-service.module';
 import { PaginationServiceModule } from './pagination/pagination-service.module';
-import { SessionTimerServiceModule } from 'src/app/services/session-timer/session-timer-service.module';
-import { LogoutServiceModule } from 'src/app/services/logout/logout-service.module';
-import { AuthorizationServiceModule } from 'src/app/services/authorization-service/authorization-service.module';
-import { LocationServiceModule } from 'src/app/services/location/location-service.module';
+import { SessionTimerServiceModule } from 'app/services/session-timer/session-timer-service.module';
+import { LogoutServiceModule } from 'app/services/logout/logout-service.module';
+import { AuthorizationServiceModule } from 'app/services/authorization-service/authorization-service.module';
+import { LocationServiceModule } from 'app/services/location/location-service.module';
 
 
 @NgModule({

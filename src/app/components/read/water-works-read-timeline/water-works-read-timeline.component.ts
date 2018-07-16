@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationService } from 'src/app/services/location/location.service';
+import { LocationService } from 'app/services/location/location.service';
 import { ReadService } from '../../../services/read/read.service';
-import { GlobalConstants } from 'src/app/utility/global.constants';
+import { GlobalConstants } from 'app/utility/global.constants';
 
 @Component({
   selector: 'nal-jal-water-works-read-timeline',

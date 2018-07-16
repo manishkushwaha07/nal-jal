@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizationService } from 'src/app/services/authorization-service/authorization.service';
+import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 import { User } from '../../models/user.model';
-import { GlobalResources } from 'src/app/utility/global.resources';
+import { GlobalResources } from 'app/utility/global.resources';
 
 @Component({
   selector: 'nal-jal-login',

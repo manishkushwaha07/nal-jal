@@ -41,7 +41,7 @@ label.not-required:after{
 
 ::-webkit-scrollbar:horizontal {
     /* width: 3px; */
-    height: 3px;
+    height: 5px;
 }
  
 ::-webkit-scrollbar-track:horizontal {

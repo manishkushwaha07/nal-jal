@@ -67,7 +67,7 @@ label.not-required:after{
 .mainContainer{
     margin: 10px;
     display: flex;
-    overflow:auto;
+    overflow: auto;
     /* height: 78vh; */
 }
 
@@ -75,10 +75,11 @@ label.not-required:after{
 	/*
      flex grow will grow the content across the container
     */
-    flex-grow : 1;
-    flex-basis: 15%;
     display: flex;
     flex-direction: column;
+    flex-basis: 15%;
+    flex-grow : 1;
+    overflow: auto;
 }
 
 .sideNav > .list-group{
@@ -92,6 +93,7 @@ label.not-required:after{
      flex grow will grow the content across the container
     */
      flex-grow : 8; 
+     overflow: auto;
 }
 
 .mainNavItem{

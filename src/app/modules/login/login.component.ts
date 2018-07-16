@@ -33,12 +33,13 @@ export class LoginComponent implements OnInit {
         if(this.authorizationService.isLogedIn()){
           console.log("redirect to dashboard");
           this.router.navigate(['/dashboard']);
+          this.loading = false;
         }
       }else{
+        this.loading = false;
         this.loginError = true;
         this.loginErrorText = this.UNABLE_LOGIN_MESSAGE;
       }
-      this.loading = false;
     }, error => {
       this.loading = false;
       this.loginError = true;

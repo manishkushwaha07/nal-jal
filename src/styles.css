@@ -68,7 +68,7 @@ label.not-required:after{
     margin: 10px;
     display: flex;
     overflow:auto;
-    height: 78vh;
+    /* height: 78vh; */
 }
 
 .sideNav{

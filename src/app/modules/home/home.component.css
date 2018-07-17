@@ -4,11 +4,12 @@
     background-position: center;
     height: 81vh;
     display:flex;
+    overflow: auto;
 }
 
 #chart{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;

@@ -1,6 +1,9 @@
 <div class="card">
-  <div class="card-body" id="pieChart">
-    <canvas baseChart height="230" width="300" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
-    [colors]="pieChartColors"  (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+  <div class="card-body" id="chart">
+    <canvas baseChart height="230" width="300" [chartType]="chartType" [data]="chartData" [labels]="chartLabels" [options]="chartOptions"
+    [colors]="chartColors"  (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <div class="card-footer text-right">
+    <button class="btn btn-sm btn-primary" (click)="randomizeType()">Toggle</button>
   </div>
 </div>

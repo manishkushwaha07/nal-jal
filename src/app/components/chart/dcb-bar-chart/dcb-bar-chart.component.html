@@ -1,7 +1,10 @@
 <div class="card">
-  <div class="card-body" id="barChart">
-    <canvas baseChart height="230" width="400" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-    [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+  <div class="card-body" id="chart">
+    <canvas baseChart height="230" width="400" [chartType]="chartType" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
+    [colors]="chartColors" [legend]="chartLegend" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <div class="card-footer text-right">
+    <button class="btn btn-sm btn-primary" (click)="randomizeType()">Toggle</button>
   </div>
 </div>
   

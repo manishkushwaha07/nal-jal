@@ -13,12 +13,12 @@ export class ReadPieChartComponent implements OnInit {
   ngOnInit() {
   }
 
-  public pieChartLabels:string[] = ['Total Consumer', 'AMR Consumer'];
-  public pieChartData:number[] = [1972,249];
-  public pieChartType:string = 'pie';
+  public chartLabels:string[] = ['Total Consumer', 'AMR Consumer'];
+  public chartData:number[] = [1972,249];
+  public chartType:string = 'pie';
   public backgroundColor:Array<any> = ['orange','green'];
   public hoverBackgroundColor:Array<any> = ['gray','gray'];
-  public pieChartColors: Array<Color> = [
+  public chartColors: Array<Color> = [
     {
     backgroundColor: this.backgroundColor,
     hoverBackgroundColor: this.hoverBackgroundColor
@@ -27,7 +27,7 @@ export class ReadPieChartComponent implements OnInit {
 
   //scaling property
 
-  public pieChartOptions: any = {
+  public chartOptions: any = {
     responsive: true,
     maintainAspectRatio: false
   };
@@ -41,6 +41,10 @@ export class ReadPieChartComponent implements OnInit {
  
   public chartHovered(e:any):void {
     console.log(e);
+  }
+
+  public randomizeType():void {
+    this.chartType = this.chartType === 'doughnut' ? 'pie' : 'doughnut';
   }
 
 }

@@ -27,6 +27,19 @@ export class DcbBarChartComponent implements OnInit {
     responsive: true
   };
 
+  public barChartColors:Array<any> = [
+    { // blue
+      backgroundColor: '#007bff',
+      borderColor: '#007bff',
+      hoverBackgroundColor:'#17a2b8'
+    },
+    { // red
+      backgroundColor: '#dc3545',
+      borderColor: '#dc3545',
+      hoverBackgroundColor:'#ffc107'
+    }
+  ];
+
   // events
   public chartClicked(e: any): void {
     console.log(e);

@@ -30,7 +30,11 @@ export class ReadPieChartComponent implements OnInit {
 
   public chartOptions: any = {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    title: {
+      display: true,
+      text: 'AMR Consumers count'
+    }
   };
 
   

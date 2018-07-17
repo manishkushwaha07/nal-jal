@@ -13,12 +13,19 @@ export class DcbBarChartComponent implements OnInit {
   public chartLegend: boolean = true;
 
   public chartData: any[] = [
-    { data: [99266088, 111928983, 82470994], label: 'Demand' },
-    { data: [79380903, 89042948, 68415112], label: 'Arrear' }
+    { data: [99266088, 111928983, 82470994], label: 'Demand', fill:false },
+    { data: [79380903, 89042948, 68415112], label: 'Arrear', fill:false }
   ];
 
   //Scaling property
-  public chartOptions: any = { scaleShowVerticalLines: false,responsive: true };
+  public chartOptions: any = { 
+    scaleShowVerticalLines: false,
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Demand and Arrear (in millions)'
+    }
+   };
 
   // public chartColors:Array<any> = [
   //   { backgroundColor: '#007bff', borderColor: '#007bff', hoverBackgroundColor:'#17a2b8'},

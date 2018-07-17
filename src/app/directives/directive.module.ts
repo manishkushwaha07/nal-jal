@@ -7,11 +7,13 @@ import { MinValidatorDirective } from "app/directives/min-validator.directive";
 import { MaxValidatorDirective } from "app/directives/max-validator.directive";
 import { FocusChangeDirective } from 'app/directives/focus-change.directive';
 import { FocusDirective } from 'app/directives/focus.directive';
+import { LowercaseDirective } from 'app/directives/lowercase.directive';
 
 @NgModule({
     declarations: [
         FocusDirective,
         UppercaseDirective,
+        LowercaseDirective,
         MinValidatorDirective,
         MaxValidatorDirective,
         FocusChangeDirective,
@@ -19,6 +21,7 @@ import { FocusDirective } from 'app/directives/focus.directive';
 
     exports:[FocusDirective,
         UppercaseDirective,
+        LowercaseDirective,
         MinValidatorDirective,
         MaxValidatorDirective,
         FocusChangeDirective,

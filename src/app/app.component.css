@@ -31,3 +31,14 @@
     /**background-color: #343a40; **/ /**bg-dark color code **/
     background-color: #ffc107; /**spring-boot color code  **/
 }
+
+/* *-muted changes the color to gray #868e96
+*-primary changes the color to blue #007bff
+*-success changes the color to green #28a745
+*-info changes the color to purple #17a2b8
+*-warning changes the color to yellow #ffc107
+*-danger changes the color to red #dc3545
+*-secondary changes the color to gray #868e96
+*-white changes the color to white #ffffff.
+*-dark changes the color to dark gray #343a40
+*-light changes the color to light gray #f8f9fa */

@@ -42,7 +42,6 @@ export class PaginationComponent implements OnInit {
   set setItems(items : any[]){
     //console.log("setItems called with items " + items.length);
     this.items = items;
-    this.setPage(1);
   }
 
   /**
@@ -54,6 +53,7 @@ export class PaginationComponent implements OnInit {
   set setPageSize(pageSize : number){
     //console.log("setPageSize called with size " + pageSize);
     this.pageSize = pageSize;
+    this.setPage(1);
   }
 
   /**

@@ -38,8 +38,14 @@ export class DcbBarChartComponent implements OnInit {
     console.log(e);
   }
 
-  randomizeType(){
-    this.chartType = this.chartType === 'line' ? 'bar' : 'line';
+  public randomizeType(chartType:string):void {
+    if(chartType ==='bar'){
+      this.chartType = 'line';
+    }else if(chartType ==='line'){
+      this.chartType = 'radar';
+    }else{
+      this.chartType = 'bar';
+    }
   }
-
+  
 }

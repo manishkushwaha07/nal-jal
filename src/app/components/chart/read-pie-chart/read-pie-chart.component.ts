@@ -16,6 +16,7 @@ export class ReadPieChartComponent implements OnInit {
   public chartLabels:string[] = ['Total Consumer', 'AMR Consumer'];
   public chartData:number[] = [1972,249];
   public chartType:string = 'pie';
+  public chartLegend: boolean = true;
   public backgroundColor:Array<any> = ['orange','green'];
   public hoverBackgroundColor:Array<any> = ['gray','gray'];
   public chartColors: Array<Color> = [
@@ -43,8 +44,17 @@ export class ReadPieChartComponent implements OnInit {
     console.log(e);
   }
 
-  public randomizeType():void {
-    this.chartType = this.chartType === 'doughnut' ? 'pie' : 'doughnut';
+  public randomizeType(chartType:string):void {
+    if(chartType ==='pie'){
+      this.chartType = 'doughnut';
+    }else if(chartType ==='doughnut'){
+      this.chartType = 'polarArea';
+    }else{
+      this.chartType = 'pie';
+    }
+
+    // this.chartType = this.chartType === 'pie' ? 'doughnut' : ('doughnut' ? 'polarArea' : 'pie');
+    console.log(this.chartType);
   }
 
 }

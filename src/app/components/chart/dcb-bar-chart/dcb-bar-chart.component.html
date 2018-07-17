@@ -3,8 +3,9 @@
     <canvas baseChart height="230" width="400" [chartType]="chartType" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
     [colors]="chartColors" [legend]="chartLegend" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
   </div>
-  <div class="card-footer text-right">
-    <button class="btn btn-sm btn-primary" (click)="randomizeType()">Toggle</button>
+  <div class="card-footer d-flex justify-content-around">
+    <strong class="text-muted">Chart Type: {{chartType | uppercase}}</strong>
+    <button class="btn btn-sm btn-primary" (click)="randomizeType(chartType)">Toggle</button>
   </div>
 </div>
   

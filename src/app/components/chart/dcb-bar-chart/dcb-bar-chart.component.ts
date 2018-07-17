@@ -9,7 +9,7 @@ export class DcbBarChartComponent implements OnInit {
 
   
   public chartLabels: string[] = ['APR', 'MAY', 'JUN'];
-  public chartType: string = 'bar';
+  public chartType: string = 'bar';//horizontalBar
   public chartLegend: boolean = true;
 
   public chartData: any[] = [

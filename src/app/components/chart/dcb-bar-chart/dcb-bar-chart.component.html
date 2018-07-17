@@ -1,6 +1,6 @@
 <div class="card">
-  <div class="card-body" id="chart">
-    <canvas baseChart height="230" width="400" [chartType]="chartType" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
+  <div class="card-body"id="chart-container">
+    <canvas baseChart [chartType]="chartType" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
      [legend]="chartLegend" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas><!--[colors]="chartColors"-->
   </div>
   <div class="card-footer d-flex justify-content-around">

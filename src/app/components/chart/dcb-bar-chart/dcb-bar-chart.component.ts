@@ -7,22 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DcbBarChartComponent implements OnInit {
 
-  
-  public chartLabels: string[] = ['APR', 'MAY', 'JUN'];
   public chartType: string = 'bar';//horizontalBar
-  public chartLegend: boolean = true;
-
-  public chartData: any[] = [
-    { label: 'Demand', 
-      data: [99266088, 111928983, 82470994], 
-      fill:false 
-    },
-    { 
-      label: 'Arrear',
-      data: [79380903, 89042948, 68415112], 
-      fill:false 
-    }
-  ];
+  public chartData = {
+    legend: true,
+    datasets:[
+      { 
+        label: 'Demand',
+        data: [99266088, 111928983, 82470994], 
+        fill:false 
+      },
+      { 
+        label: 'Arrear',
+        data: [79380903, 89042948, 68415112], 
+        fill:false 
+      }
+  ],
+    labels: ['APR', 'MAY', 'JUN'],
+    colors: [
+      {
+        backgroundColor: '#17a2b8',
+        hoverBackgroundColor: 'gray',
+        borderColor:'#17a2b8',
+        borderWidth:2
+      },
+      {
+        backgroundColor: 'red',
+        hoverBackgroundColor: 'gray',
+        borderColor:'red',
+        borderWidth:2
+      },
+    ],
+  }
 
   //Scaling property
   public chartOptions: any = { 

@@ -42,9 +42,11 @@ export class DcbBarChartComponent implements OnInit {
   //Scaling property
   public chartOptions: any = { 
     scaleShowVerticalLines: false,
+    scaleShowValues: true,
     responsive: true,
     title: {
       display: true,
+      position: 'top',
       text: 'Demand and Arrear (in millions)'
     },
     legend:{
@@ -54,7 +56,21 @@ export class DcbBarChartComponent implements OnInit {
     },
     animation: {
       animateScale: true,
-      animateRotate: true
+      animateRotate: true,
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+            max: 150000000,
+            min: 1000000,
+            stepSize: 50000000,
+            mirror: false,
+        }
+      }],
+    },
+    tooltips: {
+      enabled: true,
+      mode: 'single',
     }
    };
 

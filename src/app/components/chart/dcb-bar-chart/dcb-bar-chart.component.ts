@@ -13,8 +13,15 @@ export class DcbBarChartComponent implements OnInit {
   public chartLegend: boolean = true;
 
   public chartData: any[] = [
-    { data: [99266088, 111928983, 82470994], label: 'Demand', fill:false },
-    { data: [79380903, 89042948, 68415112], label: 'Arrear', fill:false }
+    { label: 'Demand', 
+      data: [99266088, 111928983, 82470994], 
+      fill:false 
+    },
+    { 
+      label: 'Arrear',
+      data: [79380903, 89042948, 68415112], 
+      fill:false 
+    }
   ];
 
   //Scaling property
@@ -24,6 +31,11 @@ export class DcbBarChartComponent implements OnInit {
     title: {
       display: true,
       text: 'Demand and Arrear (in millions)'
+    },
+    legend:{
+      display: true,
+      position: 'bottom',
+      fullWidth: true,
     }
    };
 

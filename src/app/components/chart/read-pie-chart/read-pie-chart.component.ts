@@ -34,6 +34,11 @@ export class ReadPieChartComponent implements OnInit {
     title: {
       display: true,
       text: 'AMR Consumers count'
+    },
+    legend:{
+      display: true,
+      position: 'bottom',
+      fullWidth: true,
     }
   };
 

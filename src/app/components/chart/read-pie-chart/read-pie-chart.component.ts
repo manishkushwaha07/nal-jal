@@ -55,22 +55,22 @@ export class ReadPieChartComponent implements OnInit {
       overlap: true,
       position: 'border'//'outside'
     },
-    // tooltips: {
-    //   enabled: true,
-    //   mode: 'single',
-    //   callbacks: {
-    //     label: function(tooltipItem, data) {
-    //       var dataset = data.datasets[tooltipItem.datasetIndex];
-    //       var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
-    //         return previousValue + currentValue;
-    //       });
-    //       var tooltipLabel = data.labels[tooltipItem.index];
-    //       var currentValue = dataset.data[tooltipItem.index];
-    //       var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
-    //       return tooltipLabel + " " + precentage + "%";
-    //     }
-    //   }
-    // }
+    tooltips: {
+      enabled: true,
+      mode: 'single',
+      // callbacks: {
+      //   label: function(tooltipItem, data) {
+      //     var dataset = data.datasets[tooltipItem.datasetIndex];
+      //     var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+      //       return previousValue + currentValue;
+      //     });
+      //     var tooltipLabel = data.labels[tooltipItem.index];
+      //     var currentValue = dataset.data[tooltipItem.index];
+      //     var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+      //     return tooltipLabel + " " + precentage + "%";
+      //   }
+      // }
+    }
   };
 
   

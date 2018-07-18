@@ -36,6 +36,10 @@ export class DcbBarChartComponent implements OnInit {
       display: true,
       position: 'bottom',
       fullWidth: true,
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true
     }
    };
 

@@ -39,6 +39,10 @@ export class ReadPieChartComponent implements OnInit {
       display: true,
       position: 'bottom',
       fullWidth: true,
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true
     }
   };
 

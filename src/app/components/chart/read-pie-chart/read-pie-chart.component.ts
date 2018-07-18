@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Color } from 'ng2-charts';
+import 'chart.piecelabel.js';
 
 @Component({
   selector: 'read-pie-chart',
@@ -44,19 +45,29 @@ export class ReadPieChartComponent implements OnInit {
       animateScale: true,
       animateRotate: true
     },
+    pieceLabel: {
+      render: 'percentage',//'value','label'
+      fontColor: ['white', 'white'],
+      fontStyle: 'bold',
+      fontSize: 14,
+      precision: 2,
+      arc: false,
+      overlap: true,
+      position: 'border'//'outside'
+    },
     // tooltips: {
+    //   enabled: true,
+    //   mode: 'single',
     //   callbacks: {
     //     label: function(tooltipItem, data) {
     //       var dataset = data.datasets[tooltipItem.datasetIndex];
-    //       console.log(dataset);
     //       var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
-    //         console.log(previousValue, currentValue, currentIndex, array);
     //         return previousValue + currentValue;
     //       });
-    //       console.log(total);
+    //       var tooltipLabel = data.labels[tooltipItem.index];
     //       var currentValue = dataset.data[tooltipItem.index];
     //       var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
-    //       return precentage + "%";
+    //       return tooltipLabel + " " + precentage + "%";
     //     }
     //   }
     // }

@@ -58,11 +58,6 @@ export class DcbBarChartComponent implements OnInit {
     }
    };
 
-  // public chartColors:Array<any> = [
-  //   { backgroundColor: '#007bff', borderColor: '#007bff', hoverBackgroundColor:'#17a2b8'},
-  //   { backgroundColor: '#dc3545', borderColor: '#dc3545', hoverBackgroundColor:'#ffc107'},
-  // ];
-
   constructor() { }
 
   ngOnInit() {

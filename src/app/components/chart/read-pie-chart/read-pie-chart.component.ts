@@ -19,6 +19,8 @@ export class ReadPieChartComponent implements OnInit {
     colors: [{
       backgroundColor: ['orange','green'],
       hoverBackgroundColor: ['gray','gray'],
+      borderColor:['orange','green'],
+      borderWidth:[2,2]
     }],
   }
 

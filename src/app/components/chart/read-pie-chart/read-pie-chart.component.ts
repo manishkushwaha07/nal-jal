@@ -43,7 +43,23 @@ export class ReadPieChartComponent implements OnInit {
     animation: {
       animateScale: true,
       animateRotate: true
-    }
+    },
+    // tooltips: {
+    //   callbacks: {
+    //     label: function(tooltipItem, data) {
+    //       var dataset = data.datasets[tooltipItem.datasetIndex];
+    //       console.log(dataset);
+    //       var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+    //         console.log(previousValue, currentValue, currentIndex, array);
+    //         return previousValue + currentValue;
+    //       });
+    //       console.log(total);
+    //       var currentValue = dataset.data[tooltipItem.index];
+    //       var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+    //       return precentage + "%";
+    //     }
+    //   }
+    // }
   };
 
   

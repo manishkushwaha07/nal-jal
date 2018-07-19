@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 import { User } from '../../models/user.model';
 import { GlobalResources } from 'app/utility/global.resources';
+import { GlobalConfiguration } from 'app/config/global.config';
 
 @Component({
   selector: 'nal-jal-login',
@@ -31,6 +32,10 @@ export class LoginComponent implements OnInit {
       if(success.status === 200){
         console.log("Login Successfull. Logged in User is: " + this.authorizationService.getLoggedInUserRole());
         if(this.authorizationService.isLogedIn()){
+          // if(this.authorizationService.getLoggedInUserRole() === GlobalConfiguration.ROLE_OAG){
+          //   console.log("Authenticated user is oag. Navigating to oag homepage");
+          //   this.router.navigate(['/oag']);
+          // }
           console.log("redirect to dashboard");
           this.router.navigate(['/dashboard']);
           this.loading = false;

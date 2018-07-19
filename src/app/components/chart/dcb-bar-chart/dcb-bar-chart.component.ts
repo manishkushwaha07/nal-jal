@@ -44,6 +44,14 @@ export class DcbBarChartComponent implements OnInit {
     scaleShowVerticalLines: false,
     scaleShowValues: true,
     responsive: true,
+    layout: {
+      padding: {
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: -10
+      }
+    },
     title: {
       display: true,
       position: 'top',
@@ -53,10 +61,15 @@ export class DcbBarChartComponent implements OnInit {
       display: true,
       position: 'bottom',
       fullWidth: true,
+      labels: {
+        fontColor: 'rgb(255, 99, 132)',
+        fontStyle: 'bold',
+      },
     },
     animation: {
       animateScale: true,
       animateRotate: true,
+      duration: 2000
     },
     scales: {
       yAxes: [{

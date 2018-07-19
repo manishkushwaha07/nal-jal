@@ -35,10 +35,15 @@ export class ReadPieChartComponent implements OnInit {
       display: true,
       position: 'bottom',
       fullWidth: true,
+      labels: {
+        fontColor: 'rgb(255, 99, 132)',
+        fontStyle: 'bold',
+      },
     },
     animation: {
       animateScale: true,
-      animateRotate: true
+      animateRotate: true,
+      duration: 3000
     },
     pieceLabel: {
       render: 'percentage',//'value','label'

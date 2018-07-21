@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import 'chart.piecelabel.js';
+import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'read-pie-chart',
@@ -73,7 +74,7 @@ export class ReadPieChartComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
@@ -96,4 +97,59 @@ export class ReadPieChartComponent implements OnInit {
     }
   }
 
+//--------------------------------------------------------------
+  // fileURL: SafeResourceUrl;
+  // valid:boolean = false;
+  // exportBill() {
+  //   this.valid = false;
+  //   this.reportBillService.getBill(this.consumerNo, this.billMonth, this.language, this.exportType).subscribe(success => {  
+  //     var date = new Date(Date.now()).toLocaleDateString();
+  //     if(success.status === 200) {
+  //       let blob;
+  //       if("PDF" === this.exportType) {
+  //         blob = new Blob([success.body], {type: 'application/pdf'});
+  //         let url = URL.createObjectURL(blob);
+  //         this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  //         this.valid = true;
+  //         let  fileName = 'bill_'+date+'_'+this.consumerNo+'.pdf';
+  //         // saveAs(blob, fileName);
+  //         alert("Bill Exported as PDF");
+  //       } else if("HTML" === this.exportType) {
+  //         blob = new Blob([success.body]);
+  //         var reader = new FileReader();
+  //         reader.onload = function() {
+  //           var nscWindow = window.open("", "_blank", "");
+  //           nscWindow.document.write(reader.result);
+  //         }
+  //         reader.readAsText(blob);
+  //       } else {
+  //         alert("Wrong Export Type Selected.");
+  //       }
+  //     }
+  //   }, error => { 
+  //     if(error.status === 400 || error.status === 417) {
+  //       var errorStr = String.fromCharCode.apply(this, new Uint8Array(error.error));
+  //       var errorJson = JSON.parse(errorStr);
+  //       alert(errorJson.errorMessage);
+  //     } else {
+  //       alert("Error inside" + "exportBill()");
+  //     }
+  //   });
+  // }
+
+  // <div *ngIf="valid" id="billView">
+  //     <iframe [src]="fileURL" type="application/pdf" width="100%" height="100%">
+  //       <object [data]="fileURL" type="application/pdf">
+  //         <p>This browser does not support PDFs. Please download the PDF to view it: <a [href]="fileURL">Download PDF</a>.</p>
+  //       </object>
+  //     </iframe>
+  //   </div>
+
+  // #billView{
+  //   display: flex;
+  //   height: 100vh;
+  //   flex-direction: column;
+  //   justify-content: space-around;
+  // }
+//--------------------------------------------------------------
 }

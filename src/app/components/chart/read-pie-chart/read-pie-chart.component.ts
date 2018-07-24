@@ -111,8 +111,9 @@ export class ReadPieChartComponent implements OnInit {
   //         let url = URL.createObjectURL(blob);
   //         this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   //         this.valid = true;
-  //         let  fileName = 'bill_'+date+'_'+this.consumerNo+'.pdf';
-  //         // saveAs(blob, fileName);
+  //         let  fileName = 'bill_'+date+'.pdf';
+  //         // saveAs is a method from third party library file-saver.
+  //         saveAs(blob, fileName);
   //         alert("Bill Exported as PDF");
   //       } else if("HTML" === this.exportType) {
   //         blob = new Blob([success.body]);
@@ -122,6 +123,12 @@ export class ReadPieChartComponent implements OnInit {
   //           nscWindow.document.write(reader.result);
   //         }
   //         reader.readAsText(blob);
+  //       } else if("EXCEL" === this.exportType) {
+  //         let byteArray = this.createByteArrayFromBase64EncryptedBytes(success.body.bytes);
+  //         blob = new Blob([byteArray], {type : 'application/vdn.ms-excel'});
+  //         let  fileName = 'bill_'+date+'.xlsx';
+  //         // saveAs is a method from third party library file-saver.
+  //         saveAs(blob, fileName);
   //       } else {
   //         alert("Wrong Export Type Selected.");
   //       }
@@ -135,6 +142,16 @@ export class ReadPieChartComponent implements OnInit {
   //       alert("Error inside" + "exportBill()");
   //     }
   //   });
+  // }
+
+  // createByteArrayFromBase64EncryptedBytes(encryptedBytes){
+  //   let decodedString = atob(encryptedBytes);
+  //   let byteNumbers = new Array(decodedString.length);
+  //   for (let i = 0; i < decodedString.length; i++) {
+  //     byteNumbers[i] = decodedString.charCodeAt(i);
+  //   }
+  //   let byteArray = new Uint8Array(byteNumbers);
+  //   return byteArray;
   // }
 
   // <div *ngIf="valid" id="billView">

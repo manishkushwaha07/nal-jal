@@ -107,13 +107,15 @@ export class ReadPieChartComponent implements OnInit {
   //     if(success.status === 200) {
   //       let blob;
   //       if("PDF" === this.exportType) {
-  //         blob = new Blob([success.body], {type: 'application/pdf'});
+  //         blob = new Blob([success.body], {type: 'application/pdf'});//'text/plain'
   //         let url = URL.createObjectURL(blob);
   //         this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   //         this.valid = true;
   //         let  fileName = 'bill_'+date+'.pdf';
   //         // saveAs is a method from third party library file-saver.
-  //         saveAs(blob, fileName);
+  //         // saveAs(blob, fileName);
+  //         //-----------------OR------------------
+  //         this.downloadFile(blob,fileName);
   //         alert("Bill Exported as PDF");
   //       } else if("HTML" === this.exportType) {
   //         blob = new Blob([success.body]);
@@ -125,10 +127,12 @@ export class ReadPieChartComponent implements OnInit {
   //         reader.readAsText(blob);
   //       } else if("EXCEL" === this.exportType) {
   //         let byteArray = this.createByteArrayFromBase64EncryptedBytes(success.body.bytes);
-  //         blob = new Blob([byteArray], {type : 'application/vdn.ms-excel'});
+  //         blob = new Blob([byteArray], {type : 'application/vdn.ms-excel'});//'text/plain'
   //         let  fileName = 'bill_'+date+'.xlsx';
   //         // saveAs is a method from third party library file-saver.
-  //         saveAs(blob, fileName);
+  //         // saveAs(blob, fileName);
+  //         //-----------------OR------------------
+  //         this.downloadFile(blob,fileName);
   //       } else {
   //         alert("Wrong Export Type Selected.");
   //       }
@@ -152,6 +156,15 @@ export class ReadPieChartComponent implements OnInit {
   //   }
   //   let byteArray = new Uint8Array(byteNumbers);
   //   return byteArray;
+  // }
+
+  // downloadFile(blob, fileName){
+  //   var dlink = document.createElement('a');
+  //       dlink.download = fileName;
+  //       dlink.href = window.URL.createObjectURL(blob);
+  //       document.body.appendChild(dlink);
+  //       dlink.click();
+  //       dlink.remove();
   // }
 
   // <div *ngIf="valid" id="billView">

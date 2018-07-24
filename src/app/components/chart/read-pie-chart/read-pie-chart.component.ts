@@ -165,6 +165,7 @@ export class ReadPieChartComponent implements OnInit {
   //       document.body.appendChild(dlink);
   //       dlink.click();
   //       dlink.remove();
+  //       document.body.removeChild(dlink);
   // }
 
   // <div *ngIf="valid" id="billView">

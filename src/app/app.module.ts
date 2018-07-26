@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from 'app/app.component';
 import { HomeModule } from 'app/modules/home/home.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponentModule } from 'app/components/header/header-component.module';
 import { FooterComponentModule } from 'app/components/footer/footer-component.module';
 import { ServicesModule } from 'app/services/services.module';
@@ -25,6 +26,7 @@ import { AuthorizationInterceptor } from 'app/interceptors/authorization.interce
     HomeModule,
     HeaderComponentModule,
     FooterComponentModule,
+    NgbModule.forRoot(),
     ServicesModule,
     AppRoutingModule
   ],

@@ -166,6 +166,7 @@ export class ReadPieChartComponent implements OnInit {
   //       dlink.click();
   //       dlink.remove();
   //       document.body.removeChild(dlink);
+  //       URL.revokeObjectURL(fileURL);
   // }
 
   // <div *ngIf="valid" id="billView">

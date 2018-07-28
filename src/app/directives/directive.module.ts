@@ -27,6 +27,7 @@ import { RemoveCharacterDirective } from './remove-character.directive';
         MinValidatorDirective,
         MaxValidatorDirective,
         FocusChangeDirective,
+        RemoveCharacterDirective
     ],
 
 })

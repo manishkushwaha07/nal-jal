@@ -1,4 +1,19 @@
-<nal-jal-header></nal-jal-header>
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <nal-jal-header></nal-jal-header>
+  </div>
+  <nav class="navbar navbar-warning bg-warning text-white">
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <a class="text-white" href="javascript:void(0);">
+      <i class="fa fa-arrow-circle-up fa-2x" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"></i>
+    </a>
+    <a class="text-white" href="javascript:void(0);" (click)="logoutClicked()">
+      <strong><i class="fa fa-sign-out" aria-hidden="true" ></i> Logout</strong>
+    </a>
+  </nav>
+</div>
 <div class="mainContainer">
 
   <div class="sideNav">
@@ -11,18 +26,12 @@
         <a *ngFor="let menu of menus" class="list-group-item list-group-item-action" [ngClass]="{'active': menu.active}" (click)="menuClicked(menu)" href="javascript:void(0);">
           <i class="fa {{menu.icon}}"></i> {{menu.name}}
         </a>
-        <a class="list-group-item list-group-item-action" href="javascript:void(0);" (click)="logoutClicked()">
+        <!-- <a class="list-group-item list-group-item-action" href="javascript:void(0);" (click)="logoutClicked()">
           <i class="fa fa-sign-out" aria-hidden="true" ></i> Logout
-        </a>
+        </a> -->
       </div>
       <!-- <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.FIRST_MENU)" [ngClass]="{'active': dashboardMenuService.FIRST_MENU.active}" href="javascript:void(0);">
          <i class="fa {{dashboardMenuService.FIRST_MENU.icon}}"></i>{{dashboardMenuService.FIRST_MENU.name}}
-      </a>
-      <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.SECOND_MENU)" [ngClass]="{'active': dashboardMenuService.SECOND_MENU.active}" href="javascript:void(0);">
-        <i class="fa {{dashboardMenuService.SECOND_MENU.icon}}"></i>{{dashboardMenuService.SECOND_MENU.name}}
-      </a>
-      <a class="list-group-item list-group-item-action" (click)="menuClicked(dashboardMenuService.THIRD_MENU)" [ngClass]="{'active': dashboardMenuService.THIRD_MENU.active}" href="javascript:void(0);">
-        <i class="fa {{dashboardMenuService.THIRD_MENU.icon}}"></i>{{dashboardMenuService.THIRD_MENU.name}}
       </a> -->
     </ul>
   </div>

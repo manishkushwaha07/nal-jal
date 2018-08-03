@@ -20,11 +20,6 @@ export class DashboardComponent implements OnInit {
     this.menus = this.dashboardMenuService.getMenus();
   }
 
-  logoutClicked() {
-    console.log("logout clicked from dashboard");
-    this.authorizationService.logout();
-  }
-
   public menuClicked(menu: any): void {
     let methodName : string = "menuClicked() : ";
     let logPrefix : string = this.globalConfiguration.getLogPrefix(this.className, methodName);

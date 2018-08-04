@@ -17,12 +17,15 @@ export class MinValidatorDirective implements Validator {
   
     // Define validation logic
     validate(control: AbstractControl): ValidationErrors {
-      const currentValue = control.value;
-      const isValid = currentValue >= this.min;
+      const currentValue = Number(control.value);
+      const min = Number(this.min);
+      const isValid = !isNaN(currentValue) && !isNaN(min) && currentValue >= min;
       // return errors as an object
       return isValid ? null : {
         min: {
-          valid: false
+          valid: false,
+          requiredMin: min,
+          actualMin: currentValue
         }
       };
   

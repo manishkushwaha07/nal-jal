@@ -4,6 +4,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from 'app/modules/login/login.routing';
 import { LoaderComponentModule } from '../../components/loader/loader-component.module';
+import { ErrorsComponentModule } from 'app/components/errors/errors-component.module';
+import { DirectiveModule } from '../../directives/directive.module';
 
 @NgModule({
   imports: [
@@ -11,7 +13,9 @@ import { LoaderComponentModule } from '../../components/loader/loader-component.
     FormsModule,
     ReactiveFormsModule,
     LoaderComponentModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    ErrorsComponentModule,
+    DirectiveModule
   ],
   declarations: [LoginComponent],
   exports: [LoginComponent]

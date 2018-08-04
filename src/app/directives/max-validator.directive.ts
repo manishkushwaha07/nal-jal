@@ -10,15 +10,17 @@ export class MaxValidatorDirective implements Validator {
   @Input() max: number;
 
   validate(control: AbstractControl): ValidationErrors {
-    const currentValue = control.value;
-    const isValid = currentValue <= this.max;
+    const currentValue = Number(control.value);
+    const max = Number(this.max);
+    const isValid = !isNaN(currentValue) && !isNaN(max) && currentValue <= max;
     // return errors as an object
     return isValid ? null : {
       max: {
-        valid: false
+        valid: false,
+        requiredMax: max,
+        actualMax: currentValue
       }
     };
-
   }
 
   constructor() { }

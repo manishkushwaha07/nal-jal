@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <div class='card-body' style='background-color: #f2f2f2'>
       <form nalJalNestedForm #form1="ngForm">
         <nal-jal-form-status formName="form-1" [isFormValid]="form1.valid"></nal-jal-form-status>
+        <input type="text" class='form-control-sm' name="text1" ngModel required>
         <nal-jal-nested-form></nal-jal-nested-form>
       </form>
     </div>

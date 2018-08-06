@@ -12,6 +12,8 @@ import { DashboardWaterWorksAssessedReadViewComponent } from './dashboard-water-
 import { DashboardWaterWorksZeroReadViewComponent } from './dashboard-water-works-zero-read-view/dashboard-water-works-zero-read-view.component';
 import { FooterComponentModule } from 'app/components/footer/footer-component.module';
 import { NavbarComponentModule } from 'app/components/navbar/navbar-component.module';
+import { DashboardNestedFormComponent } from './dashboard-nested-form/dashboard-nested-form.component';
+import { NestedFormSampleComponentModule } from 'app/components/nested-form-sample/nested-form-sample-component.module';
 
 @NgModule({
   imports: [
@@ -20,7 +22,8 @@ import { NavbarComponentModule } from 'app/components/navbar/navbar-component.mo
     ReadModule,
     BillModule,
     FooterComponentModule,
-    NavbarComponentModule
+    NavbarComponentModule,
+    NestedFormSampleComponentModule
   ],
   declarations: [
     DashboardComponent,
@@ -28,7 +31,8 @@ import { NavbarComponentModule } from 'app/components/navbar/navbar-component.mo
     DashboardWaterWorksReadViewComponent,
     DashboardWaterWorksBillViewComponent,
     DashboardWaterWorksAssessedReadViewComponent,
-    DashboardWaterWorksZeroReadViewComponent
+    DashboardWaterWorksZeroReadViewComponent,
+    DashboardNestedFormComponent
   ],
   providers: [
     DashboardMenuService

@@ -35,6 +35,12 @@ export class DashboardMenuService implements MenuInterface{
     private readonly FIFTH_MENU_LINK : string = "water-works/assessed/read/view";
     private readonly FIFTH_MENU_ACTIVE : boolean = false;
 
+    public LAST_MENU : any;
+    private readonly LAST_MENU_ICON: string = "fa-list-alt";
+    private readonly LAST_MENU_NAME : string = "Nested Form Example";
+    private readonly LAST_MENU_LINK : string = "nested-form/example";
+    private readonly LAST_MENU_ACTIVE : boolean = false;
+
     menus: any[] = new Array();
     menuObject: any = {};
     constructor(){
@@ -88,6 +94,14 @@ export class DashboardMenuService implements MenuInterface{
             link: this.FIFTH_MENU_LINK
         }
         this.menus.push(this.FIFTH_MENU);
+
+        this.LAST_MENU = {
+            icon: this.LAST_MENU_ICON,
+            name: this.LAST_MENU_NAME,
+            active: this.LAST_MENU_ACTIVE,
+            link: this.LAST_MENU_LINK
+        }
+        this.menus.push(this.LAST_MENU);
     }
 
     public getMenus() {

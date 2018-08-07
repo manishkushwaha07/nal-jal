@@ -23,20 +23,19 @@ export class NestedFormDirective implements OnInit, OnDestroy {
               private injector: Injector,
               @Attribute('rootNestedForm') private isRoot) {
 
-    console.log(parentForm, injector, isRoot);
   }
 
   ngOnInit() {
-    console.log(this.currentForm);
     if (!this.currentForm) {
-      console.log(this.currentForm);
       // NOTE: at this point both NgForm and ReactiveFrom should be available
       this.executePostponed(() => this.resolveAndRegister());
     }
   }
 
   ngOnDestroy() {
-    this.executePostponed(() => this.parentForm.removeControl(this.currentForm));
+    if(this.parentForm){
+      this.executePostponed(() => this.parentForm.removeControl(this.currentForm));
+    }
   }
 
   public registerNestedForm(control: AbstractControl): void {
@@ -66,13 +65,11 @@ export class NestedFormDirective implements OnInit, OnDestroy {
 
   private registerToParent(): void {
     if (this.parentForm != null && !this.isRoot) {
-      console.log(this.parentForm, this.isRoot);
       this.parentForm.registerNestedForm(this.currentForm);
     }
   }
 
   private executePostponed(callback: () => void): void {
-    console.log(resolvedPromise);
     resolvedPromise.then(() => callback());
   }
 

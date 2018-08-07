@@ -26,4 +26,4 @@ import { PaginationComponentModule } from 'app/components/pagination/pagination-
     WaterWorksZeroReadTimelineComponent
   ]
 })
-export class ReadModule { }
+export class ReadComponentModule { }

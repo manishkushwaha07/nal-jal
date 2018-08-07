@@ -1,20 +1,5 @@
-<nal-jal-navbar></nal-jal-navbar>
-<div id="menuContainer">
-  <ul class="nav nav-pills nav-justified">
-    <li class="nav-item" *ngFor="let menu of menus">
-      <a class="nav-link" [ngClass]="{'active': menu.active}" href="javascript:void(0);" (click)="menuClicked(menu)">
-        <i class="fa {{menu.icon}}"></i> {{menu.name}}
-      </a>
-    </li>
-  </ul>
-</div>
-<div id="outletContainer">
-  <router-outlet></router-outlet>
-</div>
-<nal-jal-footer></nal-jal-footer>
-
-<!-- <nal-jal-navbar></nal-jal-navbar>
 <div class="mainContainer">
+
   <div class="sideNav">
     <ul class="list-group">
       <a class="list-group-item sub-menu-header text-white" data-toggle="collapse" href="#menu-item">
@@ -33,4 +18,3 @@
     </div>
   </div>
 </div>
-<nal-jal-footer></nal-jal-footer> -->

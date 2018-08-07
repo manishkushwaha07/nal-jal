@@ -16,4 +16,4 @@ import { PaginationComponentModule } from 'app/components/pagination/pagination-
   declarations: [WaterWorksBillTimelineComponent],
   exports: [WaterWorksBillTimelineComponent]
 })
-export class BillModule { }
+export class BillComponentModule { }

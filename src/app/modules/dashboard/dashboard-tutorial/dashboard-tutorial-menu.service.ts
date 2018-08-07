@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { MenuInterface } from "app/interfaces/menu/menu.interface";
 
 @Injectable()
-export class DashboardMenuService implements MenuInterface{
-    public readonly CLASS_NAME : string = "DashboardMenuService ";
+export class DashboardTutorialMenuService implements MenuInterface{
+    public readonly CLASS_NAME : string = "DashboardTutorialMenuService ";
 
     public FIRST_MENU : any ;
     private readonly FIRST_MENU_ICON: string = "fa-home";
@@ -12,16 +12,10 @@ export class DashboardMenuService implements MenuInterface{
     private readonly FIRST_MENU_ACTIVE: boolean = false;
 
     public SECOND_MENU : any;
-    private readonly SECOND_MENU_ICON: string = "fa fa-flag";
-    private readonly SECOND_MENU_NAME : string = "Reports";
-    private readonly SECOND_MENU_LINK : string = "reports";
+    private readonly SECOND_MENU_ICON: string = "fa-list-alt";
+    private readonly SECOND_MENU_NAME : string = "Nested Form Example";
+    private readonly SECOND_MENU_LINK : string = "nested-form";
     private readonly SECOND_MENU_ACTIVE : boolean = false;
-
-    public THIRD_MENU : any;
-    private readonly THIRD_MENU_ICON: string = "fa-list-alt";
-    private readonly THIRD_MENU_NAME : string = "Tutorial";
-    private readonly THIRD_MENU_LINK : string = "tutorial";
-    private readonly THIRD_MENU_ACTIVE : boolean = false;
 
     menus: any[] = new Array();
     menuObject: any = {};
@@ -52,15 +46,6 @@ export class DashboardMenuService implements MenuInterface{
             link: this.SECOND_MENU_LINK
         }
         this.menus.push(this.SECOND_MENU);
-
-        this.THIRD_MENU = {
-            icon: this.THIRD_MENU_ICON,
-            name: this.THIRD_MENU_NAME,
-            active: this.THIRD_MENU_ACTIVE,
-            link: this.THIRD_MENU_LINK
-        }
-        this.menus.push(this.THIRD_MENU);
-    
     }
 
     public getMenus() {

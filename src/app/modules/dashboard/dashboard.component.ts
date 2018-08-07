@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   menus : any[] = new Array();
   menuObject: any = {};
   constructor(private dashboardMenuService: DashboardMenuService,private globalConfiguration : GlobalConfiguration,
-     private route: ActivatedRoute,private router: Router, private authorizationService: AuthorizationService) { }
+     private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
     this.menus = this.dashboardMenuService.getMenus();

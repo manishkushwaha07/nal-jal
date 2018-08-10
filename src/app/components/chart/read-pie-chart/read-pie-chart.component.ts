@@ -125,6 +125,11 @@ export class ReadPieChartComponent implements OnInit {
   //           nscWindow.document.write(reader.result);
   //         }
   //         reader.readAsText(blob);
+  //-------------------OR---------------------------
+//          var blob = new Blob([success.body], { type: 'application/html' });
+  //        var buffer = new Uint8Array(success.body);
+  //        var nscWindow = window.open("", "_blank", "");
+  //        nscWindow.document.write(String.fromCharCode.apply(null, buffer));
   //       } else if("EXCEL" === this.exportType) {
   //         let byteArray = this.createByteArrayFromBase64EncryptedBytes(success.body.bytes);
   //         blob = new Blob([byteArray], {type : 'application/vdn.ms-excel'});//'text/plain'

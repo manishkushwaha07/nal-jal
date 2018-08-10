@@ -6,6 +6,7 @@ import { LoginRoutingModule } from 'app/modules/login/login.routing';
 import { LoaderComponentModule } from '../../components/loader/loader-component.module';
 import { ErrorsComponentModule } from 'app/components/errors/errors-component.module';
 import { DirectiveModule } from '../../directives/directive.module';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -18,6 +19,9 @@ import { DirectiveModule } from '../../directives/directive.module';
     DirectiveModule
   ],
   declarations: [LoginComponent],
-  exports: [LoginComponent]
+  exports: [LoginComponent],
+  providers: [
+    NgbActiveModal,
+  ]
 })
 export class LoginModule { }

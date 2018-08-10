@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 import { User } from '../../models/user.model';
 import { GlobalResources } from 'app/utility/global.resources';
 import { GlobalConfiguration } from 'app/config/global.config';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'nal-jal-login',
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
   loginError: boolean = false;
   loginErrorText: string;
-  constructor(private authorizationService : AuthorizationService,private router: Router, private globalResources: GlobalResources) { }
+  @Input() isModal: boolean;
+  constructor(private authorizationService : AuthorizationService,private router: Router,
+     private globalResources: GlobalResources, private activeModal : NgbActiveModal) { }
 
   ngOnInit() {
   }
@@ -39,6 +42,7 @@ export class LoginComponent implements OnInit {
           console.log("redirect to dashboard");
           this.router.navigate(['/dashboard']);
           this.loading = false;
+          this.activeModal.close();
         }
       }else{
         this.loading = false;
@@ -62,6 +66,10 @@ export class LoginComponent implements OnInit {
     this.loading = false;
     this.loginErrorText = null;
     console.log("resetButtonClicked called");
+  }
+
+  cancelClicked(){
+    this.activeModal.dismiss();
   }
 
 }

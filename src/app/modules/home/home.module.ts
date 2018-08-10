@@ -5,16 +5,18 @@ import { HomeRoutingModule } from './home.routing';
 import { LoginModule } from '../login/login.module';
 import { ChartModule } from '../../components/chart/chart.module';
 import { HeaderComponentModule } from '../../components/header/header-component.module';
+import { NavbarComponentModule } from '../../components/navbar/navbar-component.module';
+import { LoginComponent } from '../login/login.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
     HomeRoutingModule,
-    LoginModule,
+    // LoginModule,
     ChartModule,
-    HeaderComponentModule
+    NavbarComponentModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent],
 })
 export class HomeModule { }

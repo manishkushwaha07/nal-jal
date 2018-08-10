@@ -1,3 +1,6 @@
 <div *ngIf="shouldShowErrors()">
-  <div class="text-danger" *ngFor="let error of listOfErrors()"><small>{{error}}</small></div>
+  <div class="text-danger" *ngFor="let error of listOfErrors()">
+    <span class="fa fa-exclamation-circle mx-sm"></span>
+    <small>&nbsp;{{error}}</small>
+  </div>
 </div>

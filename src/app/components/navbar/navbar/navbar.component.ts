@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/models/user.model';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from 'app/modules/login/login.component';
 
 @Component({
   selector: 'nal-jal-navbar',
@@ -12,13 +14,22 @@ export class NavbarComponent implements OnInit {
   private componentName: string = "NavbarComponent : ";
 
   public loggedInUser: User;
+  public isLogedIn: boolean = false;
   
-  constructor(private authorizationService: AuthorizationService) {
+  constructor(private authorizationService: AuthorizationService, private ngbModal: NgbModal) {
   }
 
   ngOnInit() {
     console.log("Initialising Navbar");
-    this.loggedInUser = this.authorizationService.getLoggedInUser();
+    this.isLogedIn = this.authorizationService.isLogedIn();
+    if(this.isLogedIn){
+      this.loggedInUser = this.authorizationService.getLoggedInUser();
+    }
+  }
+
+  loginClicked(){
+    const modalRef = this.ngbModal.open(LoginComponent, {keyboard: true, backdrop: true, centered: true, size:"sm" });
+    modalRef.componentInstance.isModal = true;
   }
   
   logoutClicked() {

@@ -189,4 +189,56 @@ export class ReadPieChartComponent implements OnInit {
   //   justify-content: space-around;
   // }
 //--------------------------------------------------------------
+
+// <table id="tblData">
+//     <tr>
+//         <th>Name</th>
+//         <th>Email</th>
+//         <th>Country</th>
+//     </tr>
+//     <tr>
+//         <td>John Doe</td>
+//         <td>john@gmail.com</td>
+//         <td>USA</td>
+//     </tr>
+// </table>
+// The button triggers exportTableToExcel() function to export HTML table data using JavaScript.
+
+// <button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
+// If you want to export data with the custom file name, pass your desired file name in the exportTableToExcel() function.
+
+// <button onclick="exportTableToExcel('tblData', 'members-data')">Export Table Data To Excel File</button>
+
+exportTableToExcel(tableID, filename = ''){
+  var downloadLink;
+  var dataType = 'application/vnd.ms-excel';
+  var tableSelect = document.getElementById(tableID);
+  var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+  
+  // Specify file name
+  filename = filename?filename+'.xls':'excel_data.xls';
+  
+  // Create download link element
+  downloadLink = document.createElement("a");
+  
+  document.body.appendChild(downloadLink);
+  
+  if(window.navigator && window.navigator.msSaveOrOpenBlob){
+      var blob = new Blob(['\ufeff', tableHTML], {
+          type: dataType
+      });
+      window.navigator.msSaveOrOpenBlob( blob, filename);
+  }else{
+      // Create a link to the file
+      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+  
+      // Setting the file name
+      downloadLink.download = filename;
+      
+      //triggering the function
+      downloadLink.click();
+
+      // var blobURL   = URL.createObjectURL(blob);
+  }
+}
 }

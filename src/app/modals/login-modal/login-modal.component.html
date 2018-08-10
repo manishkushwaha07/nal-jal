@@ -1,0 +1,40 @@
+<div  id="login-card">
+  <div class="card">
+    <div class="card-header bg-warning text-white text-center">
+      <h5 class="modal-title">Departmental User Login</h5>
+      <h6>Session timeout! Enter your password to continue.</h6>
+    </div>
+    <div class="card-body">
+      <ng-container *ngIf="loginError">
+        <span class="text-center text-danger">
+            <label class="font-weight-bold">{{loginErrorText}}</label>
+        </span>
+      </ng-container>
+      <form (ngSubmit)="processLoginForm()" #loginForm="ngForm">
+        <div class="form-group">
+          <label for="username" class="required">Username</label>
+          <input type="text" class="form-control form-control-md is-valid" value="{{login.username}}" name="username" id="username" readonly required>
+        </div>
+        <div class="form-group">
+          <label for="password" class="required">Password</label>
+          <input [ngClass]="{'is-valid': !password.errors && (password.dirty || password.touched),'is-invalid': password.errors && (password.dirty || password.touched)}"
+            type="password" class="form-control form-control-md" [(ngModel)]="login.password" name="password"  id="password" placeholder="Enter password" #password="ngModel" required>
+          <!-- <div class="invalid-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
+              <div [hidden]="!password.errors.required" >required field</div>
+          </div>  -->
+          <!-- this is for required, pattern, minlenght, maxlenth, min and max only-->
+          <nal-jal-show-errors [control]="password"></nal-jal-show-errors>
+        </div>
+        <nal-jal-loader [show]="loading"></nal-jal-loader>
+        <br>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-success btn-md  mx-sm-3" [disabled]="loginForm.form.invalid || loading">Login</button>
+          <button type="reset" class="btn btn-danger btn-md  mx-sm-3" (click)="logoutClicked()" [disabled]="loading">Logout</button>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer text-center text-muted">
+        <strong>&copy; MPPKVVCL Indore 2018-19</strong>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.rowCenter{
+	display: flex;
+	justify-content: space-around;
+}
+.main-header{
+    /**background-color: #343a40; **/ /**bg-dark color code **/
+    background-color: #34302d; /**spring-boot color code  **/
+}

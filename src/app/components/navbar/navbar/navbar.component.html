@@ -6,14 +6,22 @@
     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> -->
-    <a class="text-white" href="javascript:void(0);">
-      <i class="fa fa-arrow-circle-up fa-2x" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"></i>
-    </a>
-    <a class="text-white" href="javascript:void(0);" (click)="logoutClicked()" *ngIf="isLogedIn">
-      <strong><i class="fa fa-sign-out" aria-hidden="true" ></i> Logout</strong>
-    </a>
-    <a class="text-white" href="javascript:void(0);" (click)="loginClicked()" *ngIf="!isLogedIn">
-      <strong><i class="fa fa-sign-in" aria-hidden="true" ></i> Login</strong>
-    </a>
+    <div>
+      <a class="text-white" href="javascript:void(0);">
+        <i class="fa fa-arrow-circle-up fa-2x" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"></i>
+      </a>
+    </div>
+    <div *ngIf="isLogedIn" class="d-flex flex-column text-right">
+      <a class="text-white" href="javascript:void(0);" (click)="logoutClicked()">
+        <strong><i class="fa fa-sign-out" aria-hidden="true" ></i> Logout</strong>
+      </a>
+      <small class="text-danger">Session Timer <nal-jal-session-timer></nal-jal-session-timer></small>
+    </div>
+    <div *ngIf="!isLogedIn">
+      <a class="text-white" href="javascript:void(0);" (click)="loginClicked()">
+        <strong><i class="fa fa-sign-in" aria-hidden="true" ></i> Login</strong>
+      </a>
+    </div>
+    
   </nav>
 </div>

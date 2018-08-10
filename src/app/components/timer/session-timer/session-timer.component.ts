@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 import { SessionTimerService } from 'app/services/session-timer/session-timer.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoginModalComponent } from 'app/modals/login-modal/login-modal.component';
 
 @Component({
   selector: 'nal-jal-session-timer',
@@ -24,7 +26,8 @@ export class SessionTimerComponent implements OnInit,OnDestroy {
   //variable to hold session timer subscription
   sessionTimerSubscription : any;
 
-  constructor(private authorizationService : AuthorizationService,private sessionTimerService : SessionTimerService) { } //,private ngbModal: NgbModal
+  constructor(private authorizationService : AuthorizationService, private ngbModal: NgbModal,
+    private sessionTimerService : SessionTimerService) { }
 
   ngOnInit() {
     this.startSessionTimer();
@@ -69,18 +72,19 @@ export class SessionTimerComponent implements OnInit,OnDestroy {
 
   private showLoginDialog(){
     console.log(this.CLASS_NAME + "showLoginDialog called");
-    // const modalRef = this.ngbModal.open(LoginModalComponent, {backdrop: "static",keyboard:false});
-    // modalRef.componentInstance.modalInstance = modalRef;
+    const modalRef = this.ngbModal.open(LoginModalComponent, {backdrop: "static", keyboard:false, centered: true});
+    console.log(modalRef);
+    modalRef.componentInstance.modalInstance = modalRef;
     this.dialogShownOnce = true;
-    // modalRef.result.then(close =>{
-    //   console.log(this.CLASS_NAME + "Modal closed because " + close);
-    //   this.dialogShownOnce = false;
-    // },rejected =>{
-    //   console.log(this.CLASS_NAME + "Modal rejected because " + rejected);
-    //   this.dialogShownOnce = false;
-    //   if(rejected === 'logout'){
-    //     this.authorizationService.logout();
-    //   }
-    // });
+    modalRef.result.then(close =>{
+      console.log(this.CLASS_NAME + "Modal closed because " + close);
+      this.dialogShownOnce = false;
+    },rejected =>{
+      console.log(this.CLASS_NAME + "Modal rejected because " + rejected);
+      this.dialogShownOnce = false;
+      if(rejected === 'logout'){
+        this.authorizationService.logout();
+      }
+    });
   }
 }

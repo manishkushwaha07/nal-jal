@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   loginClicked(){
-    const modalRef = this.ngbModal.open(LoginComponent, {keyboard: true, backdrop: true, centered: true, size:"sm" });
+    const modalRef = this.ngbModal.open(LoginComponent, {keyboard: true, backdrop: true, centered: true });
     modalRef.componentInstance.isModal = true;
   }
   

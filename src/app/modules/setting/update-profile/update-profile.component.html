@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header text-center main-header text-white">
+    UPDATE PROFILE
+  </div>
+  <div class="card-body" id="mainDiv">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="updated">
+        <h4 class="alert-heading">UPDATED!</h4>
+        <p>Profile updated successfully. <b>You will be logged out in {{LOGOUT_STANDBY_IN_SECONDS}} seconds</b>, Login again to continue!</p>
+        <hr>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="updateFailed">
+        Unable to update profile. Try Again !
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div id="formDiv" class="row">
+      <div class="form-group">
+        <label for="username" class="not-required">Username</label>
+        <input type="text" class="form-control" id="username" [ngModel]="user.username" disabled>
+      </div>
+      <div class="form-group">
+        <label for="role" class="not-required">Role</label>
+        <input type="text" class="form-control" id="role" [ngModel]="user.role" disabled>
+      </div>
+      <div class="form-group">
+        <label for="designation" class="not-required">Designation</label>
+        <input type="text" class="form-control" id="designation" [ngModel]="user.designation" disabled>
+      </div>
+      <div class="form-group">
+        <label for="name" class="required" [ngClass]="{'text-danger' : name.errors && (name.dirty || name.touched)}">Name <span *ngIf="name.errors && (name.dirty || name.touched)">(Required)</span></label>
+        <input [ngClass]="{'is-valid': !name.errors && (name.dirty || name.touched),'is-invalid': name.errors && (name.dirty || name.touched)}"
+        type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name" #name="ngModel" required>
+      </div>
+      <div class="form-group">
+        <label for="mobileNo" class="not-required">Mobile No</label>
+        <input type="text" class="form-control" id="mobileNo" name="mobileNo" [(ngModel)]="user.mobileNo" size="10" maxlength="10" pattern="[6-9][0-9]{9}">
+      </div>
+      <div class="form-group columnEnd">
+        <button class="btn btn-primary" id="updateButton" (click)="updateButtonClicked()" [disabled]="name.errors || updating">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

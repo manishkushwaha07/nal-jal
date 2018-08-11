@@ -3,6 +3,7 @@ import { User } from 'app/models/user.model';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from 'app/modules/login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'nal-jal-navbar',
@@ -16,7 +17,7 @@ export class NavbarComponent implements OnInit {
   public loggedInUser: User;
   public isLogedIn: boolean = false;
   
-  constructor(private authorizationService: AuthorizationService, private ngbModal: NgbModal) {
+  constructor(private authorizationService: AuthorizationService, private ngbModal: NgbModal, private router: Router) {
   }
 
   ngOnInit() {
@@ -35,6 +36,11 @@ export class NavbarComponent implements OnInit {
   logoutClicked() {
     console.log("logout clicked from dashboard");
     this.authorizationService.logout();
+  }
+
+  settingClicked(){
+    console.log("setting clicked from ngb-navbar");
+    this.router.navigate(['setting'],{ queryParams: { source: this.router.url }, queryParamsHandling: "merge" });
   }
 
 }

@@ -14,6 +14,9 @@ import { GlobalResources } from 'app/utility/global.resources';
 import { GlobalConstants } from 'app/utility/global.constants';
 import { CanActivateAuthGuard } from 'app/guards/can-activate.authguard';
 import { AuthorizationInterceptor } from 'app/interceptors/authorization.interceptor';
+import { SettingModule } from './modules/setting/setting.module';
+import { AuthorizationServiceModule } from 'app/services/authorization-service/authorization-service.module';
+import { SessionTimerServiceModule } from 'app/services/session-timer/session-timer-service.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,11 @@ import { AuthorizationInterceptor } from 'app/interceptors/authorization.interce
     FooterComponentModule,
     NgbModule.forRoot(),
     ServicesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SettingModule,
+    AuthorizationServiceModule, // important global application service
+    SessionTimerServiceModule, // important global application service,providing this service for whole application
+    
   ],
   providers: [
     GlobalConfiguration,

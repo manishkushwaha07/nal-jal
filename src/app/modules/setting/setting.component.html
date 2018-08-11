@@ -1,0 +1,26 @@
+<nal-jal-navbar></nal-jal-navbar>
+
+<div id="mainContainer" class="mainContainer">
+  <div class="sideNav">
+    <a class="nav-link" [ngClass]="{'active':false}" href="javascript:void(0);" (click)="backClicked()">BACK TO nal-jal</a>
+  </div>
+</div>
+
+<div id="outletContainer">
+  <div class="mainContainer">
+    <div class="sideNav">
+      <div class="card text-center">
+        <ul class="list-group">
+            <!-- sub-menu-header class is used to provide a global color as per whole application theme -->
+            <li class="list-group-item sub-menu-header text-white">{{SIDE_MENU_HEADER}}</li>
+            <a *ngFor="let menu of menus" class="list-group-item list-group-item-action" [ngClass]="{'active': menu.active}" (click)="menuClicked(menu)" href="javascript:void(0);">{{menu.name}}</a>
+        </ul>
+      </div>
+    </div>
+    <div class="mainNav">
+          <div class="mainNavItem">
+               <router-outlet></router-outlet> 
+          </div>
+    </div>
+</div>
+<nal-jal-footer></nal-jal-footer>

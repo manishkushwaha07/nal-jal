@@ -12,11 +12,25 @@
       </a>
     </div>
     <div *ngIf="isLogedIn" class="d-flex flex-column text-right">
-      <a class="text-white" href="javascript:void(0);" (click)="logoutClicked()">
-        <strong><i class="fa fa-sign-out" aria-hidden="true" ></i> Logout</strong>
-      </a>
       <small class="text-danger">Session Timer <nal-jal-session-timer></nal-jal-session-timer></small>
+      <div class="dropdown">
+        <label>Welcome</label>&nbsp;
+        <a class="badge badge-pill badge-light text-warning dropdown-toggle" href="javascript:void(0);"
+        id="dropdownMenuLink" data-toggle="dropdown">
+        <span>User &nbsp;&nbsp;</span>
+        <span class="fa fa-user" aria-hidden="true">&nbsp;</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="javascript:void(0);" (click)="settingClicked()">
+            <span class="fa fa-wrench" aria-hidden="true">&nbsp;</span>Settings
+          </a>
+          <a class="dropdown-item" href="javascript:void(0);" (click)="logoutClicked()">
+            <span class="fa fa-sign-out" aria-hidden="true">&nbsp;</span>Logout
+          </a>
+        </div>
+      </div>
     </div>
+    
     <div *ngIf="!isLogedIn">
       <a class="text-white" href="javascript:void(0);" (click)="loginClicked()">
         <strong><i class="fa fa-sign-in" aria-hidden="true" ></i> Login</strong>

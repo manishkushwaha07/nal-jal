@@ -16,7 +16,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable()
 export class LoginService {
 
-  private readonly SESSION_DURATION_MINUTES : number = 30;
+  private readonly SESSION_DURATION_MINUTES : number = 10;
 
   private readonly SESSION_END_TIME_KEY = "session_horcrux";
   private readonly TOKEN_KEY = "ngb_horcrux";

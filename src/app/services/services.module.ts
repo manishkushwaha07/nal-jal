@@ -8,6 +8,7 @@ import { SessionTimerServiceModule } from 'app/services/session-timer/session-ti
 import { LogoutServiceModule } from 'app/services/logout/logout-service.module';
 import { AuthorizationServiceModule } from 'app/services/authorization-service/authorization-service.module';
 import { LocationServiceModule } from 'app/services/location/location-service.module';
+import { UserServiceModule } from './user/user-service.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LocationServiceModule } from 'app/services/location/location-service.mo
     LocationServiceModule,
     PaginationServiceModule,
     SessionTimerServiceModule,
-    AuthorizationServiceModule
+    AuthorizationServiceModule,
+    UserServiceModule
   ],
   declarations: []
 })

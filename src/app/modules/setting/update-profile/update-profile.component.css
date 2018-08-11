@@ -1,0 +1,35 @@
+#mainDiv{
+	display: flex;
+	flex-direction: column;
+}
+
+.row{
+	display: flex;
+	justify-content: space-around;
+}
+
+.rowCenter{
+	display: flex;
+	justify-content: center;
+}
+
+.columnEnd{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.fullRow{
+	display: flex;
+	flex-grow: 1;
+}
+
+.column-form-group{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+#loader{
+	font-size: 50px;
+}

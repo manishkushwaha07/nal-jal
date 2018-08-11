@@ -17,6 +17,12 @@ export class DashboardTutorialMenuService implements MenuInterface{
     private readonly SECOND_MENU_LINK : string = "nested-form";
     private readonly SECOND_MENU_ACTIVE : boolean = false;
 
+    public THIRD_MENU : any;
+    private readonly THIRD_MENU_ICON: string = "fa-list-alt";
+    private readonly THIRD_MENU_NAME : string = "Download Files Example";
+    private readonly THIRD_MENU_LINK : string = "download-file";
+    private readonly THIRD_MENU_ACTIVE : boolean = false;
+
     menus: any[] = new Array();
     menuObject: any = {};
     constructor(){
@@ -46,6 +52,14 @@ export class DashboardTutorialMenuService implements MenuInterface{
             link: this.SECOND_MENU_LINK
         }
         this.menus.push(this.SECOND_MENU);
+
+        this.THIRD_MENU = {
+            icon: this.THIRD_MENU_ICON,
+            name: this.THIRD_MENU_NAME,
+            active: this.THIRD_MENU_ACTIVE,
+            link: this.THIRD_MENU_LINK
+        }
+        this.menus.push(this.THIRD_MENU);
     }
 
     public getMenus() {

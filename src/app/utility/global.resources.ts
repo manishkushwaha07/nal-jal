@@ -10,6 +10,10 @@ export class GlobalResources {
     constructor(private router: Router){
 
     }
+
+    public static createBlobFromResponse(response : any) : Blob{
+        return new Blob([response]);
+    }
     
     setPristine(element : NgForm){
         if(element != null){
@@ -76,7 +80,7 @@ export class GlobalResources {
         return this.parseNumberIntoFloat(loadInKW);
     }
 
-  handleError (error: Response | any, componentName : string, methodName :string) {
+  handleError (error: Response | any, componentName : string, methodName :string) : string{
     let errorMessage: string = "Some internal error. Please try agian...";
     console.log(error);
     try{

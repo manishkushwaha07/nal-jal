@@ -6,17 +6,28 @@ import { DashboardTutorialNestedFormComponent } from 'app/modules/dashboard/dash
 import { DashboardTutorialRoutingModule } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial.routing';
 import { DashboardTutorialMenuService } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-menu.service';
 import { TutorialComponentModule } from 'app/components/tutorial/tutorial-component.module';
+import { DashboardTutorialDownloadsComponent } from './dashboard-tutorial-downloads/dashboard-tutorial-downloads.component';
+import { LoaderComponentModule } from '../../../components/loader/loader-component.module';
+import { ErrorsComponentModule } from '../../../components/errors/errors-component.module';
+import { DirectiveModule } from 'app/directives/directive.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DirectiveModule,
+    LoaderComponentModule,
+    ErrorsComponentModule,
+    TutorialComponentModule,
     DashboardTutorialRoutingModule,
-    TutorialComponentModule
   ],
   declarations: [
     DashboardTutorialNestedFormComponent,
     DashboardTutorialComponent,
-    DashboardTutorialHomeComponent
+    DashboardTutorialHomeComponent,
+    DashboardTutorialDownloadsComponent
   ],
   providers: [
     DashboardTutorialMenuService

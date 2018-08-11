@@ -1,0 +1,9 @@
+.flex-card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.inline-center-content {
+    display: flex;
+    justify-content: center;
+}

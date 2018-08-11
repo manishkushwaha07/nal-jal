@@ -9,6 +9,7 @@ import { LogoutServiceModule } from 'app/services/logout/logout-service.module';
 import { AuthorizationServiceModule } from 'app/services/authorization-service/authorization-service.module';
 import { LocationServiceModule } from 'app/services/location/location-service.module';
 import { UserServiceModule } from './user/user-service.module';
+import { UtilityService } from 'app/services/utility/utility.service';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { UserServiceModule } from './user/user-service.module';
     AuthorizationServiceModule,
     UserServiceModule
   ],
-  declarations: []
+  declarations: [],
+  providers: [UtilityService]
 })
 export class ServicesModule { }

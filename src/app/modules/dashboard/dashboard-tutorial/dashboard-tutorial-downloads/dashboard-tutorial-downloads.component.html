@@ -1,0 +1,39 @@
+<div class="card" id="consumerDetailCard">
+  <div id="cardHeader" class="card-header text-center main-header text-white">
+    CONSUMER DETAIL REPORT
+  </div>
+  <div class="card-body flex-card-body" id="mainDiv">
+    <form #consumerDetailForm="ngForm" autocomplete="off">
+      <div id="firstRow" class="inline-center-content">
+        <div class="form-group">
+          <div class="form-inline align-items-baseline">
+            <div>
+              <!-- <label for="consNo" class="required d-inline mx-sm-3">Consumer No</label> -->
+              <input type="text" placeholder="consumer no" class="form-control form-control-sm" [(ngModel)]="consumerNo" name="consNo" id="consNo" #consNo="ngModel" pattern="[0-9]{10}" maxlength="10" autofocus="true" 
+                [ngClass]="{'is-valid': !consNo.errors && (consNo.dirty || consNo.touched),'is-invalid': consNo.errors && (consNo.dirty || consNo.touched)}" [disabled]="loading" required>
+              <nal-jal-show-errors [control]="consNo"></nal-jal-show-errors>
+            </div>
+            <div>
+              <label for="exportBy" class="required d-inline mx-sm-3">File Format</label>
+              <select class="form-control form-control-sm" id="exportBy" [(ngModel)]="exportType" name="exportBy" #exportBy="ngModel" [disabled]="loading" required>
+                <option *ngFor="let exportBy of exportByOptions" [ngValue]="exportBy">{{exportBy}}</option>
+              </select>
+            </div>
+            <button type="button" id="consumerDetailButton" name="consumerDetailButton" class="btn btn-sm btn-primary mx-sm-3" (click)="exportButtonClicked()" [disabled]="loading || !consumerDetailForm.form.valid">View</button>
+          </div>
+        </div>
+      </div>
+      <nal-jal-loader [show]="loading && clicked"></nal-jal-loader>
+      <!-- <div id="loaderRow" class="d-flex justify-content-center" *ngIf="loading && clicked">
+        <div class="form-group">
+          <div class="form-inline">
+            <div class="form-group">
+              <label class="font-weight-bold" for="loader">Generating...</label>
+              <span class="fa fa-cog fa-spin" id="loader"></span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </form>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardTutorialComponent } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial.component';
 import { DashboardTutorialHomeComponent } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-home/dashboard-tutorial-home.component';
 import { DashboardTutorialNestedFormComponent } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-nested-form/dashboard-tutorial-nested-form.component';
+import { DashboardTutorialDownloadsComponent } from './dashboard-tutorial-downloads/dashboard-tutorial-downloads.component';
 
 const dashboardRoutes: Routes = [
   {
@@ -11,6 +12,7 @@ const dashboardRoutes: Routes = [
     children: [
       { path: 'home', component: DashboardTutorialHomeComponent },
       { path: 'nested-form', component: DashboardTutorialNestedFormComponent },
+      { path: 'download-file', component: DashboardTutorialDownloadsComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   }

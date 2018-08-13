@@ -38,6 +38,7 @@ export class UpdateProfileComponent implements OnInit {
     console.log("Creating local user");
     let loggedInUser = this.authorizationService.getLoggedInUser();
     this.user = Object.assign({},loggedInUser);
+    console.log(loggedInUser, this.user);
     delete this.user.zone;
   }
 

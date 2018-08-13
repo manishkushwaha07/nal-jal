@@ -12,6 +12,8 @@ import { UpdatePasswordComponent } from './update-password/update-password.compo
 import { UpdateProfileComponent } from 'app/modules/setting/update-profile/update-profile.component';
 import { FooterComponentModule } from 'app/components/footer/footer-component.module';
 import { NavbarComponentModule } from 'app/components/navbar/navbar-component.module';
+import { ErrorsComponentModule } from '../../components/errors/errors-component.module';
+import { LoaderComponentModule } from '../../components/loader/loader-component.module';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { NavbarComponentModule } from 'app/components/navbar/navbar-component.mo
     //SessionTimerModule,
     NavbarComponentModule,
     FooterComponentModule,
-    SettingRoutingModule
+    SettingRoutingModule,
+    ErrorsComponentModule,
+    LoaderComponentModule
     //UserServiceModule
   ],
   declarations: [SettingComponent, UpdateProfileComponent, SettingHomeComponent, UpdatePasswordComponent],

@@ -36,6 +36,7 @@ export class NavbarComponent implements OnInit {
   logoutClicked() {
     console.log("logout clicked from dashboard");
     this.authorizationService.logout();
+    this.isLogedIn = this.authorizationService.isLogedIn();
   }
 
   settingClicked(){

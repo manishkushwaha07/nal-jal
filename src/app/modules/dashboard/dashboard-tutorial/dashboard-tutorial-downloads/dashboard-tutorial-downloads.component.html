@@ -8,7 +8,6 @@
         <div class="form-group">
           <div class="form-inline align-items-baseline">
             <div>
-              <!-- <label for="consNo" class="required d-inline mx-sm-3">Consumer No</label> -->
               <input type="text" placeholder="consumer no" class="form-control form-control-sm" [(ngModel)]="consumerNo" name="consNo" id="consNo" #consNo="ngModel" pattern="[0-9]{10}" maxlength="10" autofocus="true" 
                 [ngClass]="{'is-valid': !consNo.errors && (consNo.dirty || consNo.touched),'is-invalid': consNo.errors && (consNo.dirty || consNo.touched)}" [disabled]="loading" required>
               <nal-jal-show-errors [control]="consNo"></nal-jal-show-errors>
@@ -24,16 +23,14 @@
         </div>
       </div>
       <nal-jal-loader [show]="loading && clicked"></nal-jal-loader>
-      <!-- <div id="loaderRow" class="d-flex justify-content-center" *ngIf="loading && clicked">
-        <div class="form-group">
-          <div class="form-inline">
-            <div class="form-group">
-              <label class="font-weight-bold" for="loader">Generating...</label>
-              <span class="fa fa-cog fa-spin" id="loader"></span>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </form>
+    <div *ngIf="valid" id="billView">
+      <div class="d-flex flex-row">
+       <!-- <button class="btn btn-sm btn-primary" (click)="exportToPdf()">Export Data To PDF File</button> -->
+       <!-- <button class="btn btn-sm btn-primary mx-sm-3" (click)="exportToExcel()">Export Data To Excel File</button> -->
+      </div>
+      <iframe [src]="fileURL" width="100%" height="100%" id="iframe">
+      </iframe>
+    </div>
   </div>
 </div>

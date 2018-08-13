@@ -7,3 +7,10 @@
     display: flex;
     justify-content: center;
 }
+
+#billView{
+    display: flex;
+    height: 70vh;
+    flex-direction: column;
+    justify-content: space-around;
+}

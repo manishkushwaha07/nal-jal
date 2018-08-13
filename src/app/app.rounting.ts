@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: 'app/modules/dashboard/dashboard.module#DashboardModule'
   },
+  {
+    path: 'setting',
+    loadChildren: 'app/modules/setting/setting.module#SettingModule'
+  },
   { 
     path: '**', 
     redirectTo: '/home',

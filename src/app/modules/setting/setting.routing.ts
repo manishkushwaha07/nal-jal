@@ -9,7 +9,7 @@ import { UpdatePasswordComponent } from 'app/modules/setting/update-password/upd
 
 const settingRoutes: Routes = [
   {
-    path: 'setting', component: SettingComponent, canActivate: [CanActivateAuthGuard], 
+    path: '', component: SettingComponent, canActivate: [CanActivateAuthGuard], 
     // data: {
     //   expectedRoles : [GlobalConfiguration.ROLE_OAG,GlobalConfiguration.ROLE_OIC,GlobalConfiguration.ROLE_OPERATOR,GlobalConfiguration.ROLE_EE]
     // },

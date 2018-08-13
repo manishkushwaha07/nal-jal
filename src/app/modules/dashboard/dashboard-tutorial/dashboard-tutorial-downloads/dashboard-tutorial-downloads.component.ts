@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalResources } from 'app/utility/global.resources';
 import { UtilityService } from 'app/services/utility/utility.service';
 import { DashboardTutorialMenuService } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-menu.service';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'nal-jal-dashboard-tutorial-downloads',
@@ -18,7 +19,7 @@ export class DashboardTutorialDownloadsComponent implements OnInit {
   clicked : boolean;
   
   constructor(private globalResources: GlobalResources, private utilityService: UtilityService,
-    private dashboardTutorialMenuService: DashboardTutorialMenuService) { 
+    private dashboardTutorialMenuService: DashboardTutorialMenuService, private domSanitizer: DomSanitizer) { 
       if(!this.dashboardTutorialMenuService.THIRD_MENU.active){
         this.dashboardTutorialMenuService.menuClicked(this.dashboardTutorialMenuService.THIRD_MENU);
       }
@@ -79,28 +80,86 @@ export class DashboardTutorialDownloadsComponent implements OnInit {
    * Save blob to file
    * @param blob
    */
+  fileURL: SafeResourceUrl;
+  valid:boolean = false;
   saveFile(success: any) {
     if(success.status === 200) {
-      let blob = GlobalResources.createBlobFromResponse(success.body);
-      var fileName = 'consumer_detail_' + this.consumerNo;
+      console.log(success.body);
+      // let blob = GlobalResources.createBlobFromResponse(success.body);
       if("PDF" === this.exportType) {
-        //saveAs(blob, fileName + '.pdf');
+        let blob = new Blob([success.body], {type: 'application/pdf'});//'text/plain'
+        let url = URL.createObjectURL(blob);
+        this.fileURL = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+        this.valid = true;
+        let fileName = 'bill_'+new Date()+'.pdf';
+        this.downloadFile(blob,fileName, url);
         alert("Report exported as PDF");
       } else if("XLSX" === this.exportType) {
-        //saveAs(blob, fileName + '.xlsx');
-        alert("Report exported as XLSX");
-      } else if("HTML" === this.exportType) {
-        var reader = new FileReader();
-        reader.onload = function() {
-          var dcbWindow = window.open("", "_blank", "");
-          dcbWindow.document.write(reader.result);
+        let byteArray;
+        let isEncrypted = this.isBase64Encrypted(success.body);
+        if(isEncrypted){
+          byteArray = this.createByteArrayFromBase64EncryptedBytes(success.body);
+        }else{
+          byteArray = success.body;
         }
-        reader.readAsText(blob);
+        let blob = new Blob([success.body], {type : 'application/vdn.ms-excel'});//'text/plain'
+        let  fileName = 'bill_'+new Date()+'.xlsx';
+        this.downloadFile(blob,fileName, "#");
+      }else if("HTML" === this.exportType) {
+        var blob = new Blob([success.body], { type: 'application/html' });
+        // var reader = new FileReader();
+        // reader.onload = function() {
+        //   var newWindow = window.open("", "_blank", "");
+        //   if(newWindow){
+        //     newWindow.document.write(reader.result);
+        //   }else{
+        //     alert("Pop-ups were blocked on  this page.");
+        //   }
+        // }
+        // reader.readAsText(blob);
+        var buffer = new Uint8Array(success.body);
+        var newWindow = window.open("", "_blank", "");
+        if(newWindow){
+          newWindow.document.write(String.fromCharCode.apply(null, buffer));
+        }else{
+          alert("Pop-ups were blocked on  this page.");
+        }
       } else {
         alert("Wrong Export Type Selected.");
       }
       this.reset();
     }    
+  }
+
+  isBase64Encrypted(encryptedBytes){
+    try {
+      return btoa(atob(encryptedBytes)) == encryptedBytes;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  createByteArrayFromBase64EncryptedBytes(encryptedBytes){
+    console.log(encryptedBytes);
+    let decodedString = atob(encryptedBytes);
+    let byteNumbers = new Array(decodedString.length);
+    for (let i = 0; i < decodedString.length; i++) {
+      byteNumbers[i] = decodedString.charCodeAt(i);
+    }
+    let byteArray = new Uint8Array(byteNumbers);
+    console.log(byteArray);
+    return byteArray;
+  }
+
+  downloadFile(blob, fileName, url){
+    var dlink = document.createElement('a');
+        dlink.download = fileName;
+        dlink.href = window.URL.createObjectURL(blob);
+        document.body.appendChild(dlink);
+        dlink.click();
+        dlink.remove();
+        // document.body.removeChild(dlink);
+        URL.revokeObjectURL(url);
   }
 
   /**

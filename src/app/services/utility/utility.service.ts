@@ -13,14 +13,16 @@ export class UtilityService {
 
   //Context path for redirection to Backend resources
   // The URL in this variable ends with a front slash. !!!!!!!!! Don't append in your respective methods !!!!!!!!!!!
-  private contextPath: string;
+  private backendContextPath: string;
+  private reportsContextPath: string;
 
   private CONSUMER_MASTER_RESOURCE_PATH: string;
 
   //private loggedInUser: User;
   
   constructor(private authorizationService: AuthorizationService, private http: HttpClient, private globalConfiguration: GlobalConfiguration) {
-    this.contextPath = this.globalConfiguration.getBackendURLPrefix();
+    this.backendContextPath = this.globalConfiguration.getBackendURLPrefix();
+    this.reportsContextPath = this.globalConfiguration.getReportURLPrefix();
     this.CONSUMER_MASTER_RESOURCE_PATH = 'consumer/master/';
     //this.loggedInUser = this.authorizationService.getLoggedInUser();
     //console.log(this.loggedInUser);
@@ -114,7 +116,7 @@ export class UtilityService {
    * @param consumerNo
    */
   getConsumerMasterByConsumerNo(consumerNo: string) {
-    return this.http.get(this.contextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'consumer-no/' + consumerNo).toPromise();
+    return this.http.get(this.backendContextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'consumer-no/' + consumerNo).toPromise();
   }
 
   /**
@@ -122,16 +124,16 @@ export class UtilityService {
    * @param consumerNo
    */
   // getConsumerMasterByOldConsumerNo(oldConsumerNo: string) {
-  //   return this.http.get(this.contextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'old-service-no-one/' + oldConsumerNo).toPromise();
+  //   return this.http.get(this.backendContextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'old-service-no-one/' + oldConsumerNo).toPromise();
   // }
 
   public getConsumerMasterByLocationCodeAndOldConsumerNo(locationCode: string, oldConsumerNo: string, response:boolean) {
     let options = null;
     if(response){
       options = {observe:'response'};
-      return this.http.get(this.contextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'location-code/'+locationCode + '/old-service-no-one/' + oldConsumerNo, options).toPromise();
+      return this.http.get(this.backendContextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'location-code/'+locationCode + '/old-service-no-one/' + oldConsumerNo, options).toPromise();
     }else{
-      return this.http.get(this.contextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'location-code/'+locationCode + '/old-service-no-one/' + oldConsumerNo).toPromise();
+      return this.http.get(this.backendContextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'location-code/'+locationCode + '/old-service-no-one/' + oldConsumerNo).toPromise();
     }
   }
 
@@ -139,9 +141,9 @@ export class UtilityService {
   //   let options = null;
   //   if(response){
   //     options = {observe:'response'};
-  //     return this.http.get(this.contextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'consumer-no/' + consumerNo, options);
+  //     return this.http.get(this.backendContextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'consumer-no/' + consumerNo, options);
   //   }else{
-  //     return this.http.get(this.contextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'consumer-no/' + consumerNo)
+  //     return this.http.get(this.backendContextPath + this.CONSUMER_MASTER_RESOURCE_PATH + 'consumer-no/' + consumerNo)
   //   }
   // }
 
@@ -154,7 +156,7 @@ export class UtilityService {
     let httpParams = new HttpParams();
     httpParams = httpParams.append("consumerNo", consumerNo);
     httpParams = httpParams.append("type", type);
-    return this.http.get(this.contextPath + "bill-report/consumer-detail",
+    return this.http.get(this.reportsContextPath + "bill-report/consumer-detail",
       { responseType: 'arraybuffer', observe: 'response', params: httpParams }).pipe(map((response: HttpResponse<ArrayBuffer>) => {
         return response;
       }));

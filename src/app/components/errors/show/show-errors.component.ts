@@ -15,6 +15,8 @@ export class ShowErrorsComponent implements OnInit {
     'pattern': (params) => 'The required pattern is: ' + params.requiredPattern,
     'min': (params) => 'The minimum value is: ' + params.requiredMin,
     'max': (params) => 'The maximum value is: ' + params.requiredMax,
+    // 'validateEqual':(params) => 'Input value mismatch with compare value',
+    'compareEqual':(params) => 'Compare input mismatch',
   };
 
   @Input()
@@ -30,18 +32,20 @@ export class ShowErrorsComponent implements OnInit {
   }
  
   listOfErrors(): string[] {
-    if(this.control.errors && this.control.errors.required){
-      Object.keys(this.control.errors).forEach((element)=>{
-        if(element !=='required'){
-          delete this.control.errors[element];
-        }
-      });
-    }
+    // if(this.control.errors && this.control.errors.required){
+    //   Object.keys(this.control.errors).forEach((element)=>{
+    //     if(element !=='required'){
+    //       delete this.control.errors[element];
+    //     }
+    //   });
+    // }
     return Object.keys(this.control.errors).map(field => this.getMessage(field, this.control.errors[field]));
   }
  
   private getMessage(type: string, params: any) {
-    return ShowErrorsComponent.errorMessages[type](params);
+    if(ShowErrorsComponent.errorMessages[type]){
+      return ShowErrorsComponent.errorMessages[type](params);
+    }
   }
 
 }

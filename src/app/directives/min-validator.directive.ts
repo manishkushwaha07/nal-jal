@@ -17,6 +17,9 @@ export class MinValidatorDirective implements Validator {
   
     // Define validation logic
     validate(control: AbstractControl): ValidationErrors {
+      if(!control.value || control.value.length === 0){
+        return null;
+      }
       const currentValue = Number(control.value);
       const min = Number(this.min);
       const isValid = !isNaN(currentValue) && !isNaN(min) && currentValue >= min;

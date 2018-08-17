@@ -11,6 +11,7 @@ import { LowercaseDirective } from 'app/directives/lowercase.directive';
 import { RemoveCharacterDirective } from './remove-character.directive';
 import { NestedFormDirective } from 'app/directives/nested-form.directive';
 import { EqualValidatorDirective } from './equal-validator.directive';
+import { CompareValidatorDirective } from './compare-validator.directive';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { EqualValidatorDirective } from './equal-validator.directive';
         RemoveCharacterDirective,
         NestedFormDirective,
         EqualValidatorDirective,
+        CompareValidatorDirective,
     ],
 
     exports:[FocusDirective,
@@ -34,6 +36,7 @@ import { EqualValidatorDirective } from './equal-validator.directive';
         RemoveCharacterDirective,
         NestedFormDirective,
         EqualValidatorDirective,
+        CompareValidatorDirective,
     ],
 
 })

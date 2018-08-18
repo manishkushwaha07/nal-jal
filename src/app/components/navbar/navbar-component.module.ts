@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SessionTimerModule } from 'app/components/timer/session-timer/session-timer.module';
 import { HeaderComponentModule } from 'app/components/header/header-component.module';
-import { LoginComponent } from '../../modules/login/login.component';
-import { LoginModule } from '../../modules/login/login.module';
+import { LoginModule } from 'app/components/login/login.module';
+import { LoginComponent } from 'app/components/login/login.component';
 
 @NgModule({
   imports: [

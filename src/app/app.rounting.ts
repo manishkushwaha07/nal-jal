@@ -13,11 +13,6 @@ const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  { 
-    path: 'login',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
   {
     path: 'dashboard',
     loadChildren: 'app/modules/dashboard/dashboard.module#DashboardModule'

@@ -1,6 +1,12 @@
-<div *ngIf="shouldShowErrors()">
-  <div class="text-danger" *ngFor="let error of listOfErrors()">
-    <span class="fa fa-exclamation-circle mx-sm" *ngIf="error"></span>
-    <small>&nbsp;{{error}}</small>
-  </div>
-</div>
+<ng-container *ngIf="shouldShowErrors()">
+  <ng-container *ngTemplateOutlet="showError"></ng-container>
+</ng-container>
+
+<ng-template  #showError>
+  <ng-template ngFor let-error [ngForOf]= "listOfErrors()" let-i="index">
+    <ng-template [ngIf]="error">
+      <span class="fa fa-exclamation-circle text-danger"></span>
+      <small class="text-danger">&nbsp;{{error}}</small>
+    </ng-template>
+  </ng-template>
+</ng-template>

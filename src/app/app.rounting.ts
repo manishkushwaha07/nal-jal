@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import {AppComponent} from './app.component';
 
 const routes: Routes = [
@@ -11,11 +11,6 @@ const routes: Routes = [
   { 
     path: 'home',
     redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  { 
-    path: 'login',
-    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
@@ -34,7 +29,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  // imports: [RouterModule.forRoot(routes)],// lazy loading
+  imports: [RouterModule.forRoot(routes ,{ preloadingStrategy: PreloadAllModules } )], 
+  //preloading with lazy loading. Preloading works with forRoot not forChild
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

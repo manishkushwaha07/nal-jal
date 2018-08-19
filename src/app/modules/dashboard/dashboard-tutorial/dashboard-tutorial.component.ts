@@ -3,15 +3,29 @@ import { DashboardMenuService } from 'app/modules/dashboard/dashboard-menu.servi
 import { Router, ActivatedRoute } from '@angular/router';
 import { GlobalConfiguration } from 'app/config/global.config';
 import { DashboardTutorialMenuService } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-menu.service';
-
+import {trigger, state, style, transition, animate} from '@angular/animations';
+ 
 @Component({
   selector: 'nal-jal-dashboard-tutorial',
   templateUrl: './dashboard-tutorial.component.html',
-  styleUrls: ['./dashboard-tutorial.component.css']
+  styleUrls: ['./dashboard-tutorial.component.css'],
+  animations: [
+    trigger('slideInOut', [
+      state('enter', style({
+        transform: 'translate3d(0, 0, 0)'
+      })),
+      state('leave', style({
+        transform: 'translate3d(-100%, 0, 0)'
+      })),
+      transition('enter => leave', animate('400ms ease-in-out')),
+      transition('leave => enter', animate('400ms ease-in-out'))
+    ]),
+  ]
 })
 export class DashboardTutorialComponent implements OnInit {
   private readonly componentName : string = "DashboardTutorialComponent : ";
   menus : any[] = new Array();
+  menuState:string = 'enter';
 
   constructor(private globalConfiguration : GlobalConfiguration,private route: ActivatedRoute,private router: Router,
     private dashboardMenuService : DashboardMenuService,private dashboardTutorialMenuService: DashboardTutorialMenuService) {
@@ -22,6 +36,12 @@ export class DashboardTutorialComponent implements OnInit {
 
   ngOnInit() {
     this.menus = this.dashboardTutorialMenuService.getMenus();
+    }
+
+    toggleMenu() {
+      // 1-line if statement that toggles the value:
+      this.menuState = this.menuState === 'enter' ? 'leave' : 'enter';
+      console.log(this.menuState);
     }
   
     /**

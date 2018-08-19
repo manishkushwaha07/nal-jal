@@ -3,9 +3,9 @@
   <div class="sideNav">
     <ul class="list-group">
       <a class="list-group-item sub-menu-header text-white" data-toggle="collapse" href="#menu-item">
-        <strong><i class="fa fa-bars"></i> Tutorial Menu</strong>
+        <strong (click)="toggleMenu()"><i class="fa fa-bars"></i> Tutorial Menu</strong>
       </a>
-      <div id="menu-item" class="collapse show menu-item-height">
+      <div id="menu-item" class="collapse show menu-item-height" [@slideInOut]="menuState">
         <a *ngFor="let menu of menus" class="list-group-item list-group-item-action" [ngClass]="{'active': menu.active}" (click)="menuClicked(menu)" href="javascript:void(0);">
           <i class="fa {{menu.icon}}"></i> {{menu.name}}
         </a>

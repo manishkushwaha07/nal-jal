@@ -11,13 +11,13 @@ export const slideInOutAnimation =
             // angular that the animation may not apply as it may or may not be in the DOM.
             query(
               ':enter',
-              [style({right: '-400%'}),animate('.5s ease-in-out')],
+              [style({bottom: '-400%'}),animate('.5s ease-in-out')],
               { optional: true }
             ),
             query(
               ':leave',
               // here we apply a style and use the animate function to apply the style over 0.3 seconds
-              [animate('.5s ease-in-out', style({left: '-400%'}))],
+              [animate('.5s ease-in-out', style({bottom: '-400%'}))],
               { optional: true }
             ),
             // query(

@@ -9,7 +9,7 @@ import { fadeAnimation } from '../../animations/fade-animation';
   selector: 'nal-jal-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  animations:[fadeAnimation]
+  // animations:[fadeAnimation]
 })
 export class DashboardComponent implements OnInit {
   private readonly className : string = "DashboardComponent : ";

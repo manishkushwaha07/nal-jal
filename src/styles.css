@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-router-outlet ~ * {
+/* router-outlet ~ * {
     position: absolute;
     height: 70%;
     width: 100%;
-}
+} */
 /*
  Style for making red colored asterisk on label for required
  fields

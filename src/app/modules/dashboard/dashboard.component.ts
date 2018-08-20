@@ -3,11 +3,13 @@ import { GlobalConfiguration } from '../../config/global.config';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DashboardMenuService } from 'app/modules/dashboard/dashboard-menu.service';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
+import { fadeAnimation } from '../../animations/fade-animation';
 
 @Component({
   selector: 'nal-jal-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  animations:[fadeAnimation]
 })
 export class DashboardComponent implements OnInit {
   private readonly className : string = "DashboardComponent : ";

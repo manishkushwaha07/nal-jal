@@ -8,7 +8,7 @@
     </li>
   </ul>
 </div>
-<div id="outletContainer">
-  <router-outlet></router-outlet>
+<div id="outletContainer" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+  <router-outlet #o="outlet"></router-outlet>
 </div>
 <nal-jal-footer></nal-jal-footer>

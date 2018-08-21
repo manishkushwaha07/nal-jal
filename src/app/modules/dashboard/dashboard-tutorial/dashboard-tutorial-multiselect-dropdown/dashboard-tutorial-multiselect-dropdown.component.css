@@ -1,0 +1,50 @@
+.flex-card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.inline-center-content {
+    display: flex;
+    justify-content: center;
+}
+
+#dropDownButton {
+    color: #495057;
+    background-color: white;
+    border-color: #ced4da;
+    width: 130px;
+    text-align: left;
+
+}
+
+#dropDownButton:disabled {
+    color: #495057;
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+#dropDownButton::after {
+    float: right;
+    margin-top: 8px;
+}
+
+#scrollMenu {
+    height: auto;
+    max-height: 250px;
+    overflow-x: hidden;
+    min-width: 130px;
+    margin-top: 0.3px;
+    padding: 1.6px;
+}
+
+#dropdownDivider {
+    margin: auto;
+}
+
+.dropdown-element {
+    padding: 1.6px 16px;
+}
+
+.dropdown-element:hover {
+    background-color:#2e96fd;
+}

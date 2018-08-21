@@ -9,16 +9,15 @@
 </form>
 
 <div class="btn-group">
-  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropDownButton" data-toggle="dropdown" aria-haspopup="true"
-    [disabled]="!billMonth || loading ">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropDownButton" data-toggle="dropdown" aria-haspopup="true">
     {{groupSelectionMessage}}
   </button>
   <div class="dropdown-menu scrollable-menu" id="scrollMenu">
     <li class="dropdown-item dropdown-element">
       <input type="checkbox" name="allGroup" [(ngModel)]="isCheckedAllGroup" id="allGroup" (change)="checkedAllGroup()"> ALL</li>
     <div id="dropdownDivider" class="dropdown-divider"></div>
-    <li class="dropdown-item dropdown-element" *ngFor="let group of items">
-      <input type="checkbox" name="groups" [(ngModel)]="group.checked" id="groups" (change)="checkedCustomGroup(itmes)" required> {{itmes.name}}
+    <li class="dropdown-item dropdown-element" *ngFor="let group of groups">
+      <input type="checkbox" name="groups" [(ngModel)]="group.checked" id="groups" (change)="checkedCustomGroup(group)" required> {{group.name}}
     </li>
   </div>
 </div>

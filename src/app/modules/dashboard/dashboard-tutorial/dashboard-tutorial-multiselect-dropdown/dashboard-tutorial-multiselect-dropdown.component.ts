@@ -16,8 +16,11 @@ export class DashboardTutorialMultiselectDropdownComponent implements OnInit {
     }
    }
 
+   groups:any =[];
   ngOnInit() {
-    this.items = [{ label: "label-a", value: "a"}, { label: "label-b", value: "b"}, { label: "label-c", value: "c"}]
+    this.items = [{ label: "label-a", value: "a"}, { label: "label-b", value: "b"}, { label: "label-c", value: "c"}];
+    this.groups = ["a", "b", "c"]
+    this.prepareGroups(this.groups);
   }
   onChange(newValue) {
     console.log(newValue);
@@ -28,9 +31,23 @@ export class DashboardTutorialMultiselectDropdownComponent implements OnInit {
   selectedItems: any = [];
   groupSelectionMessage: string;
 
+
+  prepareGroups(items: any[]) {
+    if (items && items.length > 0) {
+      this.groups = [];
+      items.forEach(groupName => {
+        let group = {};
+        group['name'] = groupName;
+        group['checked'] = true;
+        this.groups.push(group);
+        this.selectedItems.push(groupName);
+      });
+    }
+    this.groupSelectionMessage ='ALL';
+  }
   checkedAllGroup() {
     this.selectedItems = [];
-    this.items.forEach(element => {
+    this.groups.forEach(element => {
       element.checked = this.isCheckedAllGroup;
       if (this.isCheckedAllGroup) {
         this.selectedItems.push(element.name);
@@ -52,15 +69,15 @@ export class DashboardTutorialMultiselectDropdownComponent implements OnInit {
       this.isCheckedAllGroup = false;
       let index = this.selectedItems.indexOf(group);
       if (index > -1) this.selectedItems.splice(index, 1)
-      if (this.selectedItems.length > 1 && this.selectedItems.length < this.items.length) this.groupSelectionMessage = "Multiple Group";
+      if (this.selectedItems.length > 1 && this.selectedItems.length < this.groups.length) this.groupSelectionMessage = "Multiple Group";
       if (this.selectedItems.length === 0) this.groupSelectionMessage = "Select Group";
       else if (this.selectedItems.length === 1) this.groupSelectionMessage = this.selectedItems;
     }else if (group && group.checked) {
-      if (this.selectedItems.length === this.items.length) {
+      if (this.selectedItems.length === this.groups.length) {
         this.isCheckedAllGroup = true;
         this.groupSelectionMessage = "All";
       }
-      if (this.selectedItems.length > 1 && this.selectedItems.length < this.items.length) {
+      if (this.selectedItems.length > 1 && this.selectedItems.length < this.groups.length) {
         this.groupSelectionMessage = "Multiple Group";
       }
       else if (this.selectedItems.length === 1) {

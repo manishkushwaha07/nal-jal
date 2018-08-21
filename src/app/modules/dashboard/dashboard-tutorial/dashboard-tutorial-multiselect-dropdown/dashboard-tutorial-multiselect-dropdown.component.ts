@@ -8,6 +8,8 @@ import { DashboardTutorialMenuService } from 'app/modules/dashboard/dashboard-tu
 })
 export class DashboardTutorialMultiselectDropdownComponent implements OnInit {
 
+  items: Array<any>;
+  _selectedItems: Array<any> = [];
   constructor(private dashboardTutorialMenuService: DashboardTutorialMenuService) {
     if(!this.dashboardTutorialMenuService.FOURTH_MENU.active){
       this.dashboardTutorialMenuService.menuClicked(this.dashboardTutorialMenuService.FOURTH_MENU);
@@ -15,6 +17,11 @@ export class DashboardTutorialMultiselectDropdownComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.items = ["a", "b", "c"]
+  }
+  onChange(newValue) {
+    console.log(newValue);
+    console.log('received change event');
   }
 
 }

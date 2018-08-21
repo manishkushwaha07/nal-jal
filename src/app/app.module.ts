@@ -20,7 +20,7 @@ import { SessionTimerServiceModule } from 'app/services/session-timer/session-ti
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

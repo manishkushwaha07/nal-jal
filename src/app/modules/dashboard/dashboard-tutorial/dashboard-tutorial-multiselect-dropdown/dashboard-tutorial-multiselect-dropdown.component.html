@@ -1,7 +1,9 @@
 <p>
   dashboard-tutorial-multiselect-dropdown works!
 </p>
+<form>
 <nal-jal-multiselect-dropdown class="pull-left" [items]="items" id="items" name="items" #itemsFormElement="ngModel" 
   [(ngModel)]="_selectedItems" (ngModelChange)="onChange($event)" required>
 </nal-jal-multiselect-dropdown>
 <nal-jal-show-errors [control]="itemsFormElement" ></nal-jal-show-errors>
+</form>

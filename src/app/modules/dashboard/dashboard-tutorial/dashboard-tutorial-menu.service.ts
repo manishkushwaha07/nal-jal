@@ -13,15 +13,21 @@ export class DashboardTutorialMenuService implements MenuInterface{
 
     public SECOND_MENU : any;
     private readonly SECOND_MENU_ICON: string = "fa-list-alt";
-    private readonly SECOND_MENU_NAME : string = "Nested Form Example";
+    private readonly SECOND_MENU_NAME : string = "Nested Form";
     private readonly SECOND_MENU_LINK : string = "nested-form";
     private readonly SECOND_MENU_ACTIVE : boolean = false;
 
     public THIRD_MENU : any;
     private readonly THIRD_MENU_ICON: string = "fa-list-alt";
-    private readonly THIRD_MENU_NAME : string = "Download Files Example";
+    private readonly THIRD_MENU_NAME : string = "Download Files";
     private readonly THIRD_MENU_LINK : string = "download-file";
     private readonly THIRD_MENU_ACTIVE : boolean = false;
+
+    public FOURTH_MENU : any;
+    private readonly FOURTH_MENU_ICON: string = "fa-list-alt";
+    private readonly FOURTH_MENU_NAME : string = "Multiselect Dropdown";
+    private readonly FOURTH_MENU_LINK : string = "multiselect-dropdown";
+    private readonly FOURTH_MENU_ACTIVE : boolean = false;
 
     menus: any[] = new Array();
     menuObject: any = {};
@@ -60,6 +66,14 @@ export class DashboardTutorialMenuService implements MenuInterface{
             link: this.THIRD_MENU_LINK
         }
         this.menus.push(this.THIRD_MENU);
+
+        this.FOURTH_MENU = {
+            icon: this.FOURTH_MENU_ICON,
+            name: this.FOURTH_MENU_NAME,
+            active: this.FOURTH_MENU_ACTIVE,
+            link: this.FOURTH_MENU_LINK
+        }
+        this.menus.push(this.FOURTH_MENU);
     }
 
     public getMenus() {

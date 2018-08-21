@@ -11,6 +11,7 @@ import { LoaderComponentModule } from '../../../components/loader/loader-compone
 import { ErrorsComponentModule } from '../../../components/errors/errors-component.module';
 import { DirectiveModule } from 'app/directives/directive.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardTutorialMultiselectDropdownComponent } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-multiselect-dropdown/dashboard-tutorial-multiselect-dropdown.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardTutorialNestedFormComponent,
     DashboardTutorialComponent,
     DashboardTutorialHomeComponent,
-    DashboardTutorialDownloadsComponent
+    DashboardTutorialDownloadsComponent,
+    DashboardTutorialMultiselectDropdownComponent
   ],
   providers: [
     DashboardTutorialMenuService

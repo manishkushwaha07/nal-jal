@@ -17,7 +17,7 @@ export class DashboardTutorialMultiselectDropdownComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.items = ["a", "b", "c"]
+    this.items = [{ label: "label-a", value: "a"}, { label: "label-b", value: "b"}, { label: "label-c", value: "c"}]
   }
   onChange(newValue) {
     console.log(newValue);

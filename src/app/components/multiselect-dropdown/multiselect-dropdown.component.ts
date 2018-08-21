@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, forwardRef, ElementRef, Renderer } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { EqualPipe } from 'app/pipes/equal.pipe';
+import { Subscription } from 'rxjs';
 
 
 const MULTISELECT_VALUE_ACCESSOR = {
@@ -13,6 +14,7 @@ const MULTISELECT_VALUE_ACCESSOR = {
   selector: 'nal-jal-multiselect-dropdown',
   templateUrl: './multiselect-dropdown.component.html',
   styleUrls: ['./multiselect-dropdown.component.css'],
+  host: {'(change)': 'manualChange($event)', '(document:click)': 'hostClick($event)'},
   providers: [MULTISELECT_VALUE_ACCESSOR]
 })
 export class MultiselectDropdownComponent implements OnInit, ControlValueAccessor  {
@@ -22,6 +24,7 @@ export class MultiselectDropdownComponent implements OnInit, ControlValueAccesso
   localHeader: string;
   isOpen: boolean = false;
   _items: Array<any>;
+  _subscription: Subscription;
   
  // ControlValueAccessor Interface and mutator
   private _onChange = (_: any) => {};
@@ -29,6 +32,9 @@ export class MultiselectDropdownComponent implements OnInit, ControlValueAccesso
   constructor(private _elRef: ElementRef, private _renderer: Renderer, private _equalPipe: EqualPipe) { }
 
   ngOnInit() {
+    this._items = this.items;
+    this._selectedItems = this._equalPipe.transform(this._items, {checked: true});
+    this.setHeaderText();
   }
 
   @Input("items")
@@ -39,6 +45,11 @@ export class MultiselectDropdownComponent implements OnInit, ControlValueAccesso
 
   @Input() header: string = "Select some stuff";
   @Input() selectedHeader: string = "options selected";
+
+
+  toggleSelect() {
+    this.isOpen = !this.isOpen;
+  }
 
   select(item: any) {
     item.checked = !item.checked;
@@ -66,6 +77,11 @@ export class MultiselectDropdownComponent implements OnInit, ControlValueAccesso
       this._selectedItems = [];
     }
   }
+
+  hostClick(event) {
+    if (this.isOpen && !this._elRef.nativeElement.contains(event.target))
+      this.isOpen = false;
+   }
 
   registerOnChange(fn: (value: any) => any): void { this._onChange = fn; console.log(fn); }
   registerOnTouched(fn: () => any): void { this._onTouched = fn; }

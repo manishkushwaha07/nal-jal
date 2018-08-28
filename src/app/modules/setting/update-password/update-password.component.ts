@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { User } from 'app/models/user.model';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 import { SettingMenuService } from 'app/modules/setting/setting-menu.service';
@@ -7,7 +7,8 @@ import { UserService } from 'app/services/user/user.service';
 @Component({
   selector: 'nal-jal-update-password',
   templateUrl: './update-password.component.html',
-  styleUrls: ['./update-password.component.css']
+  styleUrls: ['./update-password.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class UpdatePasswordComponent implements OnInit {
 

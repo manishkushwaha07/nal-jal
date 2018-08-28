@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SettingMenuService } from 'app/modules/setting/setting-menu.service';
 import { User } from 'app/models/user.model';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
@@ -7,7 +7,8 @@ import { UserService } from 'app/services/user/user.service';
 @Component({
   selector: 'nal-jal-update-profile',
   templateUrl: './update-profile.component.html',
-  styleUrls: ['./update-profile.component.css']
+  styleUrls: ['./update-profile.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class UpdateProfileComponent implements OnInit {
 

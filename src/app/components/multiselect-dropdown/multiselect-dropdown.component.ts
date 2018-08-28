@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef, ElementRef, Renderer } from '@angular/core';
+import { Component, OnInit, Input, forwardRef, ElementRef, Renderer, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { EqualPipe } from 'app/pipes/equal.pipe';
 import { Subscription } from 'rxjs';
@@ -15,7 +15,8 @@ const MULTISELECT_VALUE_ACCESSOR = {
   templateUrl: './multiselect-dropdown.component.html',
   styleUrls: ['./multiselect-dropdown.component.css'],
   host: {'(change)': 'manualChange($event)', '(document:click)': 'hostClick($event)'},
-  providers: [MULTISELECT_VALUE_ACCESSOR]
+  providers: [MULTISELECT_VALUE_ACCESSOR],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MultiselectDropdownComponent implements OnInit, ControlValueAccessor  {
   

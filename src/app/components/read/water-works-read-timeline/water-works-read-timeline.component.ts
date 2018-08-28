@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LocationService } from 'app/services/location/location.service';
 import { ReadService } from '../../../services/read/read.service';
 import { GlobalConstants } from 'app/utility/global.constants';
@@ -6,7 +6,8 @@ import { GlobalConstants } from 'app/utility/global.constants';
 @Component({
   selector: 'nal-jal-water-works-read-timeline',
   templateUrl: './water-works-read-timeline.component.html',
-  styleUrls: ['./water-works-read-timeline.component.css']
+  styleUrls: ['./water-works-read-timeline.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class WaterWorksReadTimelineComponent implements OnInit {
   public readonly DATE_FORMAT = GlobalConstants.DATE_FORMAT;

@@ -13,8 +13,11 @@
             <form (ngSubmit)="loginFormSubmitted()" #loginForm="ngForm">
             <div class="form-group">
                 <label for="username" class="required">Username</label>
+                <!--ngModel is used within form tag, either the name attribute must be set or the form control must be define as standalone in ngModelOptions-->
                 <input [ngClass]="{'is-valid': !username.errors && (username.dirty || username.touched),'is-invalid': username.errors && (username.dirty || username.touched)}"
-                type="text" class="form-control form-control-md" [(ngModel)]="login.username" name="username" id="username" placeholder="Enter username" #username="ngModel" maxlength="30" minlength="5" required>
+                type="text" class="form-control form-control-md" [ngModel]="login.username" (ngModelChange)="login.username=$event"
+                 [ngModelOptions]="{standalone:true}" id="username" placeholder="Enter username" #username="ngModel" maxlength="30" minlength="5" required>
+
                 <!-- <div class="invalid-feedback" *ngIf="username.errors && (username.dirty || username.touched)">
                     <div [hidden]="!username.errors.required" >required field</div>
                 </div> -->
@@ -33,11 +36,16 @@
             </div>
             <nal-jal-loader [show]="loading"></nal-jal-loader>
             <br>
-            <div class="form-group text-center">
+            <!-- <div class="form-group text-center">
                 <button type="submit" class="btn btn-success btn-md  mx-sm-3" [disabled]="loginForm.form.invalid || loading">login</button>
                 <button type="reset" class="btn btn-danger btn-md  mx-sm-3" (click)="resetButtonClicked()" [disabled]="loading">clear</button>
-            </div>
+            </div> -->
             </form>
+            <!--Submit the form from out the form-->
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-success btn-md  mx-sm-3" (click)="loginForm.ngSubmit.emit()" [disabled]="!loginForm.form.valid || loading">login</button>
+                <button type="reset" class="btn btn-danger btn-md  mx-sm-3" (click)="resetButtonClicked()" [disabled]="loading">clear</button>
+            </div>
         </div>
         <div class="card-footer text-center text-muted">
             <strong>&copy; MPPKVVCL Indore 2018-19</strong>

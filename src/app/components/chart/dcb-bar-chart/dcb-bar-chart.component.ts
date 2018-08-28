@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'dcb-bar-chart',
   templateUrl: './dcb-bar-chart.component.html',
-  styleUrls: ['./dcb-bar-chart.component.css']
+  styleUrls: ['./dcb-bar-chart.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DcbBarChartComponent implements OnInit {
 

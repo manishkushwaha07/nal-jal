@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LocationService } from '../../../services/location/location.service';
 import { BillService } from '../../../services/bill/bill.service';
 
 @Component({
   selector: 'nal-jal-water-works-bill-timeline',
   templateUrl: './water-works-bill-timeline.component.html',
-  styleUrls: ['./water-works-bill-timeline.component.css']
+  styleUrls: ['./water-works-bill-timeline.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class WaterWorksBillTimelineComponent implements OnInit {
 

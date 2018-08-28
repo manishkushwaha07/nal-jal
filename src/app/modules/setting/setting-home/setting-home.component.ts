@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SettingMenuService } from 'app/modules/setting/setting-menu.service';
 
 @Component({
   selector: 'nal-jal-setting-home',
   templateUrl: './setting-home.component.html',
-  styleUrls: ['./setting-home.component.css']
+  styleUrls: ['./setting-home.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SettingHomeComponent implements OnInit {
 

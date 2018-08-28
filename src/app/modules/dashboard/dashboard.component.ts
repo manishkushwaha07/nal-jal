@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { GlobalConfiguration } from '../../config/global.config';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DashboardMenuService } from 'app/modules/dashboard/dashboard-menu.service';
@@ -9,6 +9,7 @@ import { fadeAnimation } from '../../animations/fade-animation';
   selector: 'nal-jal-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
+  encapsulation: ViewEncapsulation.None,
   // animations:[fadeAnimation]
 })
 export class DashboardComponent implements OnInit {

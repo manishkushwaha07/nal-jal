@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DashboardTutorialMenuService } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-menu.service';
 
 @Component({
   selector: 'nal-jal-dashboard-tutorial-multiselect-dropdown',
   templateUrl: './dashboard-tutorial-multiselect-dropdown.component.html',
-  styleUrls: ['./dashboard-tutorial-multiselect-dropdown.component.css']
+  styleUrls: ['./dashboard-tutorial-multiselect-dropdown.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DashboardTutorialMultiselectDropdownComponent implements OnInit {
 

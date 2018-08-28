@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { User } from 'app/models/user.model';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -8,7 +8,8 @@ import { LoginComponent } from 'app/components/login/login.component';
 @Component({
   selector: 'nal-jal-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class NavbarComponent implements OnInit {
 
@@ -30,7 +31,7 @@ export class NavbarComponent implements OnInit {
   }
 
   loginClicked(){
-    const modalRef = this.ngbModal.open(LoginComponent, {keyboard: true, backdrop: true, centered: true });
+    const modalRef = this.ngbModal.open(LoginComponent, {keyboard: true, backdrop: true, centered: true, windowClass:"modal-xl" });
     modalRef.componentInstance.isModal = true;
   }
   

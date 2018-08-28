@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { PaginationService } from '../../services/pagination/pagination.service';
 
 @Component({
   selector: 'nal-jal-pagination',
   templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.css']
+  styleUrls: ['./pagination.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class PaginationComponent implements OnInit {
 

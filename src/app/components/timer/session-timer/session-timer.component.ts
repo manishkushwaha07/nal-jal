@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 // import { LoginModalComponent } from 'app/modals/login-modal/login-modal.component';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
@@ -10,7 +10,8 @@ import { LoginModalComponent } from 'app/modals/login-modal/login-modal.componen
 @Component({
   selector: 'nal-jal-session-timer',
   templateUrl: './session-timer.component.html',
-  styleUrls: ['./session-timer.component.css']
+  styleUrls: ['./session-timer.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SessionTimerComponent implements OnInit,OnDestroy {
 

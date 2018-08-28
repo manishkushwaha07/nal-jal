@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { AbstractControlDirective, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'nal-jal-show-errors',
   templateUrl: './show-errors.component.html',
-  styleUrls: ['./show-errors.component.css']
+  styleUrls: ['./show-errors.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ShowErrorsComponent implements OnInit {
 

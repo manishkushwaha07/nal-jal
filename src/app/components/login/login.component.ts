@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthorizationService } from 'app/services/authorization-service/authorization.service';
 import { User } from '../../models/user.model';
@@ -9,7 +9,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'nal-jal-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
   readonly INVALID_LOGIN_MESSAGE = "Invalid Username/Password. Try Again !";

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DashboardTutorialMenuService } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-menu.service';
 
 @Component({
   selector: 'nal-jal-dashboard-tutorial-home',
   templateUrl: './dashboard-tutorial-home.component.html',
-  styleUrls: ['./dashboard-tutorial-home.component.css']
+  styleUrls: ['./dashboard-tutorial-home.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DashboardTutorialHomeComponent implements OnInit {
 

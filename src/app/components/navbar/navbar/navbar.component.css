@@ -1,3 +1,8 @@
 #welcomeMessage{
     line-height: 1;
 }
+
+.modal-xl > .modal-dialog{
+    min-width: 80%;
+    max-width: 95%;
+}

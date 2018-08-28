@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { GlobalResources } from 'app/utility/global.resources';
 import { UtilityService } from 'app/services/utility/utility.service';
 import { DashboardTutorialMenuService } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-menu.service';
@@ -7,7 +7,8 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'nal-jal-dashboard-tutorial-downloads',
   templateUrl: './dashboard-tutorial-downloads.component.html',
-  styleUrls: ['./dashboard-tutorial-downloads.component.css']
+  styleUrls: ['./dashboard-tutorial-downloads.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DashboardTutorialDownloadsComponent implements OnInit {
   private readonly COMPONENT_NAME = "ReportConsumerDetailComponent";

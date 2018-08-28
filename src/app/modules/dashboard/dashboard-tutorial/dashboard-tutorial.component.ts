@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DashboardMenuService } from 'app/modules/dashboard/dashboard-menu.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GlobalConfiguration } from 'app/config/global.config';
@@ -9,6 +9,7 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
   selector: 'nal-jal-dashboard-tutorial',
   templateUrl: './dashboard-tutorial.component.html',
   styleUrls: ['./dashboard-tutorial.component.css'],
+  encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('slideInOut', [
       state('enter', style({

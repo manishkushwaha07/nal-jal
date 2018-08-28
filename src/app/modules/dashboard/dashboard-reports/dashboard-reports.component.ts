@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GlobalConfiguration } from 'app/config/global.config';
 import { DashboardMenuService } from 'app/modules/dashboard/dashboard-menu.service';
@@ -7,7 +7,8 @@ import { DashboardReportsMenuService } from 'app/modules/dashboard/dashboard-rep
 @Component({
   selector: 'nal-jal-dashboard-reports',
   templateUrl: './dashboard-reports.component.html',
-  styleUrls: ['./dashboard-reports.component.css']
+  styleUrls: ['./dashboard-reports.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DashboardReportsComponent implements OnInit {
 

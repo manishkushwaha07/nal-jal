@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import 'chart.piecelabel.js';
 import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'read-pie-chart',
   templateUrl: './read-pie-chart.component.html',
-  styleUrls: ['./read-pie-chart.component.css']
+  styleUrls: ['./read-pie-chart.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ReadPieChartComponent implements OnInit {
 

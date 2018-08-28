@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Location } from '@angular/common';
 import { User } from 'app/models/user.model';
 import { Router, ActivatedRoute, NavigationEnd, NavigationStart, ParamMap } from '@angular/router';
@@ -10,7 +10,8 @@ import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'nal-jal-setting',
   templateUrl: './setting.component.html',
-  styleUrls: ['./setting.component.css']
+  styleUrls: ['./setting.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SettingComponent implements OnInit {
 

@@ -11,6 +11,10 @@ export class DashboardTutorialMultiselectDropdownComponent implements OnInit {
 
   items: Array<any>;
   _selectedItems: Array<any> = [];
+  startDate;
+  endDate;
+  maxDate = new Date();
+  minDate = new Date();
   constructor(private dashboardTutorialMenuService: DashboardTutorialMenuService) {
     if(!this.dashboardTutorialMenuService.FOURTH_MENU.active){
       this.dashboardTutorialMenuService.menuClicked(this.dashboardTutorialMenuService.FOURTH_MENU);
@@ -22,6 +26,8 @@ export class DashboardTutorialMultiselectDropdownComponent implements OnInit {
     this.items = [{ label: "label-a", value: "a"}, { label: "label-b", value: "b"}, { label: "label-c", value: "c"}];
     this.groups = ["a", "b", "c"]
     this.prepareGroups(this.groups);
+
+    this.minDate.setDate(this.minDate.getDate()-30);
   }
   onChange(newValue) {
     console.log(newValue);

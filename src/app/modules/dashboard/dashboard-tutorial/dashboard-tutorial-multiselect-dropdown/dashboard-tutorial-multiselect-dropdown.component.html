@@ -8,7 +8,7 @@
 <nal-jal-show-errors [control]="itemsFormElement" ></nal-jal-show-errors>
 </form>
 
-<div class="btn-group">
+<div class="btn-group form-group inner-group">
   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropDownButton" data-toggle="dropdown" aria-haspopup="true">
     {{groupSelectionMessage}}
   </button>
@@ -20,4 +20,80 @@
       <input type="checkbox" name="groups" [(ngModel)]="group.checked" id="groups" (change)="checkedCustomGroup(group)" required> {{group.name}}
     </li>
   </div>
+</div>
+<div class="form-group">
+<div class="form-group inner-group">
+    <label for="fromDate" class="required"><strong>Start Date</strong></label>
+    <input [ngClass]="{'is-valid': !fromDate.errors && (fromDate.dirty || fromDate.touched),'is-invalid': fromDate.errors && (fromDate.dirty || fromDate.touched)}"
+      type="date" class="form-control form-control-sm"  [(ngModel)]="startDate" name="fromDate" id="fromDate" #fromDate="ngModel" required
+      max="{{endDate ? (endDate | date:'yyyy-MM-dd') : (maxDate | date:'yyyy-MM-dd')}}" [min]="(minDate | date:'yyyy-MM-dd')">
+      <nal-jal-show-errors [control]="fromDate" ></nal-jal-show-errors>
+    <!-- <div class="invalid-feedback" *ngIf="fromDate.errors && (fromDate.dirty || fromDate.touched)">
+      <div [hidden]="!fromDate.errors.required">Required field</div>
+      <div [hidden]="!fromDate.errors.min || fromDate.errors.required">Date is less than {{(minDate | date:'dd-MMM-yyyy')}}</div>
+      <div [hidden]="!fromDate.errors.max || fromDate.errors.required">Date is greater than {{endDate ? (endDate | date:'dd-MMM-yyyy') : (maxDate | date:'dd-MMM-yyyy')}}</div>
+    </div> -->
+  </div>
+  <div class="form-group inner-group">
+    <label for="toDate" class="required"><strong>End Date</strong></label>
+    <input [ngClass]="{'is-valid': !toDate.errors && (toDate.dirty || toDate.touched),'is-invalid': toDate.errors && (toDate.dirty || toDate.touched)}"
+      type="date" class="form-control form-control-sm"  [(ngModel)]="endDate" name="toDate" id="toDate" #toDate="ngModel" required
+      min="{{startDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}">
+      <nal-jal-show-errors [control]="toDate" ></nal-jal-show-errors>
+    <!-- <div class="invalid-feedback" *ngIf="toDate.errors && (toDate.dirty || toDate.touched)">
+      <div [hidden]="!toDate.errors.required">Required field</div>
+      <div [hidden]="!toDate.errors.min || toDate.errors.required">Date is less than {{startDate | date:'dd-MMM-yyyy'}}</div>
+      <div [hidden]="!toDate.errors.max || toDate.errors.required">Date is greater than {{maxDate | date:'dd-MMM-yyyy'}}</div>
+    </div> -->
+  </div>  
+
+  <div class="form-group inner-group">
+    <label for="startNo" class="required"><strong>Start number Text</strong></label>
+    <input [ngClass]="{'is-valid': !startNo.errors && (startNo.dirty || startNo.touched),'is-invalid': startNo.errors && (startNo.dirty || startNo.touched)}"
+      type="text" class="form-control form-control-sm"  [(ngModel)]="startNumber" name="startNo" id="startNo" #startNo="ngModel" required
+      max="{{endNumber ? endNumber : '100'}}" min="-10" pattern="(-)?\d+(\.\d+)?">
+      <nal-jal-show-errors [control]="startNo" ></nal-jal-show-errors>
+    <!-- <div class="invalid-feedback" *ngIf="startNo.errors && (startNo.dirty || startNo.touched)">
+      <div [hidden]="!startNo.errors.required">Required field</div>
+      <div [hidden]="!startNo.errors.min || startNo.errors.required">Date is less than {{(minDate | date:'dd-MMM-yyyy')}}</div>
+      <div [hidden]="!startNo.errors.max || startNo.errors.required">Date is greater than {{endDate ? (endDate | date:'dd-MMM-yyyy') : (maxDate | date:'dd-MMM-yyyy')}}</div>
+    </div> -->
+  </div>
+  <div class="form-group inner-group">
+    <label for="endNo" class="required"><strong>End number Text</strong></label>
+    <input [ngClass]="{'is-valid': !endNo.errors && (endNo.dirty || endNo.touched),'is-invalid': endNo.errors && (endNo.dirty || endNo.touched)}"
+      type="text" class="form-control form-control-sm"  [(ngModel)]="endNumber" name="endNo" id="endNo" #endNo="ngModel" required
+      min="{{startNumber}}" max="99.09" pattern="\d+(\.\d+)?">
+      <nal-jal-show-errors [control]="endNo" ></nal-jal-show-errors>
+    <!-- <div class="invalid-feedback" *ngIf="endNo.errors && (endNo.dirty || endNo.touched)">
+      <div [hidden]="!endNo.errors.required">Required field</div>
+      <div [hidden]="!endNo.errors.min || endNo.errors.required">Date is less than {{startDate | date:'dd-MMM-yyyy'}}</div>
+      <div [hidden]="!endNo.errors.max || endNo.errors.required">Date is greater than {{maxDate | date:'dd-MMM-yyyy'}}</div>
+    </div> -->
+  </div>  
+
+  <div class="form-group inner-group">
+    <label for="startNoAsNo" class="required"><strong>Start number</strong></label>
+    <input [ngClass]="{'is-valid': !startNoAsNo.errors && (startNoAsNo.dirty || startNoAsNo.touched),'is-invalid': startNoAsNo.errors && (startNoAsNo.dirty || startNoAsNo.touched)}"
+      type="number" class="form-control form-control-sm"  [(ngModel)]="startNumberAsNumber" name="startNoAsNo" id="startNoAsNo" #startNoAsNo="ngModel" required
+      max="{{endNumber ? endNumber : 100}}" min="-10">
+      <nal-jal-show-errors [control]="startNoAsNo" ></nal-jal-show-errors>
+    <!-- <div class="invalid-feedback" *ngIf="startNoAsNo.errors && (startNoAsNo.dirty || startNoAsNo.touched)">
+      <div [hidden]="!startNoAsNo.errors.required">Required field</div>
+      <div [hidden]="!startNoAsNo.errors.min || startNoAsNo.errors.required">Date is less than {{(minDate | date:'dd-MMM-yyyy')}}</div>
+      <div [hidden]="!startNoAsNo.errors.max || startNoAsNo.errors.required">Date is greater than {{endDate ? (endDate | date:'dd-MMM-yyyy') : (maxDate | date:'dd-MMM-yyyy')}}</div>
+    </div> -->
+  </div>
+  <div class="form-group inner-group">
+    <label for="endNoAsNo" class="required"><strong>End number</strong></label>
+    <input [ngClass]="{'is-valid': !endNoAsNo.errors && (endNoAsNo.dirty || endNoAsNo.touched),'is-invalid': endNoAsNo.errors && (endNoAsNo.dirty || endNoAsNo.touched)}"
+      type="number" class="form-control form-control-sm"  [(ngModel)]="endNumberAsNumber" name="endNoAsNo" id="endNoAsNo" #endNoAsNo="ngModel" required
+      min="{{startNumber}}" max="99.09">
+      <nal-jal-show-errors [control]="endNoAsNo" ></nal-jal-show-errors>
+    <!-- <div class="invalid-feedback" *ngIf="endNoAsNo.errors && (endNoAsNo.dirty || endNoAsNo.touched)">
+      <div [hidden]="!endNoAsNo.errors.required">Required field</div>
+      <div [hidden]="!endNoAsNo.errors.min || endNoAsNo.errors.required">Date is less than {{startDate | date:'dd-MMM-yyyy'}}</div>
+      <div [hidden]="!endNoAsNo.errors.max || endNoAsNo.errors.required">Date is greater than {{maxDate | date:'dd-MMM-yyyy'}}</div>
+    </div> -->
+  </div>  
 </div>

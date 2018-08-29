@@ -48,3 +48,15 @@
 .dropdown-element:hover {
     background-color:#2e96fd;
 }
+
+.inner-group{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.form-group{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

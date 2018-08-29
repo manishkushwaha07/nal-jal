@@ -4,9 +4,9 @@
 
 <ng-template  #showError>
   <ng-template ngFor let-error [ngForOf]= "listOfErrors()" let-i="index">
-    <ng-template [ngIf]="error">
+    <div *ngIf="error">
       <span class="fa fa-exclamation-circle text-danger"></span>
       <small class="text-danger">&nbsp;{{error}}</small>
-    </ng-template>
+    </div>
   </ng-template>
 </ng-template>

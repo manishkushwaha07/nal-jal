@@ -10,6 +10,11 @@ import { DatePipe } from '@angular/common';
 export class MaxValidatorDirective implements Validator {
   @Input() max: number;
   @Input() type: any;
+  
+  // @Input() a:number; // Make this a required attribute. Throw an exception if it doesnt exist
+  // ngOnInit() {
+  //   if(null == a) throw new Error("Attribute 'a' is required");
+  // }
 
   constructor(private datePipe: DatePipe) { }
 

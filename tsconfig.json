@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -15,6 +14,16 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    //Shorten TypeScript Imports in an Angular Project
+    //https://angularfirebase.com/lessons/shorten-typescript-imports-in-an-angular-project/
+    "baseUrl": "src",
+    "paths":{
+      "@nal-jal-components/*":["app/components/*"],
+      "@nal-jal-directives/*":["app/directives/*"],
+      "@nal-jal-services/*":["app/services/*"],
+      "@nal-jal-modules/*":["app/modules/*"],
+      "@environments/*":["environments/*"]
+    }
   }
 }

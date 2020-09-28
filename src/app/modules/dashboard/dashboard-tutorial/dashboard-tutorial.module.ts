@@ -13,6 +13,7 @@ import { DirectiveModule } from 'app/directives/directive.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardTutorialMultiselectDropdownComponent } from 'app/modules/dashboard/dashboard-tutorial/dashboard-tutorial-multiselect-dropdown/dashboard-tutorial-multiselect-dropdown.component';
 import { MultiselectDropdownComponentModule } from 'app/components/multiselect-dropdown/multiselect-dropdown-component.module';
+import { FormInsideTableModule } from '@nal-jal-components/form-inside-table/form-inside-table.module';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { MultiselectDropdownComponentModule } from 'app/components/multiselect-d
     ErrorsComponentModule,
     TutorialComponentModule,
     DashboardTutorialRoutingModule,
-    MultiselectDropdownComponentModule
+    MultiselectDropdownComponentModule,
+    FormInsideTableModule
   ],
   declarations: [
     DashboardTutorialNestedFormComponent,

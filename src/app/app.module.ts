@@ -17,6 +17,8 @@ import { CanActivateAuthGuard } from 'app/guards/can-activate.authguard';
 import { AuthorizationInterceptor } from 'app/interceptors/authorization.interceptor';
 import { AuthorizationServiceModule } from 'app/services/authorization-service/authorization-service.module';
 import { SessionTimerServiceModule } from 'app/services/session-timer/session-timer-service.module';
+import { DynamicModalModule } from './dynamic-modal/dynamic-modal.module';
+import { ModalModule } from './modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { SessionTimerServiceModule } from 'app/services/session-timer/session-ti
     HomeModule,
     HeaderComponentModule,
     FooterComponentModule,
+    DynamicModalModule,
     NgbModule.forRoot(),
+    ModalModule,
     ServicesModule,
     AppRoutingModule,
     AuthorizationServiceModule, // important global application service

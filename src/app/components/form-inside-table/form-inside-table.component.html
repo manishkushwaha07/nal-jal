@@ -1,0 +1,61 @@
+
+<ng-template class="card" #templatRef>
+  <div class="card-body">
+    <table class="table table-scrollable table-bordered">
+      <tbody>
+        <tr *ngFor="let object of objectArray; let i=index" ngForm #formInsideTable="ngForm" id="formTable{{i}}">
+          <td>
+            <input type="number"
+            class="form-control" [(ngModel)]="object.formInput" #frmInput="ngModel" name="input" id="input" [min]="0" [max]="formInput2 ? formInput2 : 100" required>
+          </td>
+          <td>
+            <button type="submit" class="btn btn-primary" [disabled]="!formInsideTable.form.valid" (click)="submitClicked(formInsideTable)">Submit</button>
+          </td>
+        </tr>
+        <!-- <tr ngForm #formInsideTable2="ngForm" id="formTable2">
+            <td>
+              <input type="number"
+              class="form-control" [(ngModel)]="formInput2" #frmInput="ngModel" name="input" id="input" [max]="100" [min]="formInput1 ? formInput1 : 0" required>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" [disabled]="!formInsideTable2.form.valid" (click)="submitClicked(formInsideTable2)">Submit</button>
+            </td>
+          </tr> -->
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<hr>
+<button type="button" class="btn btn-primary" (click)="opneModal(templatRef)">Open Modal</button>
+
+<!-- <div class="card">
+    <div class="card-body">
+      <table class="table table-scrollable">
+        <tr>
+          <td hidden>
+              <form #formInsideTable1="ngForm" id="formTable2" (ngSubmit)="submitClicked(formInsideTable1)"></form>
+          </td>
+            <td>
+              <input type="text" attr.form="formTable2"
+              class="form-control" [(ngModel)]="formInput" #frmInput="ngModel" name="input" id="input" required>
+            </td>
+            <td>
+              <button type="submit" attr.form="formTable2" class="btn btn-primary" [disabled]="!formInsideTable1s.form.valid">Submit</button>
+            </td>
+          </tr>
+          <tr>
+              <td hidden>
+                  <form #formInsideTable1="ngForm" id="formTable2" (ngSubmit)="submitClicked(formInsideTable1)"></form>
+              </td>
+                <td>
+                  <input type="text" attr.form="formTable2"
+                  class="form-control" [(ngModel)]="formInput" #frmInput="ngModel" name="input" id="input" required>
+                </td>
+                <td>
+                  <button type="submit" attr.form="formTable2" class="btn btn-primary" [disabled]="!formInsideTable1s.form.valid">Submit</button>
+                </td>
+              </tr>
+      </table>
+    </div>
+  </div> -->

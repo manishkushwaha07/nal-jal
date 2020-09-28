@@ -1,0 +1,8 @@
+<div [class]="'modal-dialog' + 
+  (size ? 'modal-' + size:'') + 
+  (centered ? 'modal-dialog-centered' : '') +
+  (scrollable ? 'modal-dialog-scrollable' : '')" 
+  role="document"></div>
+<div class="modal-content">
+  <ng-content></ng-content>
+</div>

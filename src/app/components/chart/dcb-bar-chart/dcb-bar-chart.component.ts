@@ -39,7 +39,7 @@ export class DcbBarChartComponent implements OnInit {
       },
     ],
   }
-
+  
   //Scaling property
   public chartOptions: any = { 
     scaleShowVerticalLines: false,
@@ -70,7 +70,21 @@ export class DcbBarChartComponent implements OnInit {
     animation: {
       animateScale: true,
       animateRotate: true,
-      duration: 2000
+      duration: 2000,
+      //this function for showing data on the top of the bar
+      onComplete: function () {
+        var chartInstance = this.chart,
+        ctx = chartInstance.ctx;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        this.data.datasets.forEach(function (dataset, i) {
+          var meta = chartInstance.controller.getDatasetMeta(i);
+          meta.data.forEach(function (bar, index) {
+              var data = dataset.data[index];
+              ctx.fillText(data, bar._model.x, bar._model.y - 5);
+          });
+        });
+      }
     },
     scales: {
       yAxes: [{

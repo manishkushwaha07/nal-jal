@@ -63,7 +63,8 @@ export class MultiselectDropdownComponent implements OnInit, ControlValueAccesso
     this.localHeader = this.header;
     var isArray = this._selectedItems instanceof Array;
     if (isArray && this._selectedItems.length > 1) {
-      this.localHeader = this._selectedItems.length + ' ' + this.selectedHeader;
+      this.localHeader = this._selectedItems.map(e => e.label).join(', ');
+      // this.localHeader = this._selectedItems.length + ' ' + this.selectedHeader;
     } else if (isArray && this._selectedItems.length === 1) {
       this.localHeader = this._selectedItems[0].label;
     }
